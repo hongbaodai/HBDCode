@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L4w-dn-OQC">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loan After State Controller-->
+        <scene sceneID="wcI-a1-bR9">
+            <objects>
+                <viewController id="L4w-dn-OQC" customClass="DDLoanAfterStateController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I9O-6b-TFP"/>
+                        <viewControllerLayoutGuide type="bottom" id="dZH-fd-iyV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qeb-w7-9zI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgP-FA-bui">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8E-V5-LcV" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="充值失败图标" translatesAutoresizingMaskIntoConstraints="NO" id="Spq-Qz-j5e">
+                                                <rect key="frame" x="140" y="47" width="95" height="90"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="U9L-Lj-Jjn"/>
+                                                    <constraint firstAttribute="width" constant="95" id="o7q-pa-iyI"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="很遗憾，充值失败！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTq-oa-Mhh">
+                                                <rect key="frame" x="105" y="147" width="166" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xn-Pu-DUI">
+                                                <rect key="frame" x="20" y="194" width="335" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAG-we-L5D" customClass="HXButton">
+                                                <rect key="frame" x="25" y="219" width="325" height="50"/>
+                                                <color key="backgroundColor" red="0.90588235294117647" green="0.2196078431372549" blue="0.23921568627450979" alpha="1" colorSpace="deviceRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="yj1-Kc-vgF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="重新充值">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-fc-8O7">
+                                                <rect key="frame" x="105" y="294" width="165" height="21"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="客服电话：">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="15" name="STHeitiSC-Light"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="40067-40088">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.90588235294117647" green="0.2196078431372549" blue="0.23921568627450979" alpha="1" colorSpace="deviceRGB"/>
+                                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="9xX-fc-8O7" secondAttribute="bottom" constant="55" id="6cC-cA-13r"/>
+                                            <constraint firstItem="FAG-we-L5D" firstAttribute="leading" secondItem="O8E-V5-LcV" secondAttribute="leading" constant="25" id="Nam-cx-59H"/>
+                                            <constraint firstItem="KTq-oa-Mhh" firstAttribute="centerX" secondItem="O8E-V5-LcV" secondAttribute="centerX" id="QaN-nP-Qj5"/>
+                                            <constraint firstItem="FAG-we-L5D" firstAttribute="top" secondItem="2Xn-Pu-DUI" secondAttribute="bottom" constant="25" id="ZX8-II-AdR"/>
+                                            <constraint firstAttribute="trailing" secondItem="2Xn-Pu-DUI" secondAttribute="trailing" constant="20" id="dO2-xI-5N0"/>
+                                            <constraint firstItem="2Xn-Pu-DUI" firstAttribute="leading" secondItem="O8E-V5-LcV" secondAttribute="leading" constant="20" id="dPu-jO-RwI"/>
+                                            <constraint firstItem="Spq-Qz-j5e" firstAttribute="centerX" secondItem="O8E-V5-LcV" secondAttribute="centerX" id="ek8-ER-RcX"/>
+                                            <constraint firstItem="2Xn-Pu-DUI" firstAttribute="top" secondItem="KTq-oa-Mhh" secondAttribute="bottom" constant="25" id="ez1-lb-exG"/>
+                                            <constraint firstItem="9xX-fc-8O7" firstAttribute="centerX" secondItem="O8E-V5-LcV" secondAttribute="centerX" id="fey-cT-LV7"/>
+                                            <constraint firstItem="9xX-fc-8O7" firstAttribute="top" secondItem="FAG-we-L5D" secondAttribute="bottom" constant="25" id="kia-wS-9uo"/>
+                                            <constraint firstItem="KTq-oa-Mhh" firstAttribute="top" secondItem="Spq-Qz-j5e" secondAttribute="bottom" constant="10" id="ud2-A1-YjT"/>
+                                            <constraint firstItem="Spq-Qz-j5e" firstAttribute="top" secondItem="O8E-V5-LcV" secondAttribute="top" constant="47" id="xtj-I0-VCe"/>
+                                            <constraint firstAttribute="trailing" secondItem="FAG-we-L5D" secondAttribute="trailing" constant="25" id="zaE-xN-YwS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="O8E-V5-LcV" firstAttribute="leading" secondItem="ZgP-FA-bui" secondAttribute="leading" id="3Ld-eP-LDC"/>
+                                    <constraint firstAttribute="bottom" secondItem="O8E-V5-LcV" secondAttribute="bottom" id="Lf3-BK-DEt"/>
+                                    <constraint firstItem="O8E-V5-LcV" firstAttribute="top" secondItem="ZgP-FA-bui" secondAttribute="top" id="NWn-Ie-RAp"/>
+                                    <constraint firstAttribute="trailing" secondItem="O8E-V5-LcV" secondAttribute="trailing" id="Ph9-RB-2MD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O8E-V5-LcV" firstAttribute="width" secondItem="qeb-w7-9zI" secondAttribute="width" id="9J8-TA-wE1"/>
+                            <constraint firstAttribute="trailing" secondItem="ZgP-FA-bui" secondAttribute="trailing" id="GfG-Ae-A2j"/>
+                            <constraint firstItem="ZgP-FA-bui" firstAttribute="leading" secondItem="qeb-w7-9zI" secondAttribute="leading" id="eRz-z0-xWG"/>
+                            <constraint firstItem="ZgP-FA-bui" firstAttribute="top" secondItem="qeb-w7-9zI" secondAttribute="top" id="fmg-c2-5Kk"/>
+                            <constraint firstAttribute="bottom" secondItem="ZgP-FA-bui" secondAttribute="bottom" id="hsH-9Y-oI3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailLab" destination="2Xn-Pu-DUI" id="QRV-8v-B4x"/>
+                        <outlet property="iconImg" destination="Spq-Qz-j5e" id="lfv-zC-brc"/>
+                        <outlet property="stateBtn" destination="FAG-we-L5D" id="tqu-F1-zMF"/>
+                        <outlet property="stateLab" destination="KTq-oa-Mhh" id="xum-gM-d1k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ElS-xu-mFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.80000000000001" y="221.73913043478262"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="充值失败图标" width="190" height="180"/>
+    </resources>
+</document>

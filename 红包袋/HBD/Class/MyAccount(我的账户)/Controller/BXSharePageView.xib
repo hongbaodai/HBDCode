@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E2193" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BXSharePageView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zE-IZ-F48">
+                    <rect key="frame" x="15" y="123" width="290" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="0zE-IZ-F48" secondAttribute="height" multiplier="690:88" id="sA7-B5-IJd"/>
+                    </constraints>
+                    <state key="normal" image="share_quxiao"/>
+                    <connections>
+                        <action selector="didClickCancelBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="ERz-VF-OBB"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="微信好友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7V-s9-O7D">
+                    <rect key="frame" x="34" y="78" width="48" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.34509803921568627" green="0.30196078431372547" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yo0-xp-cDw">
+                    <rect key="frame" x="115" y="18" width="55" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="ctr-7X-Hjz"/>
+                        <constraint firstAttribute="height" constant="55" id="jvg-gH-HZd"/>
+                    </constraints>
+                    <state key="normal" image="wxpyq"/>
+                    <connections>
+                        <action selector="didClickWXPYQBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="39C-iX-xBO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Lc-3D-q0p">
+                    <rect key="frame" x="30" y="18" width="55" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="6kq-8z-trV"/>
+                        <constraint firstAttribute="height" constant="55" id="EFi-Yr-vdP"/>
+                    </constraints>
+                    <state key="normal" image="wxhy"/>
+                    <connections>
+                        <action selector="didClickWXHYBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="0oO-Xq-ISl"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="微信朋友圈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBh-6h-vgf">
+                    <rect key="frame" x="113" y="78" width="60" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.34509803921568627" green="0.30196078431372547" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0zE-IZ-F48" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="23S-Id-Pdw"/>
+                <constraint firstItem="Yo0-xp-cDw" firstAttribute="leading" secondItem="8Lc-3D-q0p" secondAttribute="trailing" constant="30" id="3sT-nm-fZe"/>
+                <constraint firstItem="w7V-s9-O7D" firstAttribute="centerX" secondItem="8Lc-3D-q0p" secondAttribute="centerX" id="9xs-oH-w33"/>
+                <constraint firstItem="SBh-6h-vgf" firstAttribute="top" secondItem="Yo0-xp-cDw" secondAttribute="bottom" constant="5" id="AZ9-9N-ww2"/>
+                <constraint firstItem="8Lc-3D-q0p" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="CTv-1k-kzs"/>
+                <constraint firstAttribute="bottom" secondItem="0zE-IZ-F48" secondAttribute="bottom" constant="20" id="EXA-qN-jeG"/>
+                <constraint firstAttribute="trailing" secondItem="0zE-IZ-F48" secondAttribute="trailing" constant="15" id="O4f-wb-YXh"/>
+                <constraint firstItem="8Lc-3D-q0p" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="YZ1-bC-gW3"/>
+                <constraint firstItem="SBh-6h-vgf" firstAttribute="centerX" secondItem="Yo0-xp-cDw" secondAttribute="centerX" id="Yvw-X0-80v"/>
+                <constraint firstItem="Yo0-xp-cDw" firstAttribute="centerY" secondItem="8Lc-3D-q0p" secondAttribute="centerY" id="eLl-oa-kfe"/>
+                <constraint firstItem="0zE-IZ-F48" firstAttribute="top" secondItem="w7V-s9-O7D" secondAttribute="bottom" constant="30" id="iEE-gH-uFX"/>
+                <constraint firstItem="w7V-s9-O7D" firstAttribute="top" secondItem="8Lc-3D-q0p" secondAttribute="bottom" constant="5" id="zzs-Hi-txN"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="EXA-qN-jeG"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="325.5" y="43"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="share_quxiao" width="690" height="88"/>
+        <image name="wxhy" width="55" height="55"/>
+        <image name="wxpyq" width="55" height="55"/>
+    </resources>
+</document>

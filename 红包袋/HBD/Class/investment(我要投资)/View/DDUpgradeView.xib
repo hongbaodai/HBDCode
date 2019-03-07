@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DDUpgradeView">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="360"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="红包袋资金账户升级公告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbe-W4-AEg">
+                    <rect key="frame" x="52" y="25" width="191" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.79607843140000001" green="0.15686274510000001" blue="0.1764705882" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应国家政策，红包袋资金账户体系全面升级，接入银行资金存管系统，更好的保障用户资金安全。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sG-fe-avJ">
+                    <rect key="frame" x="15" y="61" width="265" height="50.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="资金账户升级需知：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-wV-VOp">
+                    <rect key="frame" x="15" y="194.5" width="147" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8I-Lf-eg0">
+                    <rect key="frame" x="15" y="133.5" width="265" height="36"/>
+                    <color key="backgroundColor" red="0.79607843140000001" green="0.15686274510000001" blue="0.1764705882" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="fat-6b-TMB"/>
+                    </constraints>
+                    <state key="normal" title="点击升级资金账户">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1、红包袋老用户，需在3个月将旧资金账户(联动优势)中的余额提现。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuE-6A-ZSW">
+                    <rect key="frame" x="15" y="224.5" width="265" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="b8I-Lf-eg0" secondAttribute="trailing" constant="15" id="1Y6-AN-MeN"/>
+                <constraint firstItem="b8I-Lf-eg0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3cL-5G-y1a"/>
+                <constraint firstItem="6sG-fe-avJ" firstAttribute="top" secondItem="Pbe-W4-AEg" secondAttribute="bottom" constant="15" id="4tb-Pi-DFI"/>
+                <constraint firstItem="ZuE-6A-ZSW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="7Lf-cd-H71"/>
+                <constraint firstItem="nN6-wV-VOp" firstAttribute="top" secondItem="b8I-Lf-eg0" secondAttribute="bottom" constant="25" id="A3I-U8-i88"/>
+                <constraint firstAttribute="trailing" secondItem="ZuE-6A-ZSW" secondAttribute="trailing" constant="15" id="BNu-yr-n40"/>
+                <constraint firstAttribute="trailing" secondItem="6sG-fe-avJ" secondAttribute="trailing" constant="15" id="E7D-OS-fiR"/>
+                <constraint firstItem="b8I-Lf-eg0" firstAttribute="top" secondItem="6sG-fe-avJ" secondAttribute="bottom" constant="22" id="HAz-i8-iRh"/>
+                <constraint firstItem="Pbe-W4-AEg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="KFh-Iq-fnO"/>
+                <constraint firstItem="ZuE-6A-ZSW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MC2-Wf-WZW"/>
+                <constraint firstItem="b8I-Lf-eg0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Xys-SB-geO"/>
+                <constraint firstItem="6sG-fe-avJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bat-oh-8YG"/>
+                <constraint firstItem="Pbe-W4-AEg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="hIJ-30-rog"/>
+                <constraint firstItem="ZuE-6A-ZSW" firstAttribute="top" secondItem="b8I-Lf-eg0" secondAttribute="bottom" constant="55" id="jQo-pP-A11"/>
+                <constraint firstItem="6sG-fe-avJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="rRs-Yh-0YM"/>
+                <constraint firstItem="nN6-wV-VOp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="wbm-e4-zkJ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="knowsLab" destination="ZuE-6A-ZSW" id="QuW-lI-PbI"/>
+                <outlet property="titleLab" destination="Pbe-W4-AEg" id="qob-og-rXH"/>
+                <outlet property="upgradeBtn" destination="b8I-Lf-eg0" id="GsD-DE-VGj"/>
+            </connections>
+            <point key="canvasLocation" x="-5.5" y="-100"/>
+        </view>
+    </objects>
+</document>

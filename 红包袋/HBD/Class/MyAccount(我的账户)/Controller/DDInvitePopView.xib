@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DDInvitePopView">
+            <rect key="frame" x="0.0" y="0.0" width="367" height="515"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAI-hn-xEw">
+                    <rect key="frame" x="330" y="15" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="FQh-tB-fb2"/>
+                        <constraint firstAttribute="height" constant="22" id="pVD-lc-PUO"/>
+                    </constraints>
+                    <state key="normal" image="invite_chax"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="规则说明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUK-yH-gUq">
+                    <rect key="frame" x="153" y="15" width="61.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.13725490196078433" green="0.53725490196078429" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.邀请好友（熊大宝、熊二宝）奖励" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJS-QH-Xwm">
+                    <rect key="frame" x="13" y="43" width="249.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.53725490200000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invite_p38" translatesAutoresizingMaskIntoConstraints="NO" id="onC-vb-ONb">
+                    <rect key="frame" x="209.5" y="95.5" width="131.5" height="120"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邀请好友（熊大宝）完成首投，您可获得188元返现券奖励。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dA-cr-VAH">
+                    <rect key="frame" x="13" y="71" width="341" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.53725490200000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02.被邀请好友奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIE-gB-216">
+                    <rect key="frame" x="13" y="298" width="129.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.53725490200000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="熊大宝奖励：满足对应的日期1-30天2.0%约定年化利率奖励，31-60天1.0%约定年化利率奖励，61-90天0.5%约定年化利率奖励。熊二宝奖励：在和熊大宝邀请关系建立的90天内（含90天），熊大宝每邀请一个熊二宝，我将获得一个5元返现券。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3V-Mf-g7z">
+                    <rect key="frame" x="13" y="225.5" width="341" height="57.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.53725490200000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="被邀请好友完成首投，可获得88元返现券奖励。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibf-O4-goC">
+                    <rect key="frame" x="13" y="326" width="341" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.53725490200000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invite_p88" translatesAutoresizingMaskIntoConstraints="NO" id="2Z2-ke-0Ue">
+                    <rect key="frame" x="26" y="350.5" width="131.5" height="120"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如对本活动存在任何疑问，请致电客服：40067-40088。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0Q-4o-j1o">
+                    <rect key="frame" x="13" y="480.5" width="341" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.13725490200000001" green="0.53725490200000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invite_p50" translatesAutoresizingMaskIntoConstraints="NO" id="luc-tZ-L4H">
+                    <rect key="frame" x="26" y="95" width="131.5" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="Q1i-ir-nkC"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2Z2-ke-0Ue" firstAttribute="width" secondItem="luc-tZ-L4H" secondAttribute="width" id="4g7-FD-lLn"/>
+                <constraint firstItem="SAI-hn-xEw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="5Vi-2G-hTE"/>
+                <constraint firstItem="luc-tZ-L4H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="6PL-ax-rJM"/>
+                <constraint firstItem="WUK-yH-gUq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6XR-3J-1cP"/>
+                <constraint firstItem="fIE-gB-216" firstAttribute="top" secondItem="Z3V-Mf-g7z" secondAttribute="bottom" constant="15" id="6os-NN-Rc6"/>
+                <constraint firstItem="luc-tZ-L4H" firstAttribute="top" secondItem="0dA-cr-VAH" secondAttribute="bottom" constant="10" id="7xq-oU-kCN"/>
+                <constraint firstItem="2Z2-ke-0Ue" firstAttribute="leading" secondItem="luc-tZ-L4H" secondAttribute="leading" id="89S-iZ-as0"/>
+                <constraint firstAttribute="trailing" secondItem="ibf-O4-goC" secondAttribute="trailing" constant="13" id="F1o-1o-JIP"/>
+                <constraint firstItem="ibf-O4-goC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="HVg-LU-GtE"/>
+                <constraint firstItem="q0Q-4o-j1o" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="JGJ-sB-T6P"/>
+                <constraint firstItem="0dA-cr-VAH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="KuT-bb-gxb"/>
+                <constraint firstItem="onC-vb-ONb" firstAttribute="top" secondItem="luc-tZ-L4H" secondAttribute="top" id="MBx-1S-SEx"/>
+                <constraint firstAttribute="trailing" secondItem="SAI-hn-xEw" secondAttribute="trailing" constant="15" id="MR3-G7-8bc"/>
+                <constraint firstItem="Z3V-Mf-g7z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="O65-Mg-Fq1"/>
+                <constraint firstItem="fIE-gB-216" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="Sms-JM-nOP"/>
+                <constraint firstItem="onC-vb-ONb" firstAttribute="width" secondItem="luc-tZ-L4H" secondAttribute="width" id="Y5E-Ld-thH"/>
+                <constraint firstItem="0dA-cr-VAH" firstAttribute="top" secondItem="nJS-QH-Xwm" secondAttribute="bottom" constant="10" id="cVX-aJ-glo"/>
+                <constraint firstItem="ibf-O4-goC" firstAttribute="top" secondItem="fIE-gB-216" secondAttribute="bottom" constant="10" id="cn8-aw-5it"/>
+                <constraint firstItem="onC-vb-ONb" firstAttribute="leading" secondItem="luc-tZ-L4H" secondAttribute="trailing" constant="52" id="eTZ-DG-TXg"/>
+                <constraint firstItem="Z3V-Mf-g7z" firstAttribute="top" secondItem="onC-vb-ONb" secondAttribute="bottom" constant="10" id="eiX-OF-gsZ"/>
+                <constraint firstAttribute="trailing" secondItem="0dA-cr-VAH" secondAttribute="trailing" constant="13" id="fji-xv-R1E"/>
+                <constraint firstItem="WUK-yH-gUq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="fpj-ju-XeK"/>
+                <constraint firstItem="nJS-QH-Xwm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="fzv-0t-eAm"/>
+                <constraint firstItem="2Z2-ke-0Ue" firstAttribute="top" secondItem="ibf-O4-goC" secondAttribute="bottom" constant="10" id="gXJ-mi-P2e"/>
+                <constraint firstItem="nJS-QH-Xwm" firstAttribute="top" secondItem="WUK-yH-gUq" secondAttribute="bottom" constant="10" id="lVk-ae-gDa"/>
+                <constraint firstAttribute="trailing" secondItem="onC-vb-ONb" secondAttribute="trailing" constant="26" id="mEz-q0-3R3"/>
+                <constraint firstItem="onC-vb-ONb" firstAttribute="height" secondItem="luc-tZ-L4H" secondAttribute="height" id="no7-7h-xE0"/>
+                <constraint firstItem="2Z2-ke-0Ue" firstAttribute="height" secondItem="luc-tZ-L4H" secondAttribute="height" id="pC6-Ue-MBD"/>
+                <constraint firstItem="q0Q-4o-j1o" firstAttribute="top" secondItem="2Z2-ke-0Ue" secondAttribute="bottom" constant="10" id="unt-AA-huS"/>
+                <constraint firstAttribute="trailing" secondItem="Z3V-Mf-g7z" secondAttribute="trailing" constant="13" id="y7S-Kg-mmC"/>
+                <constraint firstAttribute="trailing" secondItem="q0Q-4o-j1o" secondAttribute="trailing" constant="13" id="zN7-Da-j9y"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="closeBtn" destination="SAI-hn-xEw" id="51R-xe-snJ"/>
+                <outlet property="detailLab" destination="Z3V-Mf-g7z" id="85x-yi-vNL"/>
+                <outlet property="hbViewH" destination="Q1i-ir-nkC" id="NbK-z6-s5w"/>
+            </connections>
+            <point key="canvasLocation" x="20.5" y="-24.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="invite_chax" width="44" height="44"/>
+        <image name="invite_p38" width="147" height="156"/>
+        <image name="invite_p50" width="147" height="156"/>
+        <image name="invite_p88" width="147" height="156"/>
+    </resources>
+</document>

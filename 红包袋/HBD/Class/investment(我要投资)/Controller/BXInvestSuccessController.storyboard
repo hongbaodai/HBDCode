@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xV8-bW-JA0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--出借成功-->
+        <scene sceneID="u6k-mc-9dm">
+            <objects>
+                <viewController id="xV8-bW-JA0" userLabel="出借成功" customClass="BXInvestSuccessController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bw7-3d-ghK"/>
+                        <viewControllerLayoutGuide type="bottom" id="JAm-hz-zRL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ask-uY-kZt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InvestmentSucceess" translatesAutoresizingMaskIntoConstraints="NO" id="aUd-zt-kqx">
+                                <rect key="frame" x="110" y="70" width="155" height="119"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119" id="3QS-SS-zFj"/>
+                                    <constraint firstAttribute="width" constant="155" id="nQw-1s-5Ff"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxq-mb-Mg8" customClass="HXButton">
+                                <rect key="frame" x="15" y="321" width="345" height="45"/>
+                                <color key="backgroundColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="jIF-R8-tbw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="继续出借">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜您，出借成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRt-aV-xJS">
+                                <rect key="frame" x="131" y="214" width="114.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.96470588235294119" green="0.6705882352941176" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFH-Vt-d2L">
+                                <rect key="frame" x="15" y="386" width="345" height="45"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="b6k-8N-Lab"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="查看我的出借" backgroundImage="yellowBack">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mxq-mb-Mg8" firstAttribute="leading" secondItem="ask-uY-kZt" secondAttribute="leading" constant="15" id="1JW-yk-bwf"/>
+                            <constraint firstItem="HRt-aV-xJS" firstAttribute="top" secondItem="aUd-zt-kqx" secondAttribute="bottom" constant="25" id="1Tx-3l-UBb"/>
+                            <constraint firstAttribute="centerX" secondItem="HRt-aV-xJS" secondAttribute="centerX" id="9H9-Sj-OmY"/>
+                            <constraint firstItem="MFH-Vt-d2L" firstAttribute="leading" secondItem="ask-uY-kZt" secondAttribute="leading" constant="15" id="MOV-ps-CQo"/>
+                            <constraint firstItem="MFH-Vt-d2L" firstAttribute="top" secondItem="Mxq-mb-Mg8" secondAttribute="bottom" constant="20" id="UFe-fP-Uzi"/>
+                            <constraint firstAttribute="trailing" secondItem="MFH-Vt-d2L" secondAttribute="trailing" constant="15" id="eKD-kI-k3M"/>
+                            <constraint firstAttribute="trailing" secondItem="Mxq-mb-Mg8" secondAttribute="trailing" constant="15" id="gob-S2-rCe"/>
+                            <constraint firstItem="aUd-zt-kqx" firstAttribute="top" secondItem="bw7-3d-ghK" secondAttribute="bottom" constant="50" id="kam-iw-muH"/>
+                            <constraint firstItem="Mxq-mb-Mg8" firstAttribute="top" secondItem="HRt-aV-xJS" secondAttribute="bottom" constant="90" id="kpx-Wj-fDs"/>
+                            <constraint firstAttribute="centerX" secondItem="aUd-zt-kqx" secondAttribute="centerX" id="ohM-E8-3uf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="continueBtn" destination="Mxq-mb-Mg8" id="Eti-pU-saU"/>
+                        <outlet property="seeInvestBtn" destination="MFH-Vt-d2L" id="M6R-W6-veS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIA-bi-7JV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-633" y="-1018"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="InvestmentSucceess" width="155" height="119"/>
+        <image name="yellowBack" width="680" height="90"/>
+    </resources>
+</document>

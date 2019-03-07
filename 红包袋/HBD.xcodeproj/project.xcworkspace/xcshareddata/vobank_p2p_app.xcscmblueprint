@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3a1f584b-95cd-4976-9d13-44b364a7b397++7171",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "3a1f584b-95cd-4976-9d13-44b364a7b397++7171" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3a1f584b-95cd-4976-9d13-44b364a7b397++7171" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DE0DDAA1-A428-484E-BE1E-77C6861574D1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3a1f584b-95cd-4976-9d13-44b364a7b397++7171" : "vobank_p2p_ios6.0\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "vobank_p2p_app",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "vobank_p2p_app.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.10",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3a1f584b-95cd-4976-9d13-44b364a7b397++7171"
+    }
+  ]
+}

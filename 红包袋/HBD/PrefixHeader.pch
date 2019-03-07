@@ -1,0 +1,55 @@
+//
+//  PrefixHeader.pch
+//  sinvo
+//
+//  Created by 李先生 on 15/3/26.
+//  Copyright (c) 2015年 caomaoxiaozi All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#import "MJRefresh.h"
+#import "IQKeyboardManager.h"
+#import "Udesk.h"
+#import "MJExtension.h"
+// MARK:UM
+#import <UMCommon/UMCommon.h>
+#import <UMCommonLog/UMCommonLogHeaders.h>
+#import <UMPush/UMessage.h>
+#import <UMAnalytics/MobClick.h>
+#import <UMShare/UMShare.h>
+#import <Bugly/Bugly.h>
+#import <LocalAuthentication/LocalAuthentication.h>
+#import <AudioToolbox/AudioToolbox.h>
+
+#import "SamsDefines.h"
+#import "MPCheckboxButton.h"
+#import "NSString+N6Helper.h"
+#import "MBProgressHUD+NJ.h"
+#import "N6HelperUI.h"
+#import "N6SegmentedBar.h"
+#import "NSString+Other.h"
+#import "HXTabBarViewController.h"
+#import "BXNavigationController.h"
+#import "AppDelegate.h"
+#import "BXLoginViewController.h"
+#import "BXClickRoundButton.h"
+#import "HXButton.h"
+#import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
+#import "SinvoClick.h"
+#import "BXNetworkRequest.h"
+#import "UIColor+HexColor.h"
+#import "HTMLAttributedString.h"
+#import "BXOpenLDAccountEqianBaoController.h"
+#import "UIView+SLAddition.h"
+#import "NSObject+CHAddition.h"
+#import "UILabel+Addtion.h"
+#import "APPVersonModel.h"
+#import "BaseTableViewController.h"
+#import "NSDate+Setting.h"
+
+
+//clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+#endif

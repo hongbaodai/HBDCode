@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TnH-AA-f5s">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--出借失败-->
+        <scene sceneID="OUQ-ql-huX">
+            <objects>
+                <viewController id="TnH-AA-f5s" userLabel="出借失败" customClass="BXInvestFailureController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ev6-bt-bz6"/>
+                        <viewControllerLayoutGuide type="bottom" id="cYe-4x-NAW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gp9-YQ-dok">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InvestmentFailure" translatesAutoresizingMaskIntoConstraints="NO" id="nhe-Rb-pz3">
+                                <rect key="frame" x="147.66666666666666" y="70" width="119.99999999999997" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="NIf-1w-6yi"/>
+                                    <constraint firstAttribute="width" constant="120" id="Nub-Pb-UHe"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="很遗憾，出借失败" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nit-ec-pWU">
+                                <rect key="frame" x="150" y="225" width="115" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.90588235294117647" green="0.2196078431372549" blue="0.23921568627450979" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出借失败" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPz-lZ-0Kw">
+                                <rect key="frame" x="35" y="282" width="344" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客服电话：40067-40088" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TN-5y-UzF">
+                                <rect key="frame" x="121.00000000000001" y="691" width="173.33333333333337" height="21"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="15"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbB-xH-bxy" customClass="HXButton">
+                                <rect key="frame" x="15" y="325" width="384" height="45"/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.21960784310000001" blue="0.23921568630000001" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="VTU-o3-1uZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="重新出借">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reinvestBtnClick:" destination="TnH-AA-f5s" eventType="touchUpInside" id="DPN-6l-mCN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Nit-ec-pWU" secondAttribute="centerX" id="58Z-QM-IrU"/>
+                            <constraint firstItem="gbB-xH-bxy" firstAttribute="leading" secondItem="Gp9-YQ-dok" secondAttribute="leading" constant="15" id="BgC-hK-jDo"/>
+                            <constraint firstItem="nhe-Rb-pz3" firstAttribute="top" secondItem="Ev6-bt-bz6" secondAttribute="bottom" constant="50" id="Ea6-AD-Dpg"/>
+                            <constraint firstItem="LPz-lZ-0Kw" firstAttribute="leading" secondItem="Gp9-YQ-dok" secondAttribute="leading" constant="35" id="MZB-oY-3xz"/>
+                            <constraint firstItem="LPz-lZ-0Kw" firstAttribute="top" secondItem="Nit-ec-pWU" secondAttribute="bottom" constant="40" id="QUs-oU-PSx"/>
+                            <constraint firstItem="6TN-5y-UzF" firstAttribute="centerX" secondItem="Gp9-YQ-dok" secondAttribute="centerX" id="dHi-JZ-Wi7"/>
+                            <constraint firstItem="gbB-xH-bxy" firstAttribute="top" secondItem="LPz-lZ-0Kw" secondAttribute="bottom" constant="25" id="feS-pz-gi0"/>
+                            <constraint firstItem="Nit-ec-pWU" firstAttribute="top" secondItem="nhe-Rb-pz3" secondAttribute="bottom" constant="35" id="jOe-lb-HAs"/>
+                            <constraint firstAttribute="trailing" secondItem="gbB-xH-bxy" secondAttribute="trailing" constant="15" id="nKv-F9-SVg"/>
+                            <constraint firstItem="cYe-4x-NAW" firstAttribute="top" secondItem="6TN-5y-UzF" secondAttribute="bottom" constant="24" id="oaz-cO-pdB"/>
+                            <constraint firstAttribute="trailing" secondItem="LPz-lZ-0Kw" secondAttribute="trailing" constant="35" id="odB-1h-wBz"/>
+                            <constraint firstAttribute="centerX" secondItem="nhe-Rb-pz3" secondAttribute="centerX" id="pxv-s6-nQb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="failureMessage" destination="LPz-lZ-0Kw" id="Oie-is-Nzg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2R4-3R-51b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-639.13043478260875" y="-201.35869565217394"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="InvestmentFailure" width="120" height="120"/>
+    </resources>
+</document>

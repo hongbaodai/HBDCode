@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BXWithdrawLoadingController">
+            <connections>
+                <outlet property="muAcooutBut" destination="XtK-58-epY" id="JgV-X4-gzz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImageView" translatesAutoresizingMaskIntoConstraints="NO" id="kp3-Hh-Kz4">
+                    <rect key="frame" x="131.5" y="60" width="112" height="31.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31.699999999999999" id="U3I-Dg-roA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行处理中……" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-r5-91p">
+                    <rect key="frame" x="140.5" y="149" width="94" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="fE9-fc-4iE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.92941176469999998" green="0.4431372549" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现操作银行将于一小时内处理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJv-pO-fKv">
+                    <rect key="frame" x="87.5" y="199" width="200" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="ZDj-v2-Iym"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.1764705882" green="0.25490196079999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1O-Nn-WT9" customClass="HXButton">
+                    <rect key="frame" x="8" y="256" width="359" height="44"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="UtZ-qq-B7e"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="继续出借">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="goToInvest:" destination="-1" eventType="touchUpInside" id="NqN-Wg-ta0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XtK-58-epY">
+                    <rect key="frame" x="8" y="313" width="359" height="44"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="bZc-fJ-d2C"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="我的账户" backgroundImage="yellowBack">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="goBackMyAccount:" destination="-1" eventType="touchUpInside" id="zOa-pT-H2a"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="5Hr-r5-91p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="149" id="3wL-cf-CVq"/>
+                <constraint firstItem="XtK-58-epY" firstAttribute="leading" secondItem="m1O-Nn-WT9" secondAttribute="leading" id="HLF-bo-kvw"/>
+                <constraint firstItem="XtK-58-epY" firstAttribute="trailing" secondItem="m1O-Nn-WT9" secondAttribute="trailing" id="R2a-yO-Ml5"/>
+                <constraint firstAttribute="trailing" secondItem="m1O-Nn-WT9" secondAttribute="trailing" constant="8" id="SyQ-2J-9Vg"/>
+                <constraint firstItem="EJv-pO-fKv" firstAttribute="top" secondItem="5Hr-r5-91p" secondAttribute="bottom" constant="30" id="ZP0-HX-kOg"/>
+                <constraint firstItem="XtK-58-epY" firstAttribute="top" secondItem="m1O-Nn-WT9" secondAttribute="bottom" constant="13" id="eye-MS-J7U"/>
+                <constraint firstAttribute="centerX" secondItem="5Hr-r5-91p" secondAttribute="centerX" id="g2G-IV-XiS"/>
+                <constraint firstAttribute="centerX" secondItem="kp3-Hh-Kz4" secondAttribute="centerX" id="hg8-Hu-746"/>
+                <constraint firstItem="kp3-Hh-Kz4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="lnP-WP-Edp"/>
+                <constraint firstItem="m1O-Nn-WT9" firstAttribute="top" secondItem="EJv-pO-fKv" secondAttribute="bottom" constant="37" id="ohy-wz-dsm"/>
+                <constraint firstItem="m1O-Nn-WT9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="sqN-3n-BzJ"/>
+                <constraint firstAttribute="centerX" secondItem="EJv-pO-fKv" secondAttribute="centerX" id="z7N-cm-J9z"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="logoImageView" width="112" height="31"/>
+        <image name="yellowBack" width="680" height="90"/>
+    </resources>
+</document>

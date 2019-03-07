@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LADAccoutTVCell" rowHeight="30" id="KGk-i7-Jjw" customClass="LADAccoutTVCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="29.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiq-qA-FTD">
+                        <rect key="frame" x="15" y="-1" width="291" height="30.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWQ-Ou-ClJ">
+                                <rect key="frame" x="145" y="0.0" width="1" height="30.5"/>
+                                <color key="backgroundColor" red="0.67843137254901964" green="0.85098039215686272" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="PEY-VG-eys"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPx-3o-n76">
+                                <rect key="frame" x="0.0" y="0.0" width="145" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.1764705882" green="0.25490196079999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoE-C4-tS3">
+                                <rect key="frame" x="146" y="0.0" width="145" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.1764705882" green="0.25490196079999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PPx-3o-n76" firstAttribute="leading" secondItem="fiq-qA-FTD" secondAttribute="leading" id="5xY-Xx-h7S"/>
+                            <constraint firstAttribute="trailing" secondItem="DoE-C4-tS3" secondAttribute="trailing" id="8AX-pI-rWm"/>
+                            <constraint firstAttribute="bottom" secondItem="DoE-C4-tS3" secondAttribute="bottom" id="Map-iQ-loH"/>
+                            <constraint firstAttribute="bottom" secondItem="wWQ-Ou-ClJ" secondAttribute="bottom" id="OqR-5D-V3s"/>
+                            <constraint firstItem="DoE-C4-tS3" firstAttribute="top" secondItem="fiq-qA-FTD" secondAttribute="top" id="Pwh-9n-pdo"/>
+                            <constraint firstItem="wWQ-Ou-ClJ" firstAttribute="leading" secondItem="PPx-3o-n76" secondAttribute="trailing" id="XMi-16-T6e"/>
+                            <constraint firstItem="PPx-3o-n76" firstAttribute="top" secondItem="fiq-qA-FTD" secondAttribute="top" id="YtW-kM-z8r"/>
+                            <constraint firstItem="wWQ-Ou-ClJ" firstAttribute="top" secondItem="fiq-qA-FTD" secondAttribute="top" id="a6e-qk-8m0"/>
+                            <constraint firstItem="DoE-C4-tS3" firstAttribute="leading" secondItem="wWQ-Ou-ClJ" secondAttribute="trailing" id="hl1-JN-MO0"/>
+                            <constraint firstAttribute="bottom" secondItem="PPx-3o-n76" secondAttribute="bottom" id="pYs-X4-jYN"/>
+                            <constraint firstItem="wWQ-Ou-ClJ" firstAttribute="centerX" secondItem="fiq-qA-FTD" secondAttribute="centerX" id="rUE-1X-3md"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fiq-qA-FTD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-1" id="7oa-QR-Vfh"/>
+                    <constraint firstItem="fiq-qA-FTD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Rby-UT-afC"/>
+                    <constraint firstAttribute="trailing" secondItem="fiq-qA-FTD" secondAttribute="trailing" constant="14" id="Wgw-Jx-a48"/>
+                    <constraint firstAttribute="bottom" secondItem="fiq-qA-FTD" secondAttribute="bottom" id="q95-qp-7H9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="backView" destination="fiq-qA-FTD" id="8fX-Z3-Wpm"/>
+                <outlet property="leftLabel" destination="PPx-3o-n76" id="m6E-yM-BPw"/>
+                <outlet property="rightLabel" destination="DoE-C4-tS3" id="rcQ-da-Lbq"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

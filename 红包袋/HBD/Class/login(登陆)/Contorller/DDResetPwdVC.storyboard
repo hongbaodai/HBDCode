@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gEb-9b-6oY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reset PwdVC-->
+        <scene sceneID="rVO-fg-K4W">
+            <objects>
+                <viewController id="gEb-9b-6oY" customClass="DDResetPwdVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GAo-wC-x2m"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mfp-0e-xEF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ShK-aZ-Dd5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImageView" translatesAutoresizingMaskIntoConstraints="NO" id="uoq-Wc-ABd">
+                                <rect key="frame" x="129.5" y="28" width="117" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="5Pd-ss-9VA"/>
+                                    <constraint firstAttribute="height" constant="33" id="Od8-Rk-Asi"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hi6-nI-AKu">
+                                <rect key="frame" x="20" y="89" width="335" height="47"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhv-hi-sVb">
+                                        <rect key="frame" x="0.0" y="45" width="335" height="1"/>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="LCa-Zd-s77"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请设置新密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P7B-Sy-2Tu">
+                                        <rect key="frame" x="15" y="5" width="312" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nhv-hi-sVb" secondAttribute="trailing" id="4px-c8-w0R"/>
+                                    <constraint firstItem="P7B-Sy-2Tu" firstAttribute="top" secondItem="hi6-nI-AKu" secondAttribute="top" constant="5" id="5us-Op-nVU"/>
+                                    <constraint firstItem="nhv-hi-sVb" firstAttribute="leading" secondItem="hi6-nI-AKu" secondAttribute="leading" id="6PR-kH-mSk"/>
+                                    <constraint firstItem="P7B-Sy-2Tu" firstAttribute="leading" secondItem="hi6-nI-AKu" secondAttribute="leading" constant="15" id="e9X-9c-J2O"/>
+                                    <constraint firstItem="nhv-hi-sVb" firstAttribute="top" secondItem="hi6-nI-AKu" secondAttribute="top" constant="45" id="kA6-Dv-BfU"/>
+                                    <constraint firstAttribute="trailing" secondItem="P7B-Sy-2Tu" secondAttribute="trailing" constant="8" id="qL9-aJ-fQt"/>
+                                    <constraint firstAttribute="height" constant="47" id="yIt-uQ-1BG"/>
+                                    <constraint firstItem="nhv-hi-sVb" firstAttribute="top" secondItem="P7B-Sy-2Tu" secondAttribute="bottom" constant="5" id="zxj-FT-kgQ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uge-Hm-UXw" customClass="HXButton">
+                                <rect key="frame" x="8" y="305" width="359" height="44"/>
+                                <color key="backgroundColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Bfj-A3-SLH"/>
+                                </constraints>
+                                <color key="tintColor" red="0.15686274510000001" green="0.62745098040000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="完成">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uge-Hm-UXw" firstAttribute="top" secondItem="hi6-nI-AKu" secondAttribute="bottom" constant="169" id="4P3-Ju-UH7"/>
+                            <constraint firstAttribute="trailing" secondItem="Uge-Hm-UXw" secondAttribute="trailing" constant="8" id="6iy-Jv-tam"/>
+                            <constraint firstItem="Uge-Hm-UXw" firstAttribute="leading" secondItem="ShK-aZ-Dd5" secondAttribute="leading" constant="8" id="C8u-Ws-7k2"/>
+                            <constraint firstItem="hi6-nI-AKu" firstAttribute="top" secondItem="uoq-Wc-ABd" secondAttribute="bottom" constant="28" id="Fre-ZE-eRg"/>
+                            <constraint firstItem="uoq-Wc-ABd" firstAttribute="centerX" secondItem="ShK-aZ-Dd5" secondAttribute="centerX" id="KXM-Hd-Y0m"/>
+                            <constraint firstItem="hi6-nI-AKu" firstAttribute="leading" secondItem="ShK-aZ-Dd5" secondAttribute="leading" constant="20" id="WpP-ct-qwl"/>
+                            <constraint firstItem="uoq-Wc-ABd" firstAttribute="top" secondItem="GAo-wC-x2m" secondAttribute="bottom" constant="8" id="lPQ-dN-3ra"/>
+                            <constraint firstAttribute="trailing" secondItem="hi6-nI-AKu" secondAttribute="trailing" constant="20" id="zA8-Xz-Cpx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="newpwdTxf" destination="P7B-Sy-2Tu" id="043-Z0-KQZ"/>
+                        <outlet property="resetBtn" destination="Uge-Hm-UXw" id="NPg-k2-LWW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QhJ-Ol-MLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-156" y="176"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logoImageView" width="112" height="31"/>
+    </resources>
+</document>

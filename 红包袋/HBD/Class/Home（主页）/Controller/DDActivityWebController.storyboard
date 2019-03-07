@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="utK-NP-6t0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Activity Web Controller-->
+        <scene sceneID="Qjo-aw-aaE">
+            <objects>
+                <viewController id="utK-NP-6t0" customClass="DDActivityWebController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="awg-Sq-Wbc"/>
+                        <viewControllerLayoutGuide type="bottom" id="9sh-Cj-y2C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E6M-Ov-Xn6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuz-Uk-1gs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cuz-Uk-1gs" firstAttribute="leading" secondItem="E6M-Ov-Xn6" secondAttribute="leading" id="0zC-2C-14j"/>
+                            <constraint firstAttribute="bottom" secondItem="Cuz-Uk-1gs" secondAttribute="bottom" id="RAC-cc-AEd"/>
+                            <constraint firstAttribute="trailing" secondItem="Cuz-Uk-1gs" secondAttribute="trailing" id="UaU-UD-X9y"/>
+                            <constraint firstItem="Cuz-Uk-1gs" firstAttribute="top" secondItem="E6M-Ov-Xn6" secondAttribute="top" id="WpH-rz-p0z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Cuz-Uk-1gs" id="obA-jh-Jov"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TFW-qe-Da7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="-292"/>
+        </scene>
+    </scenes>
+</document>

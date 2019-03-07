@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HXPopUpViewController">
+            <connections>
+                <outlet property="bottomBut" destination="gEg-5V-uVg" id="V5z-bU-B3X"/>
+                <outlet property="deleteBut" destination="Gvy-Ti-be7" id="f9O-F5-Som"/>
+                <outlet property="imageView" destination="1IG-D5-Tqb" id="Pft-ga-KRs"/>
+                <outlet property="textStr" destination="TNm-np-SdV" id="oRR-4N-D6m"/>
+                <outlet property="tipBut" destination="xvL-d8-ZPP" id="UEF-Oy-xks"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEU-0L-5Jg">
+                    <rect key="frame" x="34" y="147.5" width="307" height="372"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1IG-D5-Tqb">
+                            <rect key="frame" x="0.0" y="68" width="307" height="160"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="160" id="mjZ-AW-Zhn"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNm-np-SdV">
+                            <rect key="frame" x="136" y="242" width="35.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEg-5V-uVg" customClass="HXButton">
+                            <rect key="frame" x="14" y="302" width="279" height="44"/>
+                            <color key="backgroundColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="oGT-39-ljO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="立即开通">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="buttomAction:" destination="-1" eventType="touchUpInside" id="4Ym-Q0-7pQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvL-d8-ZPP">
+                            <rect key="frame" x="83.5" y="259" width="140" height="43"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="140" id="33V-Wa-fiH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title=" 什么是银行存管？" image="tuo">
+                                <color key="titleColor" red="0.99215686270000003" green="0.68235294120000001" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="tipAction:" destination="-1" eventType="touchUpInside" id="kxP-4q-ToT"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="372" id="4FV-8E-xJ4"/>
+                        <constraint firstAttribute="trailing" secondItem="1IG-D5-Tqb" secondAttribute="trailing" id="A0I-XG-ROH"/>
+                        <constraint firstItem="1IG-D5-Tqb" firstAttribute="centerX" secondItem="DEU-0L-5Jg" secondAttribute="centerX" id="Hkl-Xx-S4z"/>
+                        <constraint firstAttribute="trailing" secondItem="gEg-5V-uVg" secondAttribute="trailing" constant="14" id="IjT-zQ-xbQ"/>
+                        <constraint firstItem="1IG-D5-Tqb" firstAttribute="leading" secondItem="DEU-0L-5Jg" secondAttribute="leading" id="LS5-98-u5R"/>
+                        <constraint firstItem="gEg-5V-uVg" firstAttribute="top" secondItem="xvL-d8-ZPP" secondAttribute="bottom" id="O3z-ti-t5F"/>
+                        <constraint firstItem="gEg-5V-uVg" firstAttribute="leading" secondItem="DEU-0L-5Jg" secondAttribute="leading" constant="14" id="Ol2-LN-WzX"/>
+                        <constraint firstItem="xvL-d8-ZPP" firstAttribute="top" secondItem="TNm-np-SdV" secondAttribute="bottom" id="TUR-bh-ja5"/>
+                        <constraint firstItem="xvL-d8-ZPP" firstAttribute="centerX" secondItem="DEU-0L-5Jg" secondAttribute="centerX" id="kjO-Rr-9Iq"/>
+                        <constraint firstAttribute="bottom" secondItem="gEg-5V-uVg" secondAttribute="bottom" constant="26" id="nmt-ZX-zT1"/>
+                        <constraint firstItem="1IG-D5-Tqb" firstAttribute="top" secondItem="DEU-0L-5Jg" secondAttribute="top" constant="68.5" id="okD-EM-Q6n"/>
+                        <constraint firstItem="TNm-np-SdV" firstAttribute="centerX" secondItem="1IG-D5-Tqb" secondAttribute="centerX" id="suw-Or-Hb1"/>
+                        <constraint firstAttribute="width" constant="307" id="v2S-jw-Sji"/>
+                        <constraint firstItem="TNm-np-SdV" firstAttribute="top" secondItem="1IG-D5-Tqb" secondAttribute="bottom" constant="14" id="zi2-BG-XLZ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvy-Ti-be7">
+                    <rect key="frame" x="316" y="115.5" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="han-dq-Iws"/>
+                        <constraint firstAttribute="width" constant="25" id="nsa-g7-4ke"/>
+                    </constraints>
+                    <state key="normal" image="close"/>
+                    <connections>
+                        <action selector="deleteAction:" destination="-1" eventType="touchUpInside" id="66L-TY-PaY"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DEU-0L-5Jg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EUE-9v-CKR"/>
+                <constraint firstItem="DEU-0L-5Jg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="GCD-iL-OKh"/>
+                <constraint firstItem="Gvy-Ti-be7" firstAttribute="trailing" secondItem="DEU-0L-5Jg" secondAttribute="trailing" id="Tf5-H4-hgp"/>
+                <constraint firstItem="DEU-0L-5Jg" firstAttribute="top" secondItem="Gvy-Ti-be7" secondAttribute="bottom" constant="7" id="xKP-ZR-TwF"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close" width="25" height="25"/>
+        <image name="tuo" width="12" height="14"/>
+    </resources>
+</document>
