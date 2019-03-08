@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8768D74192A82DFD2D612611EDBF15B3"
-               BlueprintName = "SDWebImage"
+               BlueprintIdentifier = "93871AF1868BFA58F3501682D550122E"
+               BlueprintName = "UMCShare"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "SDWebImage.framework">
+               BuildableName = "UMCShare">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

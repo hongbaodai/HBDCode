@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0BD659E21DA1CDA96BE2DD70EBA13298"
-               BlueprintName = "AFNetworking"
+               BlueprintIdentifier = "20A1E08923DFDEA1B24E5D7B9691E70E"
+               BlueprintName = "UMCAnalytics"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "AFNetworking.framework">
+               BuildableName = "UMCAnalytics">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

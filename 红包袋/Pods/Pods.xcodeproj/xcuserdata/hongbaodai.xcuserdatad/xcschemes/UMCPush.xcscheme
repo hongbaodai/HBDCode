@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D386C75EFD4F03725E4EFB866B600B9A"
-               BlueprintName = "DZNEmptyDataSet"
+               BlueprintIdentifier = "5A08BCAC0A1050E40B61F95599B71DCE"
+               BlueprintName = "UMCPush"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "DZNEmptyDataSet.framework">
+               BuildableName = "UMCPush">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

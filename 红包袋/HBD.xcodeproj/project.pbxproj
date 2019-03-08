@@ -3563,7 +3563,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HBD/Pods-HBD-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HBD/Pods-HBD-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/AvoidCrash/AvoidCrash.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
@@ -3588,7 +3588,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HBD/Pods-HBD-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HBD/Pods-HBD-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C167E3309A4A09E2075A7412 /* [CP] Copy Pods Resources */ = {
@@ -3597,7 +3597,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HBD/Pods-HBD-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HBD/Pods-HBD-resources.sh",
 				"${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -3606,7 +3606,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HBD/Pods-HBD-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HBD/Pods-HBD-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9E425B1E99E359D185487BF /* [CP] Check Pods Manifest.lock */ = {
@@ -4088,7 +4088,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "f7b2bba8-1dfa-4a5a-9410-cf9843c07b13";
@@ -4137,7 +4137,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "f7b2bba8-1dfa-4a5a-9410-cf9843c07b13";
 				SDKROOT = iphoneos;
