@@ -5,13 +5,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LLLockViewController.h"
-#import "DDCoverView.h"
-
-// 友盟分享
-#define UM_APPKEY_NEW               @"5983e340c895762fe8001de4"
-#define DDKeyLoginState             @"DDKeyLoginState"
-#define DDUserVipState              @"DDUserVipState"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;

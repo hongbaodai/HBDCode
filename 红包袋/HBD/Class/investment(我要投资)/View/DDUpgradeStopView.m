@@ -7,8 +7,6 @@
 //
 
 #import "DDUpgradeStopView.h"
-#import "Masonry.h"
-
 
 @implementation DDUpgradeStopView
  

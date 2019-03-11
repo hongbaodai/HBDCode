@@ -11,12 +11,10 @@
 #import "MYAlertView.h"
 #import "NSString+Other.h"
 #import "HXBankCardManagerVC.h"
-#import "AppUtils.h"
 #import "HXRechargeBankCardVC.h"
 #import <YYText/YYText.h>
 #import <YYText/YYLabel.h>
 #import "HXWebVC.h"
-#import "AppUtils.h"
 
 @interface BXHFRechargeController ()<PayThirdPartyProtocol, UITextFieldDelegate, UIAlertViewDelegate>
 {

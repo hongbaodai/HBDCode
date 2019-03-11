@@ -8,7 +8,6 @@
 //
 
 #import "CustomerServiceVC.h"
-#import "AppUtils.h"
 #import <YYText/YYText.h>
 #import "HelpCentersVC.h"
 

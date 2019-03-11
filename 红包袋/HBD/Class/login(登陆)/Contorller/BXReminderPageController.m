@@ -10,7 +10,6 @@
 #import "BXPayObject.h"
 #import "NSString+Other.h"
 #import "DDActivityWebController.h"
-#import "AppUtils.h"
 
 @interface BXReminderPageController ()
 

@@ -5,40 +5,18 @@
 //  Copyright (c) 2014年 caomaoxiaozi All rights reserved.
 //
 
-#define kAppStoreUrl            @"https://itunes.apple.com/cn/app/hong-bao-dai/id1090834403?mt=8"
-#define kUpdateUrl              [NSString stringWithFormat:@"%@/version.xml",BXWebViewState]
-#define kChannelId              [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ChannelId"]
-#define kPushToLogin            @"pushToLogin"
-#define APPID                   @"1090834403"
-// 微信分享--
-#define WXAPPID                 @"wxff1c1a26b9f47a08"
-#define WXAPPSECRET             @"6000f36477766001075c69a9c8ce41d5"
-
-
-#define BUGLYID                 @"5cbb914c02"
-#define JGAppKey                @"d8451fdf3f0a9a453187f144"
-#define JGSecret                @"d41ed1bd6deb3d15f688e870"
-
-
 #import "AppDelegate.h"
 #import "HXTabBarViewController.h"
 #import "LLLockViewController.h"
 #import "BXNewFeatureController.h"
 #import "UIImageView+WebCache.h"
-#import "AvoidCrash.h"
-#import "AppUtils.h"
 #import "APPVersonModel.h"
-#import "DDAccount.h"
-
-// iOS10注册APNs所需头文件
-//#ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
-//#endif
+
 
 @interface AppDelegate () <UIAlertViewDelegate, UIViewControllerTransitioningDelegate, LLLockGesTureDelegate, DDCoverViewDelegate, UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong)NSDate *oldDate;
-//@property (nonatomic, weak) BXTabBarController * tabBarVC;
 @property (nonatomic, weak) HXTabBarViewController * tabBarNewVC;
 
 @end

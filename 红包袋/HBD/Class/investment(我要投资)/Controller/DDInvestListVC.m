@@ -15,7 +15,6 @@
 #import "DDInvestSegmentVC.h"
 #import "DDInvestSureVC.h"
 #import "HXTabBarViewController.h"
-#import "AppUtils.h"
 #import "BXJumpThirdPartyController.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "DDRiskPopView.h"
