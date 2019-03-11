@@ -10,8 +10,6 @@
 #import "UIImageView+WebCache.h"
 #import "ZYPhotoBrowserView.h"
 #import "ZYPhotoCollectionView.h"
-//第三方
-#import "Masonry.h"
 #import "MBProgressHUD.h"
 //统一配置文件
 #import "ZYPhotoBrowserConfig.h"

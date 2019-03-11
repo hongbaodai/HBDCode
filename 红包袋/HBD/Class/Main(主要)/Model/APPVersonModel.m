@@ -7,7 +7,6 @@
 //
 
 #import "APPVersonModel.h"
-#import "AppUtils.h"
 #import "DDCoverView.h"
 #import "DDActivityWebController.h"
 #import "DDWebViewVC.h"
@@ -15,8 +14,6 @@
 #import "NSDate+Setting.h"
 #import "AlertImgViewController.h"
 #import "AlertThreeViewController.h"
-
-#define kAppStoreUrl            @"https://itunes.apple.com/cn/app/hong-bao-dai/id1090834403?mt=8"
 
 @interface APPVersonModel()<DDCoverViewDelegate,UIAlertViewDelegate>
 {

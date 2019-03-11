@@ -10,7 +10,6 @@
 #import "BXInvitationRecordController.h"
 #import "WXApi.h"
 #import "BXSharePageView.h"
-#import "AppUtils.h"
 #import "DDInvitePopView.h"
 #import "DDWebViewVC.h"
 #import "QRCodeGenerator.h"

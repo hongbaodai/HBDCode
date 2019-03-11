@@ -10,7 +10,6 @@
 #define eqbviewH         372
 
 #import "DDEqbView.h"
-#import "Masonry.h"
 
 @interface DDEqbView()
 

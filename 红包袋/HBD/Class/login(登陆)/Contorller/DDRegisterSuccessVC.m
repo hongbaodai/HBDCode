@@ -9,7 +9,6 @@
 #import "DDRegisterSuccessVC.h"
 #import "HXTabBarViewController.h"
 #import "MyRedPacketSwitchVC.h"
-#import "AppUtils.h"
 #import "HXTextAndButModel.h"
 #import "BXOpenLDAccountEqianBaoController.h"
 

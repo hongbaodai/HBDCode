@@ -12,7 +12,6 @@
 #import "BXNetworkRequest.h"
 #import "BXSendMessage.h"
 #import "DDAccount.h"
-#import "AppUtils.h"
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
