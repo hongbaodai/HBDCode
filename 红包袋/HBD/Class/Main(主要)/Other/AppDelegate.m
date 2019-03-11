@@ -30,15 +30,11 @@
 #import "APPVersonModel.h"
 #import "DDAccount.h"
 
-// iOS10注册APNs所需头文件
-//#ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
-//#endif
 
 @interface AppDelegate () <UIAlertViewDelegate, UIViewControllerTransitioningDelegate, LLLockGesTureDelegate, DDCoverViewDelegate, UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong)NSDate *oldDate;
-//@property (nonatomic, weak) BXTabBarController * tabBarVC;
 @property (nonatomic, weak) HXTabBarViewController * tabBarNewVC;
 
 @end
