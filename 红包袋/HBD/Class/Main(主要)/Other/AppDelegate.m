@@ -11,6 +11,8 @@
 #import "BXNewFeatureController.h"
 #import "UIImageView+WebCache.h"
 #import "APPVersonModel.h"
+
+#import "DDAccount.h"
 #import <UserNotifications/UserNotifications.h>
 
 
