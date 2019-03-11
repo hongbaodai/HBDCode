@@ -10,7 +10,6 @@
 #define eqbviewH          283
 
 #import "DDRiskPopView.h"
-#import "Masonry.h"
 
 @interface DDRiskPopView ()
 

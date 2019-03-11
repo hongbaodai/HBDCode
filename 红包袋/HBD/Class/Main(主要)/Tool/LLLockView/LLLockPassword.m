@@ -7,7 +7,6 @@
 //
 
 #import "LLLockPassword.h"
-#import "AppUtils.h"
 
 @implementation LLLockPassword
 

@@ -9,7 +9,6 @@
 #import "BXJumpThirdPartyController.h"
 #import "BXDebentureControllerNew.h"
 #import "DDAccount.h"
-#import "AppUtils.h"
 
 @interface HXBankCardManagerVC ()<PayThirdPartyProtocol>
 @property (weak, nonatomic) IBOutlet UIView *topBackView;

@@ -12,7 +12,6 @@
 #import "DDAccount.h"
 #import "DDCoverView.h"
 #import "BXJumpThirdPartyController.h"
-#import "AppUtils.h"
 #import "DDRegisterVC.h"
 #import "HXTabBarViewController.h"
 #import "HXAlertAccount.h"

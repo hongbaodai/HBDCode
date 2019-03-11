@@ -8,7 +8,6 @@
 #import "MyRedPacketListVC.h"
 #import "HXRefresh.h"
 #import "BXCouponModel.h"
-#import "AppUtils.h"
 #import "HXBankCardManagerVC.h"
 #import "HXTabBarViewController.h"
 #import "HXPopUpViewController.h"

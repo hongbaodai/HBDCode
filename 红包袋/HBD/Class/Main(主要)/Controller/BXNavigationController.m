@@ -7,7 +7,6 @@
 //
 
 #import "BXNavigationController.h"
-#import "AppUtils.h"
 #import "DDActivityWebController.h"
 
 @interface BXNavigationController ()<UINavigationControllerDelegate, UIGestureRecognizerDelegate>

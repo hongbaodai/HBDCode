@@ -9,12 +9,10 @@
 #import "LLLockViewController.h"
 #import "LLLockIndicator.h"
 #import "BXLoginViewController.h"
-#import "AppUtils.h"
 
 #define kTipColorNormal [UIColor whiteColor]
 #define kTipColorError [UIColor colorWithHexString:COLOUR_YELLOW]
 #define kPushToLogin @"pushToLogin"
-#import "AppUtils.h"
 
 @interface LLLockViewController ()<LoginVCDelegate,UIAlertViewDelegate,CAAnimationDelegate>
 {

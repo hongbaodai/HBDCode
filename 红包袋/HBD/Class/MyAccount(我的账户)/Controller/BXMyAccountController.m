@@ -12,7 +12,6 @@
 #import "BXPaymentCalendarController.h"
 #import "BXHFRechargeController.h"
 #import "DDAccount.h"
-#import "AppUtils.h"
 #import "MBProgressHUD.h"
 #import "MyRedPacketSwitchVC.h"
 #import "InvestmentRecordSwtichVC.h"
