@@ -12,7 +12,6 @@
 #import "BXWithdrawLoadingController.h"
 #import "BXWithdrawFailureController.h"
 #import <YYText/YYLabel.h>
-#import "AppUtils.h"
 #import "NSString+Other.h"
 #import "HXButton.h"
 

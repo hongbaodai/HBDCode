@@ -7,7 +7,6 @@
 //
 
 #import "DDCoverView.h"
-#import "AppUtils.h"
 
 @implementation DDCoverView
 

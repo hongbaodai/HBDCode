@@ -15,7 +15,6 @@
 #import "DDInvestSureVC.h"
 #import "HXTabBarViewController.h"
 #import "DDHomeVC.h"
-#import "AppUtils.h"
 #import "BXJumpThirdPartyController.h"
 #import "NSDate+Setting.h"
 #import "BXInvestmentDetailModel.h"

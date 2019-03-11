@@ -8,7 +8,6 @@
 #import "BXJumpThirdPartyController.h"
 #import "BXRechargeSuccessController.h"
 #import "BXRechargeFailureController.h"
-#import "AppUtils.h"
 
 @interface HXRechargeBankCardVC ()<PayThirdPartyProtocol>
 {

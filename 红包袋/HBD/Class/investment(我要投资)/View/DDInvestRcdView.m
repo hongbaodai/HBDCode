@@ -7,7 +7,6 @@
 // 出借记录状态view
 
 #import "DDInvestRcdView.h"
-#import "Masonry.h"
 
 @interface DDInvestRcdView ()
 

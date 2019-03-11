@@ -11,7 +11,6 @@
 #import "BXReminderPageController.h"
 #import "DDWebViewVC.h"
 #import "DDRegisterSuccessVC.h"
-#import "AppUtils.h"
 #import "HXWebVC.h"
 #import "HXAlertAccount.h"
 //#import "NSString+Other.h"

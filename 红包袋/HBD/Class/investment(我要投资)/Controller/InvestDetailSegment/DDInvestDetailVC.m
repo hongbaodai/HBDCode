@@ -15,7 +15,6 @@
 #import "DDProjectDetailTwoModel.h"
 #import "NSDate+Setting.h"
 #import "HXTextAndButModel.h"
-#import "Masonry.h"
 
 @interface DDInvestDetailVC ()
 

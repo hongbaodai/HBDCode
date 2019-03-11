@@ -13,9 +13,7 @@
 #import "WXApi.h"
 #import "BXSharePageView.h"
 #import "SDImageCache.h"
-#import "AppUtils.h"
 #import "BXDebentureControllerNew.h"
-#import "AppUtils.h"
 
 @interface DDActivityWebController () <UIActionSheetDelegate, SharePageViewProtocol>
 

@@ -8,7 +8,6 @@
 #import "BXChangePasswordController.h"
 #import "BXLoginViewController.h"
 #import "NSString+Other.h"
-#import "AppUtils.h"
 
 @interface BXChangePasswordController ()<UITextFieldDelegate,UIAlertViewDelegate>
 

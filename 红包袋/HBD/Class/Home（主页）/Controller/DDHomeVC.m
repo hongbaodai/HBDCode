@@ -21,7 +21,6 @@
 #import "DDWebViewVC.h"
 #import "HXTabBarViewController.h"
 #import "DDInvestSureVC.h"
-#import "AppUtils.h"
 #import "DDRegisterVC.h"
 #import "DDRiskPopView.h"
 #import "DDRiskAssessViewController.h"

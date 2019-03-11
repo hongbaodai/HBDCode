@@ -19,7 +19,6 @@
 #import "DDWebViewVC.h"
 #import "NSString+Other.h"
 #import "NSDate+Setting.h"
-#import "AppUtils.h"
 #import "BXHFRechargeController.h"
 #import "BXInvestSuccessController.h"
 #import "BXInvestFailureController.h"

@@ -7,7 +7,6 @@
 
 #import "BXDebentureViewModel.h"
 #import "BXJumpThirdPartyController.h"
-#import "AppUtils.h"
 #import "DDAccount.h"
 
 @interface BXDebentureViewModel()<PayThirdPartyProtocol>

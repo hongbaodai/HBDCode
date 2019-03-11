@@ -8,6 +8,16 @@
 
 #ifdef __OBJC__
 
+//MARK:三方库
+#import "AFNetworking.h"
+#import "AvoidCrash.h"
+#import <Bugly/Bugly.h>
+#import "Masonry.h"
+
+
+#import "LLLockViewController.h"
+#import "DDCoverView.h"
+
 #import "MJRefresh.h"
 #import "IQKeyboardManager.h"
 #import "Udesk.h"
@@ -18,7 +28,6 @@
 #import <UMPush/UMessage.h>
 #import <UMAnalytics/MobClick.h>
 #import <UMShare/UMShare.h>
-#import <Bugly/Bugly.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 #import <AudioToolbox/AudioToolbox.h>
 

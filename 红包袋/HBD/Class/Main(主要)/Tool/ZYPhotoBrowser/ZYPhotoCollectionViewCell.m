@@ -10,7 +10,6 @@
 #import "ZYPhotoBrowserConfig.h"
 #import "ZYPhotoModel.h"
 #import "UIImageView+WebCache.h"
-#import "Masonry.h"
 
 @interface ZYPhotoCollectionViewCell ()
 
