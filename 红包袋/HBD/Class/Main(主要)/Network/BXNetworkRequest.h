@@ -34,16 +34,16 @@
 //#define BXNETURL          @"http://test1.hongbaodai.com:49080"  // 200
 //#define DDWEBURL          @"http://test1.hongbaodai.com:43080"
 
-////=========================================
+//=========================================
 
 
 
-////===============生产环境===================
+//===============生产环境===================
 //#define BXNETURL               @"https://service.hongbaodai.com"
 //#define DDWEBURL               @"https://www.hongbaodai.com"   //web页数据要www
 //#define DDNEWWEBURL            @"https://m.hongbaodai.com/#"   //新web页数据要www
 
-////=========================================
+//=========================================
 
 
 /**更多数据 */
