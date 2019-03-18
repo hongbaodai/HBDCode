@@ -34,6 +34,8 @@
 /** 下期还款时间 */
 @property (weak, nonatomic) IBOutlet UILabel *theNextPaymentTimeLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *alreadyReceiveMoney;
+
 @end
 
 @implementation HXIncestMentRecordDetailVC
@@ -43,6 +45,7 @@
     [super viewDidLoad];
 
     [self setupRefresh];
+    
 }
 
 /** 添加刷新控件 */
@@ -100,7 +103,7 @@
     _accumulatedEarningsLabel.text = [NSString stringWithFormat:@"%.2lf元",[model.curEarning  doubleValue]];
     _theNextCollectionOfFundsLabel.text = [NSString stringWithFormat:@"%.2lf元",[model.nextTotalAmount doubleValue]];
     _theNextPaymentTimeLabel.text = [NSString stringWithFormat:@"%@",model.nextRepayDate];
-    
+    _alreadyReceiveMoney.text = @"1234.5元";
     [self.tableView reloadData];
 }
 

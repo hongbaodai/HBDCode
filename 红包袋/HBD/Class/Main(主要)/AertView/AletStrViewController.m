@@ -39,11 +39,23 @@ typedef void(^SureDoneBlock)(void);
     }
     return self;
 }
+// MARK:图片+文字
+- (instancetype)initWithUIImageNamed:(NSString *)img attributedString:(NSAttributedString *)attrStr sureBlock:(void(^)(void))sureBlock{
+    if (self = [super init]) {
+        self = [[AletStrViewController alloc] initWithNibName:@"AletStrViewController" bundle:nil];
+        [self alertUIImageNamed:img attributedString:attrStr sureBlock:sureBlock];
+    }
+    return self;
+}
+
++ (instancetype)creatAlertVCTopImageNamed:(NSString *)img attributedString:(NSAttributedString *)attrStr sureBlock:(void(^)(void))sureBlock{
+    AletStrViewController *alertVC = [[AletStrViewController alloc] initWithUIImageNamed:img attributedString:attrStr sureBlock:sureBlock];
+    return alertVC;
+}
 
 + (instancetype)creatAlertVCWithAttributedString:(NSAttributedString *)attrStr sureBlock:(void(^)(void))surevcBlock
 {
     AletStrViewController *alertVC = [[AletStrViewController alloc] initWithCreatWithAttributedString:attrStr sureBlock:surevcBlock];
-    
     return alertVC;
 }
 
@@ -77,6 +89,55 @@ typedef void(^SureDoneBlock)(void);
     [self showVC];
 }
 
+- (void)alertUIImageNamed:(NSString *)img attributedString:(NSAttributedString *)attrStr sureBlock:(void(^)(void))sureBlock{
+    if (!attrStr.string.length) return;
+    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+    self.strLabel.attributedText = attrStr;
+    self.sureDoneBlock = sureBlock;
+    
+    //图片540x680
+    CGFloat width = SCREEN_WIDTH / 375 * 540 / 2;
+    CGFloat height = width / 540 / 2 * 640;
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - width - 30, 10 + height + 10 + 14 + 10 + 40)];
+    backView.layer.cornerRadius = 10;
+    backView.layer.masksToBounds = YES;
+    backView.center = self.view.center;
+    [self.view addSubview:backView];
+    
+    UIImageView *imgV = [[UIImageView alloc] init];
+    imgV.image = [UIImage imageNamed:img];
+    imgV.frame = CGRectMake(10, 10, width, height);
+    [backView addSubview:imgV];
+    
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(imgV.left, imgV.bottom + 10, imgV.width, 14)];
+    lab.text = attrStr.string;
+    lab.font = [UIFont systemFontOfSize:12];
+    lab.textAlignment = NSTextAlignmentLeft;
+    [backView addSubview:lab];
+    
+    UIButton *sure = [UIButton buttonWithType:UIButtonTypeCustom];
+    sure.frame = CGRectMake(0, backView.bottom - 40, backView.width, 40);
+    sure.layer.cornerRadius = 10;
+    sure.layer.masksToBounds = YES;
+    sure.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    sure.layer.borderWidth = 1;
+    [backView addSubview:sure];
+    [sure addTarget:self action:@selector(sureClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self showVC];
+    
+}
+
+- (void)sureClick:(UIButton *)buttonf {
+    if (self.sureDoneBlock) {
+        self.sureDoneBlock();
+    }
+    [UIView animateWithDuration:0.4 animations:^{
+        self.view.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }];
+}
 
 #pragma mark -创建本类
 /** 创建ImageAertView */
@@ -97,15 +158,11 @@ typedef void(^SureDoneBlock)(void);
 /** 创建ImageAertView */
 - (void)alertStrWithStr:(NSString *)str sureBlock:(void(^)(void))surevcBlock
 {
-    //    self.frame = [[UIApplication sharedApplication] keyWindow].frame;
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
-    
     self.strLabel.text = str;
     self.sureDoneBlock = surevcBlock;
-    
     CGFloat hei = [str sizeWithFontNum:14.0 MaxSize:CGSizeMake(270, 0)];
     self.layoutHeight.constant = hei + nums;
-    
     [self showVC];
 }
 
@@ -126,9 +183,7 @@ typedef void(^SureDoneBlock)(void);
     self.providesPresentationContextTransitionStyle = YES;
     self.definesPresentationContext = YES;
     [self setModalPresentationStyle:UIModalPresentationOverCurrentContext];
-    
     [vcc presentViewController:self animated:NO completion:nil];
-//    [vcc presentViewController:self animated:NO completion:nil];
 }
 
 - (IBAction)sureDoAction:(UIButton *)sender
@@ -138,40 +193,10 @@ typedef void(^SureDoneBlock)(void);
     }
     [UIView animateWithDuration:0.4 animations:^{
         self.view.alpha = 0;
-        
     } completion:^(BOOL finished) {
         [self dismissViewControllerAnimated:NO completion:nil];
     }];
 }
 
-//- (UIViewController *)getCurrentVC {
-//
-//    UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
-//    if (!window) {
-//        return nil;
-//    }
-//    UIView *tempView;
-//    for (UIView *subview in window.subviews) {
-//        if ([[subview.classForCoder description] isEqualToString:@"UILayoutContainerView"]) {
-//            tempView = subview;
-//            break;
-//        }
-//    }
-//    if (!tempView) {
-//        tempView = [window.subviews lastObject];
-//    }
-//
-//    id nextResponder = [tempView nextResponder];
-//    while (![nextResponder isKindOfClass:[UIViewController class]] || [nextResponder isKindOfClass:[UINavigationController class]] || [nextResponder isKindOfClass:[UITabBarController class]]) {
-//        tempView =  [tempView.subviews firstObject];
-//
-//        if (!tempView) {
-//            return nil;
-//        }
-//        nextResponder = [tempView nextResponder];
-//    }
-//
-//    return  (UIViewController *)nextResponder;
-//}
 
 @end

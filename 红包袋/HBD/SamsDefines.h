@@ -11,7 +11,7 @@
 #define UM_APPKEY_NEW               @"5983e340c895762fe8001de4"
 #define DDKeyLoginState             @"DDKeyLoginState"
 #define DDUserVipState              @"DDUserVipState"
-
+#define NOTIFICATIONHOMEMARK        @"homeviewmark"
 // 微信分享--
 #define WXAPPID                 @"wxff1c1a26b9f47a08"
 #define WXAPPSECRET             @"6000f36477766001075c69a9c8ce41d5"

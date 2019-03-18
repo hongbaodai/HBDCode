@@ -13,11 +13,8 @@
 #import "AvoidCrash.h"
 #import <Bugly/Bugly.h>
 #import "Masonry.h"
-
-
 #import "LLLockViewController.h"
 #import "DDCoverView.h"
-
 #import "MJRefresh.h"
 #import "IQKeyboardManager.h"
 #import "Udesk.h"
@@ -57,7 +54,7 @@
 #import "APPVersonModel.h"
 #import "BaseTableViewController.h"
 #import "NSDate+Setting.h"
-
+#import "uiview+Dimension.h"
 
 //clang: error: linker command failed with exit code 1 (use -v to see invocation)
 

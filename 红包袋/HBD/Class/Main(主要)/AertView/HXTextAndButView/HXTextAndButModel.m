@@ -56,6 +56,9 @@
         
     } else if (status == TextAndImgCollectPeriod) {
         [self CollectPeriod:backView strImgViewFrame:viewFrame];
+        
+    }else if (status == TextAndImgStatusProjectGrade) {
+        [self ProjcetGrade:backView strImgViewFrame:viewFrame];
     }
 }
 
@@ -137,7 +140,6 @@
     CGFloat fontNum = 12.0f;
 
     [self makeAttributeUIWith:str backView:backView strImgViewFrame:viewFrame alertStr:alertStr butImgStr:imgStr fontNum:fontNum arr:[self alertAttri]];
-//    [self makeUIWith:str backView:backView strImgViewFrame:viewFrame alertStr:alertStr butImgStr:imgStr fontNum:fontNum];
 }
 
 + (NSArray *)alertAttri
@@ -179,6 +181,34 @@
     
     [self makeUIWith:str backView:backView strImgViewFrame:viewFrame alertStr:alertStr butImgStr:imgStr fontNum:fontNum];
 }
+/*
+ *项目评级，图片+文字
+ */
++ (void)ProjcetGrade:(UIView *)backView strImgViewFrame:(CGRect)viewFrame{
+    NSString *showStr = @"项目评级";
+    NSString *showImg = @"ques";
+    NSString *alertImg = @"wapalertshow";
+    NSString *alertStr = @"注：内部评级，仅供参考";
+    [self projectGrade:showStr showView:backView showImageNamed:showImg showViewFrame:viewFrame alertImageName:alertImg alertString:alertStr];
+    
+}
+
++ (void)projectGrade:(NSString *)showStr showView:(UIView *)showView showImageNamed:(NSString *)showImg showViewFrame:(CGRect)showFrame  alertImageName:(NSString *)alertImg alertString:(NSString *)alertStr{
+    HXTextAndButStyle *style = [[HXTextAndButStyle alloc] init];
+    style.viewFrame = showFrame;
+    style.textStr = showStr;
+    style.butImgStr = alertImg;
+    style.textColor = DDColor(45, 65, 94);
+//    HXTextAndButView *view = [HXTextAndButView hxTextAndButViewWithStyle:style];
+//    view.clickBlock = ^{
+//        NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:alertStr];
+//        //[AletStrViewController creatAlertVCTopImageNamed:alertImg attributedString:attStr sureBlock:nil];
+//    };
+//    
+//    [showView addSubview:view];
+    
+}
+
 
 /** alert弹框富文本文字创建UI */
 + (void)makeAttributeUIWith:(NSString *)str backView:(UIView *)backView strImgViewFrame:(CGRect)viewFrame alertStr:(NSString *)alertStr butImgStr:(NSString *)imgStr fontNum:(CGFloat)fontNum arr:(NSArray *)arr
@@ -231,14 +261,12 @@
 /** 普通文字创建UI */
 + (void)makeUIWith:(NSString *)str backView:(UIView *)backView strImgViewFrame:(CGRect)viewFrame alertStr:(NSString *)alertStr butImgStr:(NSString *)imgStr fontNum:(CGFloat)fontNum
 {
-
     [self makeUIWith:str backView:backView strImgViewFrame:viewFrame alertStr:alertStr butImgStr:imgStr fontNum:fontNum textColor:DDColor(45, 65, 94)];
 }
 // 这个以后都改成下面的方法 :弹框里面富文本的颜色
 + (NSMutableAttributedString *)makeAttributWithStr:(NSString *)str
 {
     NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:str];
-    
     NSRange range = [str rangeOfString:@"出自"];
     if (range.length != 0) {
         [attStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:COLOUR_GRAY] range:NSMakeRange(0, str.length)];
@@ -321,5 +349,13 @@
     };
     [backView addSubview:view];
 }
+
+
+
+
+
+
+
+
 
 @end

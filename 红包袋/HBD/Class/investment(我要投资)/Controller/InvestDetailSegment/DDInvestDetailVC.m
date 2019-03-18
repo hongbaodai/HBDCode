@@ -15,6 +15,9 @@
 #import "DDProjectDetailTwoModel.h"
 #import "NSDate+Setting.h"
 #import "HXTextAndButModel.h"
+#import "HWAlertViewController.h"
+#import "HXAlertAccount.h"
+#import "DDRegisterSuccessVC.h"
 
 @interface DDInvestDetailVC ()
 
@@ -86,6 +89,8 @@
 // 还款方式
 @property (weak, nonatomic) IBOutlet UIView *reimbursementMeansView;
 
+@property (weak, nonatomic) IBOutlet UILabel *projectGrade;
+@property (weak, nonatomic) IBOutlet UIButton *projectGradeBtn;
 
 @property (nonatomic, strong) UIView *headview;
 @property (nonatomic, strong) DDInvestdInfoView *indInfoView;
@@ -107,18 +112,27 @@
         self.tableView.estimatedRowHeight = 0;
         self.tableView.estimatedSectionHeaderHeight = 0;
         self.tableView.estimatedSectionFooterHeight = 0;
-        
     }
     
     [HXTextAndButModel hxProjectItem:self.projectDesView strImgViewFrame:self.projectDesView.bounds status:TextAndImgStatusProjectDescribe];
     [HXTextAndButModel hxProjectItem:self.moneyUsedView strImgViewFrame:self.moneyUsedView.bounds status:TextAndImgStatusMoneyUsed];
     [HXTextAndButModel hxProjectItem:self.borrowerInformationView strImgViewFrame:self.borrowerInformationView.bounds status:TextAndImgStatusBorrowerInformation];
-    
     [HXTextAndButModel hxProjectItem:self.collectPeriodView strImgViewFrame:self.collectPeriodView.bounds status:TextAndImgCollectPeriod];
-
+   
     [self ininUIViews];
     
 }
+
+- (IBAction)projcectGradeAction:(UIButton *)sender {
+    HWAlertViewController *hw = [[HWAlertViewController alloc] init];
+    hw.clickBtnBlock = ^{
+        [self dismissViewControllerAnimated:NO completion:nil];
+    };
+    [self presentViewController:hw animated:NO completion:nil];
+    
+}
+
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -611,7 +625,6 @@
 - (void)investBtnClick {
     HXTabBarViewController *tabbar = (HXTabBarViewController *)self.tabBarController;
     if (!tabbar.bussinessKind) { //未登录
-
         [self presentLoginVC];
     } else {
     
@@ -628,7 +641,6 @@
     BXLoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
     loginVC.isPresentedWithMyAccount = 0;
     BXNavigationController *Nav = [[BXNavigationController alloc] initWithRootViewController:loginVC];
-    
     [self.navigationController presentViewController:Nav animated:YES completion:nil];
     
 }
@@ -665,10 +677,7 @@
     }else if (indexPath.row == 2) {
         return self.moneyUseLab.height_ +40;
     } else if (indexPath.row == 3) {
-        
-        
         return _borrowerBgVIew.height_ +50;
-   
     } else if (indexPath.row == 0) {
         return 39;
     } else {

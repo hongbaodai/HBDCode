@@ -22,8 +22,8 @@ typedef NS_ENUM(NSUInteger) {
     TextAndImgStatusSourceOfRepayment,                              // 出借详情页面：还款来源 + 问号
     TextAndImgStatusRiskControl,                                    // 出借详情页面：风险控制 + 问号
     TextAndImgStatusContract,                                       // 出借确认页面：合同、协议 + 问号
-    TextAndImgCollectPeriod                                         // 出借详情页面：募集期 + 问号
-
+    TextAndImgCollectPeriod,                                        // 出借详情页面：募集期 + 问号
+    TextAndImgStatusProjectGrade                                    //项目评级
 }TextAndImgStatus;
 
 @interface HXTextAndButModel : NSObject

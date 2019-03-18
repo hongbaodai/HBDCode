@@ -26,6 +26,7 @@
     return view;
 }
 
+
 - (instancetype)initWithFrame:(CGRect)frame style:(HXTextAndButStyle *)style dataArr:(NSArray *)dataArr
 {
     self = [super initWithFrame:frame];
@@ -43,7 +44,6 @@
 - (void)setUpUIWithSytle:(HXTextAndButStyle *)style dataArr:(NSArray *)dataArr
 {
     NSMutableAttributedString *textf = [[NSMutableAttributedString alloc] init];
-    //UIFont *font = [UIFont systemFontOfSize:style.textFont];
     UIFont *font = [UIFont boldSystemFontOfSize:style.textFont];
 
     NSMutableAttributedString *attachment = nil;
@@ -58,7 +58,6 @@
                         
             WS(weakSelf);
             [muStr yy_setTextHighlightRange:muStr.yy_rangeOfAll color:style.textColor backgroundColor:[UIColor lightGrayColor] tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
-//                NSLog(@"===%@",[text.string substringWithRange:range]);
                 NSString *str = [text.string substringWithRange:range];
                 if (weakSelf.tapTextBlock) {
                     weakSelf.tapTextBlock(str);

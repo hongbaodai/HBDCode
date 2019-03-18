@@ -110,7 +110,8 @@
     [super viewDidLoad];
     self.navigationController.delegate = self;
     self.tableview.backgroundColor = [UIColor whiteColor];
-
+    
+    
     [self initBannarView];
     [self initNoticeLabView];
     [self initViewUIs];
@@ -118,6 +119,13 @@
 
     [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CountDownNotification) name:kCountDownNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hascloselock) name:@"hascloselock" object:nil];
+    
+    
+    //插屏标志
+    //[UMessage addCardMessageWithLabel:NOTIFICATIONHOMEMARK];
+    
+    
     [kCountDownManager start];
 
     if (IS_iPhoneX) {
@@ -130,6 +138,16 @@
     }
 }
 
+- (void)hascloselock{
+    UIButton *close = [UIButton buttonWithType:UIButtonTypeCustom];
+    close.frame = CGRectMake(SCREEN_WIDTH - 50 - 5, ((SCREEN_HEIGHT - (SCREEN_WIDTH - 100)  / 4 * 5)) / 2 - 30, 30, 30);
+    //close.backgroundColor = [UIColor cyanColor];
+    close.layer.cornerRadius = 15;
+    close.layer.masksToBounds = YES;
+    [close setBackgroundImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+    [UMessage addCustomCardMessageWithPortraitSize:CGSizeMake(SCREEN_WIDTH - 100, (SCREEN_WIDTH - 100)  / 4 * 5) LandscapeSize:CGSizeZero CloseBtn:close Label:@"插屏消息" umCustomCloseButtonDisplayMode:NO];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:self.title];
@@ -139,6 +157,7 @@
     [self addRefreshStep];
     //为了定时器刷新，各种bug
     [self postLoanNewList];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {

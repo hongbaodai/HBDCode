@@ -87,12 +87,15 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"NO" forKey:@"ISLOCKVC"];
     [defaults synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hascloselock" object:nil];
+
 }
 
 #pragma mark - life cycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"" forKey:@"ISLOCKVC"];

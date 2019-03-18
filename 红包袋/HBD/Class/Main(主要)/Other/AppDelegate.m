@@ -11,10 +11,11 @@
 #import "BXNewFeatureController.h"
 #import "UIImageView+WebCache.h"
 #import "APPVersonModel.h"
-
 #import "DDAccount.h"
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
-
+#endif
+#import "CDInfo.h"
 
 @interface AppDelegate () <UIAlertViewDelegate, UIViewControllerTransitioningDelegate, LLLockGesTureDelegate, DDCoverViewDelegate, UNUserNotificationCenterDelegate>
 
@@ -51,7 +52,6 @@
     [self addNewFeature];
     [self setAppVersion];
 
-    
     return YES;
 }
 
@@ -100,6 +100,7 @@
         NSString* pswd = [LLLockPassword loadLockPassword];
         if ([defaults objectForKey:@"username"] && password.length > 0) {
             [tabBarVC loginStatusWithNumber:1];
+
             if (pswd) {
                 [self showLLLockViewController:LLLockViewTypeCheck isPresentedWithMyAccount:0];
             } else {
@@ -124,8 +125,10 @@
 - (void)umLoadFunction:(NSDictionary *)launchOptions{
 #ifdef DEBUG
     //开发者需要显式的调用此函数，日志系统才能工作
-    [UMCommonLogManager setUpUMCommonLogManager];
-    [UMConfigure setLogEnabled:YES];//设置打开日志
+    //[UMCommonLogManager setUpUMCommonLogManager];
+    //[UMConfigure setLogEnabled:YES];//设置打开日志
+    //插屏消息要打开
+    [UMessage openDebugMode:YES];
 #endif
     /** 初始化友盟所有组件产品
      @param appKey 开发者在友盟官网申请的AppKey.
@@ -136,12 +139,16 @@
 // MARK:Analytics
     [MobClick setScenarioType:E_UM_NORMAL];//支持普通场景
 
-// MARK:push
-    // Push功能配置
+// MARK:Push组件基本功能配置
     UMessageRegisterEntity *entity = [[UMessageRegisterEntity alloc] init];
     entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert|UMessageAuthorizationOptionSound;
-    //如果你期望使用交互式(只有iOS 8.0及以上有)的通知，请参考下面注释部分的初始化代码
-    if (([[[UIDevice currentDevice] systemVersion]intValue]>=8)&&([[[UIDevice currentDevice] systemVersion]intValue]<10)) {
+    if ([CDInfo isIOS10]) {//如果要在iOS10显示交互式的通知，必须注意实现以下代码
+        UNNotificationAction *action1_ios10 = [UNNotificationAction actionWithIdentifier:@"action1_identifier" title:@"打开应用" options:UNNotificationActionOptionForeground];
+        UNNotificationAction *action2_ios10 = [UNNotificationAction actionWithIdentifier:@"action2_identifier" title:@"忽略" options:UNNotificationActionOptionForeground];
+        UNNotificationCategory *category1_ios10 = [UNNotificationCategory categoryWithIdentifier:@"category1" actions:@[action1_ios10,action2_ios10]   intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
+        NSSet *categories = [NSSet setWithObjects:category1_ios10, nil];
+        entity.categories=categories;
+    }else {
         UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
         action1.identifier = @"action1_identifier";
         action1.title=@"打开应用";
@@ -158,17 +165,7 @@
         NSSet *categories = [NSSet setWithObjects:actionCategory1, nil];
         entity.categories=categories;
     }
-    //如果要在iOS10显示交互式的通知，必须注意实现以下代码
-    if ([[[UIDevice currentDevice] systemVersion]intValue]>=10) {
-        UNNotificationAction *action1_ios10 = [UNNotificationAction actionWithIdentifier:@"action1_identifier" title:@"打开应用" options:UNNotificationActionOptionForeground];
-        UNNotificationAction *action2_ios10 = [UNNotificationAction actionWithIdentifier:@"action2_identifier" title:@"忽略" options:UNNotificationActionOptionForeground];
-        //UNNotificationCategoryOptionNone
-        //UNNotificationCategoryOptionCustomDismissAction  清除通知被触发会走通知的代理方法
-        //UNNotificationCategoryOptionAllowInCarPlay       适用于行车模式
-        UNNotificationCategory *category1_ios10 = [UNNotificationCategory categoryWithIdentifier:@"category1" actions:@[action1_ios10,action2_ios10]   intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
-        NSSet *categories = [NSSet setWithObjects:category1_ios10, nil];
-        entity.categories=categories;
-    }
+    
     [UNUserNotificationCenter currentNotificationCenter].delegate = self;
     [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:entity completionHandler:^(BOOL granted, NSError * _Nullable error) {
         if (granted) {
@@ -178,27 +175,24 @@
         }else{
         }
     }];
+    
+    
 }
 
-
 // 友盟分享
-- (void)uMengShare
-{
-
+- (void)uMengShare{
     [self configUSharePlatforms];
     [self confitUShareSettings];
 }
 
-- (void)confitUShareSettings
-{
+- (void)confitUShareSettings{
     /*
      * 打开图片水印
      */
     //[UMSocialGlobal shareInstance].isUsingWaterMark = YES;
 }
 
-- (void)configUSharePlatforms
-{
+- (void)configUSharePlatforms{
     /*
      设置微信的appKey和appSecret
      [微信平台从U-Share 4/5升级说明]http://dev.umeng.com/social/ios/%E8%BF%9B%E9%98%B6%E6%96%87%E6%A1%A3#1_1
@@ -208,8 +202,7 @@
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatTimeLine appKey:WXAPPID appSecret:WXAPPSECRET redirectURL:@"https://www.hongbaodai.com"];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
+- (void)applicationDidEnterBackground:(UIApplication *)application{
     //手势锁相关
     self.oldDate = [NSDate date];
     //推送相关
@@ -222,14 +215,12 @@
     __block UIBackgroundTaskIdentifier background_task;
     //注册一个后台任务，告诉系统我们需要向系统借一些事件
     background_task = [application beginBackgroundTaskWithExpirationHandler:^ {
-        
         //不管有没有完成，结束background_task任务
         [application endBackgroundTask: background_task];
         background_task = UIBackgroundTaskInvalid;
     }];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
         //根据需求 开启／关闭 通知
         [UdeskManager startUdeskPush];
     });
@@ -362,9 +353,7 @@
         self.lockVc.isPresentedWithMyAccount = isPresentedWithMyAccount;
         self.lockVc.nLockViewType = type;
 
-        
         self.lockVc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        
         [self.window.rootViewController presentViewController:self.lockVc animated:YES completion:^{
         }];
         if (isPresentedWithMyAccount == 1)
@@ -417,18 +406,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
-#pragma mark - 设置推送服务相关
-// 接收自定义消息
-- (void)networkDidReceiveMessage:(NSNotification *)notification {
-    //    NSDictionary * userInfo = [notification userInfo];
-    //    NSString *content = [userInfo valueForKey:@"content"];
-    //    NSDictionary *extras = [userInfo valueForKey:@"extras"];
-    //    NSString *customizeField1 = [extras valueForKey:@"customizeField1"]; //自定义参数，key是自己定义的
-
-}
-
-
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Required
     [UdeskManager registerDeviceToken:deviceToken];
@@ -438,42 +415,17 @@
 
 }
 
-#pragma mark- JPUSHRegisterDelegate
-
-// iOS 10 Support
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
-    // Required
-    NSDictionary * userInfo = notification.request.content.userInfo;
-    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-//        [JPUSHService handleRemoteNotification:userInfo];
-    }
-    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
-}
-
-// iOS 10 Support
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
-    // Required
-    NSDictionary * userInfo = response.notification.request.content.userInfo;
-    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-//        [JPUSHService handleRemoteNotification:userInfo];
-    }
-    completionHandler();  // 系统要求执行这个方法
-}
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-
-    //completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 
 }
 
-
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
 
 }
-
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
     [[UIApplication sharedApplication] registerForRemoteNotifications];

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fcy-gQ-zIK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fcy-gQ-zIK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -603,7 +603,7 @@
                                                     <color key="textColor" red="1" green="0.63137254899999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目评级" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUg-Fh-UdO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目评级" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUg-Fh-UdO">
                                                     <rect key="frame" x="10" y="10" width="49.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.1764705882" green="0.25490196079999999" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -617,6 +617,14 @@
                                                         <constraint firstAttribute="height" constant="25" id="l5y-tI-rgQ"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kZ-25-YsW">
+                                                    <rect key="frame" x="69.5" y="0.0" width="52" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="Button" image="ques"/>
+                                                    <connections>
+                                                        <action selector="projcectGradeAction:" destination="fcy-gQ-zIK" eventType="touchUpInside" id="Hz0-PN-zyM"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="PQH-qE-uih" firstAttribute="centerY" secondItem="hTz-Tm-nHI" secondAttribute="centerY" id="2py-zM-7OS"/>
@@ -624,6 +632,8 @@
                                                 <constraint firstItem="GhN-5T-5Px" firstAttribute="top" secondItem="YUg-Fh-UdO" secondAttribute="bottom" constant="8" id="Fnc-ST-pH2"/>
                                                 <constraint firstItem="YUg-Fh-UdO" firstAttribute="leading" secondItem="hTz-Tm-nHI" secondAttribute="leading" constant="10" id="IAY-p5-c6x"/>
                                                 <constraint firstAttribute="trailing" secondItem="PQH-qE-uih" secondAttribute="trailing" constant="10" id="NrD-Ow-acb"/>
+                                                <constraint firstItem="0kZ-25-YsW" firstAttribute="leading" secondItem="YUg-Fh-UdO" secondAttribute="trailing" constant="10" id="S0i-u8-uMH"/>
+                                                <constraint firstItem="0kZ-25-YsW" firstAttribute="centerY" secondItem="hTz-Tm-nHI" secondAttribute="top" constant="17" id="WyT-TR-D7K"/>
                                                 <constraint firstItem="YUg-Fh-UdO" firstAttribute="top" secondItem="hTz-Tm-nHI" secondAttribute="top" constant="10" id="qg3-QM-KdA"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -664,6 +674,8 @@
                         <outlet property="percentStyleLab" destination="0Fp-1y-ZKQ" id="ohq-Bd-gFO"/>
                         <outlet property="personnelLab" destination="it7-VN-gg0" id="SEV-MY-oCv"/>
                         <outlet property="projectDesView" destination="ohY-2h-Yar" id="VOI-0j-K56"/>
+                        <outlet property="projectGrade" destination="YUg-Fh-UdO" id="VZ7-CK-nzl"/>
+                        <outlet property="projectGradeBtn" destination="0kZ-25-YsW" id="wRK-l2-l1Q"/>
                         <outlet property="projectLab" destination="5WG-mi-g17" id="qef-u5-Lxc"/>
                         <outlet property="projectType" destination="7Io-sJ-f8Y" id="pgI-1f-itQ"/>
                         <outlet property="regMoneyLab" destination="djC-uf-eLC" id="O5G-LL-npP"/>
@@ -678,4 +690,7 @@
             <point key="canvasLocation" x="-167.19999999999999" y="54.422788605697157"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ques" width="14" height="14"/>
+    </resources>
 </document>

@@ -39,5 +39,10 @@
  */
 + (instancetype)creatAlertStrWithStr:(NSString *)str sureBlock:(void(^)(void))surevcBlock;
 
+/*
+ *图片+文字
+ */
++ (instancetype)creatAlertVCTopImageNamed:(NSString *)img attributedString:(NSAttributedString *)attrStr sureBlock:(void(^)(void))sureBlock;
+
 
 @end

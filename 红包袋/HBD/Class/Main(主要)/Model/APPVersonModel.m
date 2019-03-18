@@ -32,16 +32,10 @@
  app版本进行更新
  */
 
-- (void)APPVersionInfor
-{
-    [self asyncGroup];
-}
-
-- (void)asyncGroup
-{
+- (void)APPVersionInfor{
     dispatch_queue_t gloabalQueue = dispatch_get_global_queue(0, 0);
     group = dispatch_group_create();
-   
+    
     dispatch_group_enter(group);
     dispatch_group_async(group, gloabalQueue, ^{
         [self getAppStoreInfomation];
@@ -55,6 +49,7 @@
         [self showVersionMegWithVersion:versonStr WithISImpottent:isImportVerson];
     });
 }
+
 
 // 获取AppStore信息
 - (void)getAppStoreInfomation
