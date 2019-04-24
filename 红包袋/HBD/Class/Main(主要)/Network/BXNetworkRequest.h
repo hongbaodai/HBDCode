@@ -59,7 +59,7 @@
 // 成功回调block
 typedef void (^BXNetworkRequestSuccessBlock)(id responseObject);
 // 重新发送成功回调black
-typedef void (^BXReNetworkRequestSuccessBlock)(id responseObject);;
+typedef void (^BXReNetworkRequestSuccessBlock)(id responseObject);
 
 
 
