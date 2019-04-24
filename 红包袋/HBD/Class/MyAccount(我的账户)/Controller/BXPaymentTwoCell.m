@@ -7,11 +7,14 @@
 //
 
 #import "BXPaymentTwoCell.h"
+#import "CDInfo.h"
+#import "Masonry.h"
 
 @implementation BXPaymentTwoCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.showArrow.image = [UIImage imageNamed:@"downArrow"];
     self.bottomView.hidden = YES;
     self.separationView.hidden = YES;
 }
@@ -24,9 +27,7 @@
 
 - (void)fillInWithPaymentModel:(BXPaymentModel *)model{
     
-    if (model.JXLL == nil
-        || [model.JXLL isEqualToString:@""]
-        || [model.JXLL isEqualToString:@"0"]) {
+    if (model.JXLL == nil || [model.JXLL isEqualToString:@""] || [model.JXLL isEqualToString:@"0"]) {
         self.jiaxiView.hidden = YES;
         self.jiaxiLab.text = @"";
     } else {
@@ -59,37 +60,54 @@
         }else if([model.zt integerValue] == 0){
             if ([self compareTodayWithTradeTime:model.tradeTime] == 1) {  //逾期
                 self.typeImageView.image = [UIImage imageNamed:@"calendar_yuqi"];
+                if (model.isPartPayment) {
+                    self.typeImageView.image = [UIImage imageNamed:@"yuqibufenhuikuan"];
+                }
             }else{  //未回
-                self.typeImageView.image = [UIImage imageNamed:@"calendar_weihui"];
+               self.typeImageView.image = [UIImage imageNamed:@"calendar_weihui"];
+                if (model.isPartPayment) {
+                    self.typeImageView.image = [UIImage imageNamed:@"bufenhuikuan"];
+                    //当天时间小于交易
+                    if ([self compareTodayWithTradeTime:model.tradeTime] == -1) {
+                        self.typeImageView.image = [UIImage imageNamed:@"weihuibufenhuikuan"];
+                    }
+                }
             }
         }
     }
-    // 金额&&本期本息
-    if (model.amount) {
-        self.amoutLabel.text = [NSString stringWithFormat:@"￥%.2lf",[model.amount doubleValue]];
-        self.label3.text = [NSString stringWithFormat:@"￥%.2lf",[model.amount doubleValue]];
-    }else{
-        self.amoutLabel.text = @"￥0.00";
-        self.label3.text = @"￥0.00";
-    }
+    
     // 出借金额
     if (model.tzje) {
         self.label1.text = [NSString stringWithFormat:@"￥%.2lf",[model.tzje doubleValue]];
     }else{
         self.label1.text = @"￥0.00";
     }
-    // 回款进度 
-    if (model.hkjd) {
-        self.label2.text = model.hkjd;
+    
+    // 金额&&本期本息
+    if (model.amount) {
+        self.label3.text = [NSString stringWithFormat:@"￥%.2lf",[model.amount doubleValue]];
     }else{
-        self.label2.text = @"0/0";
+        self.label3.text = @"￥0.00";
+    }
+    
+    if (model.repayAmount) {
+        self.label2.text = [NSString stringWithFormat:@"￥%.2lf",[model.repayAmount doubleValue]];
+    }else {
+        self.label2.text = @"￥0.00";
+    }
+    // 回款进度
+    if (model.hkjd) {
+        self.label4.text = model.hkjd;
+    }else{
+        self.label4.text = @"0/0";
     }
     // 利率
     if (model.nh) {
-        self.label4.text = [NSString stringWithFormat:@"%g%%",[model.nh doubleValue]];
+        self.label5.text = [NSString stringWithFormat:@"%g%%",[model.nh doubleValue]];
     }else{
-        self.label4.text = @"0%";
+        self.label5.text = @"0%";
     }
+    
 }
 
 // 比较日期大小
@@ -99,9 +117,7 @@
     NSDate *today = [NSDate date];
     NSString *todayStr = [formatter stringFromDate:today];
     NSDate *today1 = [formatter dateFromString:todayStr];
-    
     NSDate *date1 = [formatter dateFromString:date];
-    
     NSComparisonResult result = [today1 compare:date1];
     
     if (result == NSOrderedDescending) {
@@ -119,16 +135,15 @@
         //如果是展开
         if (open == YES) {
             //xxxxxx
+            self.showArrow.image = [UIImage imageNamed:@"upArrow"];
             self.bottomView.hidden = NO;
             self.separationView.hidden = NO;
         } else {
             //收起
+            self.showArrow.image = [UIImage imageNamed:@"downArrow"];
             self.bottomView.hidden= YES;
             self.separationView.hidden = YES;
         }
-        //不是自身
-    } else {
-        
     }
 }
 

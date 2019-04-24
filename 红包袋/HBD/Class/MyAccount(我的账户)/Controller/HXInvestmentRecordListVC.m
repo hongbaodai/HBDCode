@@ -116,7 +116,6 @@
     [[BXNetworkRequest defaultManager] postWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
         [MBProgressHUD hideHUD];
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
-        
         [self endRefresh];
 
         if ([dict[@"body"][@"resultcode"] integerValue] != 0) return ;

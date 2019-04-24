@@ -114,11 +114,8 @@
     [self endPosition];
 }
 
-
 #pragma mark - 绘制连线
-- (void)drawRect:(CGRect)rect
-{
-    LLLog(@"drawRect - %@", [NSString stringWithFormat:@"%d", isWrongColor]);
+- (void)drawRect:(CGRect)rect{
     
     if (selectedButtonArray.count > 0) {
         CGContextRef context = UIGraphicsGetCurrentContext();
@@ -160,23 +157,14 @@
 - (void)updateFingerPosition:(CGPoint)point{
     
     nowPoint = point;
-    
-    //    LLLog(@"point x=%f, y=%f", point.x, point.y);
-    
     for (UIButton *thisbutton in buttonArray) {
-        CGFloat xdiff =point.x-thisbutton.center.x;
-        CGFloat ydiff=point.y - thisbutton.center.y;
-        
-        if (fabs(xdiff) <36 &&fabs (ydiff) <36){
-            
-            //            LLLog(@"now point is %d th",thisbutton.tag-kLLBaseCircleNumber);
-            //             LLLog(@"%@", [resulttext.text stringByAppendingString:resulttext.text]);
-            
+        CGFloat xdiff = point.x - thisbutton.center.x;
+        CGFloat ydiff = point.y - thisbutton.center.y;
+        if (fabs(xdiff) < 36 &&fabs (ydiff) < 36){
             // 未选中的才能加入
             if (!thisbutton.selected) {
                 thisbutton.selected = YES;
                 [selectedButtonArray  addObject:thisbutton];
-                
                 UIButton *strbutton;
                 NSString *string=@"";
                 
@@ -193,14 +181,12 @@
         }
     }
     [self setNeedsDisplay];
-    
     //    [self addstring]; // 可以用来划完后自动解锁，不用松开手指
 }
 
 - (void)endPosition
 {
     isDrawing = NO;
-    
     UIButton *strbutton;
     NSString *string=@"";
     
@@ -211,18 +197,11 @@
     }
     
     [self clearColorAndSelectedButton]; // 清除到初始样式
-    
     if ([self.delegate respondsToSelector:@selector(lockString:)]) {
-        if (string && string.length>0) {
+        if (string && string.length > 0) {
             [self.delegate lockString:string];
         }
     }
-    
-    LLLog(@"addstring end Position");
-    //    [self addstring]; // 委托上一界面去处理
-    
-    LLLog(@"end Position");
-    
 }
 
 // 清除至初始状态
@@ -235,7 +214,6 @@
         for (UIButton* button in buttonArray) {
             [button setBackgroundImage:[UIImage imageNamed:@"circle_selected"] forState:UIControlStateSelected];
         }
-        
     }
 }
 

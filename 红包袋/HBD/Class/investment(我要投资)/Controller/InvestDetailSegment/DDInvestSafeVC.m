@@ -65,7 +65,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
 //    [self setupPhotoView];
     photoCLArr_ = [NSMutableArray array];
     photoBZArr_ = [NSMutableArray array];
@@ -76,7 +75,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [self postLoanDetailWithLoanId:self.loanId];
 }
 

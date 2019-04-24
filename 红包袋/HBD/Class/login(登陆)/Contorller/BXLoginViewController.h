@@ -32,9 +32,10 @@ typedef NS_ENUM(NSUInteger, DDLoginStyle) {
 //@property (nonatomic, assign)BOOL haveBackBar;
 // 判断是否从我的账户弹出
 @property (nonatomic, assign)BOOL isPresentedWithMyAccount;
-// 判断是否是从手势页面弹出
+// 判断是否是从手势页面弹出的登陆
 @property (nonatomic, assign)BOOL isPresentedWithLockVC;
-
+//判断是否跳转邀请好友页面
+@property (nonatomic, assign) BOOL isShowFriendVC;
 
 @property (nonatomic, weak) id<LoginVCDelegate> LoginDelegate;
 

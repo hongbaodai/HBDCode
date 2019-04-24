@@ -32,22 +32,16 @@
     lockViewVC.GestureDelegate = self;
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *pswd = [ud objectForKey:@"lock"];
-    
-    if (pswd == nil
-        || [pswd isEqualToString:@""]
-        || [pswd isEqualToString:@"(null)"]) {
-        
+    if (pswd == nil || [pswd isEqualToString:@""] || [pswd isEqualToString:@"(null)"]) {
         lockViewVC.nLockViewType = LLLockViewTypeCreate;
         lockViewVC.isHidenButton = YES;
     } else {
-        
         lockViewVC.nLockViewType = LLLockViewTypeModify;
     }
     lockViewVC.isFromChangePwd = YES;
     lockViewVC.transitioningDelegate = self;
     lockViewVC.modalPresentationStyle = UIModalPresentationCustom;
     lockViewVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    
     [self.navigationController presentViewController:lockViewVC animated:NO completion:nil];
 }
 
@@ -56,12 +50,9 @@
     AppDelegate* dele = (AppDelegate*)[UIApplication sharedApplication].delegate;
     HXTabBarViewController *tabBarVC = (HXTabBarViewController *)dele.window.rootViewController;
     [tabBarVC loginStatusWithNumber:4];
-    
     if([type isEqualToString:@"修改密码成功"]){
-        //        tabBarVC.selectedIndex = 3;
         [self.navigationController popToRootViewControllerAnimated:YES];
     } else if ([type isEqualToString:@"取消登录状态"]){
-        
         tabBarVC.selectedIndex = 0;
     }
 }

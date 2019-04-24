@@ -57,7 +57,6 @@
 
 
 - (void)fhBtnClick{
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -66,18 +65,17 @@
     if (_phoneTxf.text.length == 0) {
         _tipLab.text = @"";
     }
-    
 }
 
 - (void)nextBtnClick {
    
     if ([self canSubmitGo]) {
-        
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDRegisterTwoVC" bundle:nil];
         DDRegisterTwoVC *vc = [sb instantiateInitialViewController];
         vc.phoneNum = self.phoneTxf.text;
         [self.navigationController pushViewController:vc animated:YES];
     }
+
 }
 
 

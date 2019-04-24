@@ -31,5 +31,7 @@
 @property (nonatomic, copy) NSString *nextTotalAmount;
 // 下期还款时间
 @property (nonatomic, copy) NSString *nextRepayDate;
+// 已收款资金
+@property (nonatomic, copy) NSString *receivedAmount;
 
 @end

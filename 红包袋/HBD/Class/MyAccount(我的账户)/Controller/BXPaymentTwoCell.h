@@ -16,15 +16,19 @@
 // 类型图标
 @property (weak, nonatomic) IBOutlet UIImageView *typeImageView;
 // 右侧金额
-@property (weak, nonatomic) IBOutlet UILabel *amoutLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *amoutLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *showArrow;
+
 // 出借金额
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 // 回款进度
-@property (weak, nonatomic) IBOutlet UILabel *label2;
-// 本期本息
 @property (weak, nonatomic) IBOutlet UILabel *label3;
+// 本期本息
+@property (weak, nonatomic) IBOutlet UILabel *label2;
 // 利率
 @property (weak, nonatomic) IBOutlet UILabel *label4;
+//预期年化
+@property (weak, nonatomic) IBOutlet UILabel *label5;
 
 // 底视图
 @property (weak, nonatomic) IBOutlet UIView *bottomView;

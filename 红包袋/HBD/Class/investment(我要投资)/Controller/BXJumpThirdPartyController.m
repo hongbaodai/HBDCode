@@ -135,9 +135,7 @@
         info.dataParam = @{@"ordId":@""};
     }
     
-    
     [[BXNetworkRequest defaultManager] getWithWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
-        
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
         
         NSString *status = dict[@"body"][@"trade"][@"JYZT"];
@@ -189,9 +187,6 @@
     }
 }
 
-- (void)dealloc {
-    
-}
 
 #pragma mark - view视图方法
 -(void)viewWillAppear:(BOOL)animated
@@ -205,7 +200,6 @@
     }else{
         [self addTimer];
     }
-    
     [self.navigationController.navigationBar addSubview:_progressView];
 }
 

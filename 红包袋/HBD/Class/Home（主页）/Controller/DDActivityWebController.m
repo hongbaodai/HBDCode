@@ -30,9 +30,9 @@
 
 #pragma mark life cycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
+    NSLog(@"imgUrlStr----%@======webDetailStr=======%@", self.imgUrlStr, self.webUrlStr);
     if (self.webTitleStr != nil && ![self.webTitleStr isEqualToString:@""]) {
         self.title = self.webTitleStr;
     } else {
@@ -47,12 +47,9 @@
     _textStr = _webTitleStr;
 
     if (self.imgUrlStr) {
-        
         NSString *urlstr = [self.imgUrlStr stringByReplacingOccurrencesOfString:@" " withString:@""];//去空格处理
         NSString *url_str = [NSString stringWithString:[urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-        
         NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url_str]];
-        
         self.webImg = [UIImage imageWithData:data];
     }
     
@@ -61,13 +58,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:self.title];
-    
     [self setNavgationColorNormalr];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [MobClick endLogPageView:self.title];
-    
     [self setNavgationColorNormalr];
 }
 
@@ -78,8 +73,7 @@
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
 
--(void)addRightBarItem
-{
+-(void)addRightBarItem{
     UIButton*rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,25,25)];
     [rightButton setImage:IMG(@"share_dian") forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(addShare)forControlEvents:UIControlEventTouchUpInside];
@@ -205,25 +199,11 @@
     //调用分享接口
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
         if (error) {
-            UMSocialLogInfo(@"************Share fail with error %@*********",error);
-
         }else{
-            
             if ([data isKindOfClass:[UMSocialShareResponse class]]) {
-                
-//                UMSocialShareResponse *resp = data;
-                //分享结果消息
-//                UMSocialLogInfo(@"response message is %@",resp.message);
-//                //第三方原始返回的数据
-//                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
-                
                 [self didSuccese];
-                
-            }else{
-                UMSocialLogInfo(@"response data is %@",data);
             }
         }
-        //            [self alertWithError:error];
     }];
 }
 
@@ -244,10 +224,7 @@
 #pragma mark - webview
 
 - (void)initWebview {
-//    self.webUrlStr = @"http://test.hongbaodai.com:23081/#/septemberActives2018?hidden=1";
-
     _webUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.webUrlStr]];
-
     NSURLRequest *request = [NSURLRequest requestWithURL:_webUrl];
     [self.webView loadRequest:request];
     self.webView.delegate = self;
@@ -296,16 +273,15 @@
 
 #pragma mark - JSExport Methods
 /** 弹出登录界面 */
-- (void)pushLoginVc
-{
+- (void)pushLoginVc{
     //此方法需要在主线程，不然登录后点出借崩溃
     dispatch_async(dispatch_get_main_queue(), ^{
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BXLoginView" bundle:nil];
         BXLoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         loginVC.isPresentedWithMyAccount = 0;
         BXNavigationController *Nav = [[BXNavigationController alloc] initWithRootViewController:loginVC];
-        
         [self.navigationController presentViewController:Nav animated:YES completion:nil];
+        //[self.navigationController pushViewController:loginVC animated:YES];
     });
 }
 
@@ -334,13 +310,12 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSNumber *num = [defaults objectForKey:DDKeyLoginState];
         int numint = [num intValue];
-        
         if (numint == 1) {
             [tabBarVC loginStatusWithNumber:3];
         } else {
             [tabBarVC loginStatusWithNumber:0];
         }
-        
+
         tabBarVC.selectedIndex = 1;
     });
 }
@@ -352,10 +327,10 @@
 
         HXTabBarViewController *tabbar = (HXTabBarViewController *)self.tabBarController;
         if (!tabbar.bussinessKind) {
-            
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BXLoginView" bundle:nil];
             BXLoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
             loginVC.loginStyle = DDLoginStyleDec;
+            NSLog(@"qqqqqqqq========%@", tabbar.viewControllers);
             BXNavigationController *Nav = [[BXNavigationController alloc] initWithRootViewController:loginVC];
             [self presentViewController:Nav animated:YES completion:nil];
             

@@ -69,6 +69,7 @@
     self.segDetailVC.navController = self.navigationController;
     self.segSafeVC.navController = self.navigationController;
     self.segRecordVC.navController = self.navigationController;
+    
     [self postUserBankCardInfo]; //用户信息
     [self addUIinvestBtn];
     if (self.loanID) {
@@ -80,7 +81,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
     [self.investView removeFromSuperview];
     [self.investBtn removeFromSuperview];
     
@@ -88,14 +88,11 @@
 
 #pragma mark init
 - (void)addUIinvestBtn {
-    self.investView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT- 108 - 2, SCREEN_WIDTH, 54 + 2)];
-    self.investView.backgroundColor = [UIColor whiteColor];
+    self.investView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT- 108 - 2, SCREEN_WIDTH, 46 + 2)];
+    self.investView.backgroundColor = [UIColor cyanColor];
     if (IS_iPhoneX) {
         self.investView.frame = CGRectMake(0, SCREEN_HEIGHT-46, SCREEN_WIDTH, 46);
     }
-    //_investView.backgroundColor = [UIColor clearColor];
-    //    [self.tabBarController.view addSubview:_investView];
-
     [self.view addSubview:self.investView];
     [self.view bringSubviewToFront:self.investView];
 
@@ -178,13 +175,10 @@
 //创建组控制器
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     if (index == 0) {
-        
         return self.segDetailVC;
     } else if (index == 1) {
-        
         return self.segSafeVC;
     } else  {
-        
         return self.segRecordVC;
     }
 }
@@ -193,7 +187,6 @@
     switch (component) {
         case ViewPagerIndicator://Tab状态条颜色
             return [UIColor clearColor];
-            //            return [UIColor greenColor];
             break;
         case ViewPagerTabsView://Tab底色
             return [UIColor clearColor];

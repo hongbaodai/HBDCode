@@ -21,30 +21,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     
     [self configSubViews];
     
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
 - (void)configSubViews {
     //图片540x680
-    CGFloat width = SCREEN_WIDTH / 375 * 540 / 2;
-    CGFloat height = width / 540 * 680;
+    CGFloat width = SCREEN_WIDTH / 375 * 511 / 2;
+    CGFloat height = width / 511 * 617;
     
-    self.backGroundV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width + 30, height + 14 + 10 + 40)];
+    self.backGroundV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width + 30, 10 + height + 10 + 14 + 10 + 40)];
     self.backGroundV.backgroundColor = [UIColor whiteColor];
     self.backGroundV.layer.cornerRadius = 10;
     self.backGroundV.layer.masksToBounds = YES;
     self.backGroundV.center = self.view.center;
     [self.view addSubview:self.backGroundV];
     
-    self.topImgV = [[UIImageView alloc] initWithFrame:CGRectMake((self.backGroundV.width - width) / 2, 0, width, height)];
+    self.topImgV = [[UIImageView alloc] initWithFrame:CGRectMake((self.backGroundV.width - width) / 2, 10, width, height)];
     self.topImgV.image = [UIImage imageNamed:@"wapalertshow"];
     [self.backGroundV addSubview:self.topImgV];
     
-    self.remindLab = [[UILabel alloc] initWithFrame:CGRectMake(self.topImgV.left, self.topImgV.bottom, width, 14)];
+    self.remindLab = [[UILabel alloc] initWithFrame:CGRectMake(self.topImgV.left, self.topImgV.bottom + 10, width, 14)];
     self.remindLab.text = @"注：内部评级，仅供参考";
     self.remindLab.font = [UIFont systemFontOfSize:14];
     self.remindLab.textColor = [CHUtil colorWithHexString:COLOUR_GRAY];

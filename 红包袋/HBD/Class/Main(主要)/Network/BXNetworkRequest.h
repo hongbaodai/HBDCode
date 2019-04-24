@@ -35,9 +35,10 @@
 //#define DDWEBURL          @"http://test1.hongbaodai.com:43080"
 
 //=========================================
-//mac
-//zhw-mi
-
+//部分还款：http://192.168.1.125:29083      http://dev.hongbaodai.com:29083
+//#define BXNETURL          @"http://192.168.1.125:29083"
+//#define DDWEBURL          @"http://192.168.1.125:29083"
+//#define DDNEWWEBURL       @"http://192.168.1.125:29083/#"
 
 //===============生产环境===================
 //#define BXNETURL               @"https://service.hongbaodai.com"

@@ -9,10 +9,11 @@
 #import "LLLockViewController.h"
 #import "LLLockIndicator.h"
 #import "BXLoginViewController.h"
+#import "DDInviteFriendVc.h"
+#import "DDActivityWebController.h"
 
 #define kTipColorNormal [UIColor whiteColor]
 #define kTipColorError [UIColor colorWithHexString:COLOUR_YELLOW]
-#define kPushToLogin @"pushToLogin"
 
 @interface LLLockViewController ()<LoginVCDelegate,UIAlertViewDelegate,CAAnimationDelegate>
 {
@@ -44,8 +45,7 @@
 
 @implementation LLLockViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -56,8 +56,7 @@
     return self;
 }
 
-- (id)initWithType:(LLLockViewType)type
-{
+- (id)initWithType:(LLLockViewType)type{
     self = [super init];
     if (self) {
         _nLockViewType = type;
@@ -66,36 +65,28 @@
     return self;
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle
-{
+-(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - view视图方法
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
     [self setNeedsStatusBarAppearanceUpdate];
     [self changeType];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"NO" forKey:@"ISLOCKVC"];
     [defaults synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"hascloselock" object:nil];
-
 }
 
 #pragma mark - life cycle
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"" forKey:@"ISLOCKVC"];
@@ -108,7 +99,7 @@
     if (_isFromChangePwd == YES) {
         [self makeBackBtn];
     }
-    if (_nLockViewType==LLLockViewTypeCreate) {
+    if (_nLockViewType == LLLockViewTypeCreate) {
         self.titleLable.hidden = YES;
         self.leftBtn.hidden = YES;
         self.leftBtn.userInteractionEnabled = NO;
@@ -116,13 +107,11 @@
         self.rightBtn.userInteractionEnabled = NO;
     }
     
-    if (_nLockViewType==LLLockViewTypeCheck) {
+    if (_nLockViewType == LLLockViewTypeCheck) {
         if (_isFromForeground == YES) {
             [self authenTouchID];
         }else{
-            //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self authenTouchID];
-            //            });
         }
     }
 }
@@ -137,7 +126,7 @@
     context.localizedFallbackTitle = @"";
     
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]){
-        if ([[[NSUserDefaults standardUserDefaults]objectForKey:BXTouchIDEnabe] isEqual:@"yes"]) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:BXTouchIDEnabe] isEqual:@"yes"]) {
             [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
                     localizedReason:@"通过验证指纹解锁红包袋"  // 提示文字
                               reply:^(BOOL success, NSError *error) {
@@ -236,7 +225,6 @@
     self.rightBtn.userInteractionEnabled = NO;
     // 隐藏标题
     self.titleLable.hidden = YES;
-    
     [self.view addSubview:backBtn];
 }
 
@@ -246,11 +234,8 @@
     WS(weakSelf);
     [AppUtils alertWithVC:self  title:nil messageStr:@"忘记手势密码，请重新登录。" enSureStr:@"重新登录" cancelStr:@"取消" enSureBlock:^{
         [weakSelf showTabBarViewWithdataType:LLLockViewTypeNext];
-        // 给home传一个变量，那边判断要不要弹出登录页面
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:@"1" forKey:kPushToLogin];
-        
     } cancelBlock:^{
+        
     }];
 }
 
@@ -263,7 +248,6 @@
     loginVC.isPresentedWithLockVC = 1;
     loginVC.LoginDelegate = self;
     BXNavigationController *Nav = [[BXNavigationController alloc] initWithRootViewController:loginVC];
-    
     [self presentViewController:Nav animated:YES completion:nil];
 }
 
@@ -297,40 +281,26 @@
     // 初始化内容
     switch (_nLockViewType) {
             // 每次进入
-        case LLLockViewTypeCheck:
-        {
+        case LLLockViewTypeCheck:{
             _tipLable.text = @"请输入手势密码";
-            //            [_tipButton setTitle:@"忘记密码" forState:UIControlStateNormal];
         }
             break;
         case LLLockViewTypeCreate:
         {
-            if (_isHidenButton == YES)
-            {
+            if (_isHidenButton == YES) {
                 _tipLable.text = @"绘制手势密码";
-                //                [_tipButton setTitle:@"" forState:UIControlStateNormal];
-                //                _tipButton.userInteractionEnabled = NO;
-            }
-            else
-            {
+            }else{
                 _tipLable.text = @"绘制手势密码";
-                //                [_tipButton setTitle:@"下次再设置手势密码" forState:UIControlStateNormal];
             }
-            
-            
         }
             break;
             
-        case LLLockViewTypeModify:
-        {
+        case LLLockViewTypeModify:{
             _tipLable.text = @"请输入原有密码";
-            //            [_tipButton setTitle:@"用登陆密码验证" forState:UIControlStateNormal];
         }
             break;
-            
         case LLLockViewTypeClean:
-        default:
-        {
+        default:{
             _tipLable.text = @"请输入密码以清除密码";
         }
     }
@@ -338,9 +308,7 @@
     if(![[NSUserDefaults standardUserDefaults] objectForKey:@"RetryTimes"])
     {
         NSString *str = [NSString stringWithFormat:@"%d",LLLockRetryTimes];
-        
         [[NSUserDefaults standardUserDefaults] setObject:str forKey:@"RetryTimes"];
-        
         // 尝试机会
         nRetryTimesRemain = LLLockRetryTimes;
     }
@@ -407,36 +375,19 @@
         
         // 尝试机会
         nRetryTimesRemain = times;
-        
-        
         nRetryTimesRemain--;
         
         NSString *str = [NSString stringWithFormat:@"%d",nRetryTimesRemain];
         
         [[NSUserDefaults standardUserDefaults] setObject:str forKey:@"RetryTimes"];
         
-        
-        
         if (nRetryTimesRemain > 0) {
-            
-            //            if (1 == nRetryTimesRemain) {
-            //                [self setErrorTip:[NSString stringWithFormat:@"最后一次机会，输入错误将退出登录状态"]
-            //                        errorPswd:string];
-            //            } else {
-            //
-            //            }
             [self setErrorTip:[NSString stringWithFormat:@"密码错误，您还可以输入%d次", nRetryTimesRemain]
                     errorPswd:string];
             
         } else {
             [self setErrorTip:[NSString stringWithFormat:@"密码错误，您还可以输入0次"]
                     errorPswd:string];
-            
-            //            WS(weakSelf);
-            //            [AppUtils alertWithVC:self  title:nil messageStr:@"您已经连续5次输错手势密码，手势锁已关闭，请重新登录。" enSureBlock:^{
-            //                [weakSelf showTabBarViewWithdataType:LLLockViewTypeNext];
-            //
-            //            }];
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您已经连续5次输错手势密码，手势锁已关闭，请重新登录。" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
             [alert show];
@@ -451,7 +402,6 @@
 {
     if (buttonIndex == 0) {
         [self showTabBarViewWithdataType:LLLockViewTypeNext];
-        
     }
 }
 
@@ -470,16 +420,10 @@
     }
     // 确认输入密码
     else if (![self.passwordNew isEqualToString:@""] && [self.passwordconfirm isEqualToString:@""]) {
-        
         self.passwordconfirm = string;
-        
         if ([self.passwordNew isEqualToString:self.passwordconfirm]){
             // 成功
-            //            LLLog(@"两次密码一致");
-            
             [LLLockPassword saveLockPassword:string];
-            
-            //            [self showAlert:self.tip3];
             [self setTip:self.tip3];
             self.lockview.userInteractionEnabled = NO;
             
@@ -604,12 +548,11 @@
     [_tipLable setTextColor:kTipColorNormal];
     
     _tipLable.alpha = 0;
-    [UIView animateWithDuration:0.8
-                     animations:^{
+    [UIView animateWithDuration:0.8 animations:^{
                          _tipLable.alpha = 1;
-                     }completion:^(BOOL finished){
-                     }
-     ];
+    }completion:^(BOOL finished){
+        
+    }];
 }
 
 // 错误
@@ -625,10 +568,6 @@
     [self shakeAnimationForView:_tipLable];
 }
 
-
-
-
-
 #pragma mark - 成功后返回
 - (void)hide
 {
@@ -636,35 +575,25 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:str forKey:@"RetryTimes"];
     switch (_nLockViewType) {
-            
-        case LLLockViewTypeCheck:
-        {
+        case LLLockViewTypeCheck:{
             [self dismiss];
-            
         }
             break;
         case LLLockViewTypeCreate:{
-            
             [self showTabBarViewWithdataType:LLLockViewTypeCreate];
-            
         }
             break;
-        case LLLockViewTypeModify:
-        {
-            
+        case LLLockViewTypeModify:{
             [self showTabBarViewWithdataType:LLLockViewTypeModify];
         }
             break;
-        case LLLockViewTypeNext:
-        {
-            
+        case LLLockViewTypeNext:{
             [self showTabBarViewWithdataType:LLLockViewTypeNext];
             [LLLockPassword saveLockPassword:self.passwordNew];
         }
             break;
         case LLLockViewTypeClean:
-        default:
-        {
+        default:{
             [LLLockPassword saveLockPassword:nil];
         }
     }
@@ -693,8 +622,6 @@
 {
     AppDelegate* dele = (AppDelegate*)[UIApplication sharedApplication].delegate;
     HXTabBarViewController *tabBarVC = (HXTabBarViewController *)dele.window.rootViewController;
-    
-    
     
     if (type == LLLockViewTypeCheck) {
         [tabBarVC reloadHomeVC];
@@ -737,12 +664,8 @@
 }
 
 #pragma mark - delegate 每次划完手势后
-- (void)lockString:(NSString *)string
-{
-    LLLog(@"这次的密码=--->%@<---", string) ;
-    
+- (void)lockString:(NSString *)string{
     switch (_nLockViewType) {
-            
         case LLLockViewTypeCheck:
         {
             self.tip1 = @"请输入手势密码";

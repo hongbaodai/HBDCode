@@ -90,10 +90,8 @@
 - (void)sureBtnClick {
     
     if ([self canSubmitGo]) {
-
         [self postRegisterWithMobile:self.phoneNum password:self.passwdTxf.text PicCode:self.imgCodeTxf.text CdKey:self.inviteCodeTxf.text PhoneCode:self.codeTxf.text];
     }
-    
 }
 
 - (BOOL)canSubmitGo {
@@ -225,8 +223,6 @@
     return result;
 }
 
-
-
 #pragma mark - 获取验证码读秒
 -(void)startCodeTimeGetcodeBtn:(UIButton *)getcodeBtn
 {
@@ -289,8 +285,6 @@
         
     }];
 }
-
-
 
 /** 注册 **/
 - (void)postRegisterWithMobile:(NSString *)mobile password:(NSString *)password PicCode:(NSString *)picCode CdKey:(NSString *)cdKey PhoneCode:(NSString *)phoneCode

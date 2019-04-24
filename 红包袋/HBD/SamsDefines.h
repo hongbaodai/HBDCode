@@ -11,7 +11,6 @@
 #define UM_APPKEY_NEW               @"5983e340c895762fe8001de4"
 #define DDKeyLoginState             @"DDKeyLoginState"
 #define DDUserVipState              @"DDUserVipState"
-#define NOTIFICATIONHOMEMARK        @"homeviewmark"
 // 微信分享--
 #define WXAPPID                 @"wxff1c1a26b9f47a08"
 #define WXAPPSECRET             @"6000f36477766001075c69a9c8ce41d5"
@@ -24,7 +23,7 @@
 #define kAppStoreUrl            @"https://itunes.apple.com/cn/app/hong-bao-dai/id1090834403?mt=8"
 #define kUpdateUrl              [NSString stringWithFormat:@"%@/version.xml",BXWebViewState]
 #define kChannelId              [[NSBundle mainBundle] objectForInfoDictionaryKey:@"ChannelId"]
-#define kPushToLogin            @"pushToLogin"
+
 #define APPID                   @"1090834403"
 
 

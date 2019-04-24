@@ -108,13 +108,11 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [defaults objectForKey:DDKeyLoginState];
     int numint = [num intValue];
-    
     if (numint == 1) {
         [tabBarVC loginStatusWithNumber:3];
     } else {
         [tabBarVC loginStatusWithNumber:0];
     }
-    
     tabBarVC.selectedIndex = 1;
 }
 

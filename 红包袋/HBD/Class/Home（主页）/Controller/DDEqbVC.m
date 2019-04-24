@@ -43,10 +43,8 @@
 - (void)sureBtnClick {
     
     if ([self canSubmitGo]) {
-        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *phoneNumber = [defaults objectForKey:@"username"]; //username  phoneNumber
-       
         [self postOpenEqianbaoWithUserName:phoneNumber];
     }
 }

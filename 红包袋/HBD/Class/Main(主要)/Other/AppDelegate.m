@@ -17,22 +17,22 @@
 #endif
 #import "CDInfo.h"
 
+#import "DDInviteFriendVc.h"
+#define kPushToLogin @"pushToLogin"
+
 @interface AppDelegate () <UIAlertViewDelegate, UIViewControllerTransitioningDelegate, LLLockGesTureDelegate, DDCoverViewDelegate, UNUserNotificationCenterDelegate>
 
-@property (nonatomic, strong)NSDate *oldDate;
+@property (nonatomic, strong) NSDate *oldDate;
 @property (nonatomic, weak) HXTabBarViewController * tabBarNewVC;
 
 @end
 
-@implementation AppDelegate
-{
-    UIView *lunchView;
-    UIImageView *imageView;
+@implementation AppDelegate{
     APPVersonModel *versionModel;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+
 #ifdef DEBUG
 
 #else
@@ -63,28 +63,19 @@
 
 - (void)addNewFeature
 {
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     //判断是否显示新特性
     NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
     NSString *localVersion = [defaults objectForKey:@"CFBundleShortVersionString"];
-    
-    // 给手势锁忘记密码跳转到首页后是否跳到登录页面设置初值
-    [defaults setObject:@"0" forKey:kPushToLogin];
     
     //获取并存储sessionId
     [defaults setObject:[self ret32bitString] forKey:@"sessionId"];
 
     //比较版本号
     if ([currentVersion compare:localVersion] == NSOrderedDescending) {
-
-        //第一次登录
-        [defaults setObject:@"0" forKey:@"newPerson"];
-        
         // 显示新特性界面
         BXNewFeatureController *newfeatureVc = [[BXNewFeatureController alloc] init];
         self.window.rootViewController = newfeatureVc;
-         
         [defaults setObject:currentVersion forKey:@"CFBundleShortVersionString"];
         [defaults synchronize];
         
@@ -92,15 +83,11 @@
         HXTabBarViewController * tabBarVC = [[HXTabBarViewController alloc] init];
         self.tabBarNewVC = tabBarVC;
         self.window.rootViewController = tabBarVC;
-
-        //非第一次登录
-        [defaults setObject:@"1" forKey:@"newPerson"];
-        
         NSString *password = [defaults objectForKey:@"password"];
-        NSString* pswd = [LLLockPassword loadLockPassword];
-        if ([defaults objectForKey:@"username"] && password.length > 0) {
+        NSString *username = [defaults objectForKey:@"username"];
+        NSString *pswd = [LLLockPassword loadLockPassword];
+        if (username && password.length > 0) {
             [tabBarVC loginStatusWithNumber:1];
-
             if (pswd) {
                 [self showLLLockViewController:LLLockViewTypeCheck isPresentedWithMyAccount:0];
             } else {
@@ -109,16 +96,6 @@
         }
     }
 
-}
-
-// 移除加载图
-- (void)removeLun
-{
-    [UIView animateWithDuration:1 animations:^{
-        lunchView.alpha = 0;
-    } completion:^(BOOL finished) {
-        [lunchView removeFromSuperview];
-    }];
 }
 
 // MARK:友盟
@@ -210,8 +187,7 @@
     [self udeskDidBackGroudApplication:application];
 }
 
-- (void)udeskDidBackGroudApplication:(UIApplication *)application
-{
+- (void)udeskDidBackGroudApplication:(UIApplication *)application{
     __block UIBackgroundTaskIdentifier background_task;
     //注册一个后台任务，告诉系统我们需要向系统借一些事件
     background_task = [application beginBackgroundTaskWithExpirationHandler:^ {
@@ -266,46 +242,30 @@
 }
 
 #pragma mark -手势锁
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (void)applicationWillEnterForeground:(UIApplication *)application{
   
     // 手势解锁相关
     if(self.window.rootViewController.presentingViewController == nil){
-        
-        LLLog(@"root = %@", self.window.rootViewController.class);
-        LLLog(@"lockVc isBeingPresented = %d", [self.lockVc isBeingPresented]);
         self.lockVc = [[LLLockViewController alloc] init];
         CGFloat oldTime = [self.oldDate timeIntervalSinceNow];
         CGFloat newTime = [[NSDate date] timeIntervalSinceNow];
         CGFloat result = newTime - oldTime;
         if (result > 30.0) {//进入后台时间启动手势锁
-        
-//        if (result > 1.0) {//进入后台时间启动手势锁
-
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSString *password = [defaults objectForKey:@"password"];
             if ([defaults objectForKey:@"username"] && password.length > 0) {
-                
                 [self.tabBarNewVC loginStatusWithNumber:1];
                 NSString* pswd = [LLLockPassword loadLockPassword];
-                
                 self.lockVc.modalPresentationStyle = UIModalPresentationCustom;
                 if (pswd == nil) {
                     self.lockVc.nLockViewType = LLLockViewTypeCreate;
-
                     UIViewController *winvc = [AppDelegate getCurrentVC];
-                    
                     [winvc presentViewController:self.lockVc animated:YES completion:nil];
                     
-//                    [self.window.rootViewController presentViewController:self.lockVc animated:YES completion:^{
-//                    }];
                 } else {
                     self.lockVc.nLockViewType = LLLockViewTypeCheck;
                     self.lockVc.isFromForeground = YES;
-            
                     UIViewController *winvc = [AppDelegate getCurrentVC];
-                
                     [winvc presentViewController:self.lockVc animated:YES completion:nil];
                     
                 }
@@ -317,7 +277,6 @@
     //推送相关
     [application setApplicationIconBadgeNumber:0];
     [application cancelAllLocalNotifications];
-
     [versionModel APPVersionInfor];
 }
 
@@ -345,24 +304,26 @@
 }
 
 #pragma mark - 弹出手势解锁密码输入框
-- (void)showLLLockViewController:(LLLockViewType)type isPresentedWithMyAccount:(BOOL)isPresentedWithMyAccount
-{
+- (void)showLLLockViewController:(LLLockViewType)type isPresentedWithMyAccount:(BOOL)isPresentedWithMyAccount{
+    
+    HXTabBarViewController *tabbarVC = (HXTabBarViewController *)self.window.rootViewController;
+    UINavigationController *na = tabbarVC.viewControllers[0];
+    NSLog(@"-----------%@", na.viewControllers);
+    
     if(self.window.rootViewController.presentingViewController == nil){
-        
         self.lockVc = [[LLLockViewController alloc] init];
         self.lockVc.isPresentedWithMyAccount = isPresentedWithMyAccount;
         self.lockVc.nLockViewType = type;
-
         self.lockVc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.window.rootViewController presentViewController:self.lockVc animated:YES completion:^{
+            
         }];
-        if (isPresentedWithMyAccount == 1)
-        {
+        
+        if (isPresentedWithMyAccount == 1){
             HXTabBarViewController *tabbarVC = (HXTabBarViewController *)self.window.rootViewController;
             [tabbarVC reloadSelecThres];
             tabbarVC.selectedIndex = 3;
         }
-        
     }
 }
 
@@ -409,9 +370,9 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Required
     [UdeskManager registerDeviceToken:deviceToken];
-    NSLog(@"device_Token==========%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                  stringByReplacingOccurrencesOfString: @">" withString: @""]
-                 stringByReplacingOccurrencesOfString: @" " withString: @""]);
+//    NSLog(@"device_Token==========%@",[[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+//                  stringByReplacingOccurrencesOfString: @">" withString: @""]
+//                 stringByReplacingOccurrencesOfString: @" " withString: @""]);
 
 }
 

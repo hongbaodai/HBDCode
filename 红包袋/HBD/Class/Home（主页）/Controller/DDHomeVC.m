@@ -111,7 +111,6 @@
     self.navigationController.delegate = self;
     self.tableview.backgroundColor = [UIColor whiteColor];
     
-    
     [self initBannarView];
     [self initNoticeLabView];
     [self initViewUIs];
@@ -120,12 +119,7 @@
     [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CountDownNotification) name:kCountDownNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hascloselock) name:@"hascloselock" object:nil];
-    
-    
-    //插屏标志
-    //[UMessage addCardMessageWithLabel:NOTIFICATIONHOMEMARK];
-    
-    
+ 
     [kCountDownManager start];
 
     if (IS_iPhoneX) {
@@ -139,6 +133,7 @@
 }
 
 - (void)hascloselock{
+    //插屏标志
     UIButton *close = [UIButton buttonWithType:UIButtonTypeCustom];
     close.frame = CGRectMake(SCREEN_WIDTH - 50 - 5, ((SCREEN_HEIGHT - (SCREEN_WIDTH - 100)  / 4 * 5)) / 2 - 30, 30, 30);
     //close.backgroundColor = [UIColor cyanColor];
@@ -348,6 +343,7 @@
 
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlStr];
+    
     return url;
 }
 
@@ -439,14 +435,12 @@
     if (tabBarVC.bussinessKind) { //登录
 
         if ([self isCanSubmit]) {
-
             UIStoryboard *segsb = [UIStoryboard storyboardWithName:@"DDInvestSureVC" bundle:nil];
             DDInvestSureVC *segVc=  [segsb instantiateInitialViewController];
             segVc.loanId = self.model.B_ID;
             segVc.levelName =  userCardInfo[@"body"][@"levelName"];
             [self.navigationController pushViewController:segVc animated:YES];
         }
-
     }else{ //未登录
         [self presentLoginVC];
     }
@@ -474,7 +468,6 @@
         [self.navigationController pushViewController:VC animated:YES];
     } else { //轮播图回调
         if (self.LJDZArray.count) {
-            //            DDBannarWebVc *weVc = [[DDBannarWebVc alloc]init];
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDActivityWebController" bundle:nil];
             DDActivityWebController *weVc = [sb instantiateInitialViewController];
             NSString *bannerUrl;
@@ -509,7 +502,6 @@
  点击停服公告确定按钮
  */
 -(void)didClickTfsjBtn {
-    
     [self.ddcoverView removeUpgradeView];
 }
 
@@ -575,10 +567,10 @@
 
             }
             for (NSDictionary *dic in bannerArr) {
-
                 [self.LJDZArray addObject:[NSString stringWithFormat:@"%@",dic[@"LJDZ"]]]; //url
-                url = [self getImageUrlWithFilePath:dict[@"body"][@"filePath"] PictureStr:dic[@"SYTP"]];//图片
-                [self.imageArray addObject:url];
+//                url = [self getImageUrlWithFilePath:dict[@"body"][@"filePath"] PictureStr:dic[@"SYTP"]];//图片
+//                [self.imageArray addObject:url];
+                [self.imageArray addObject:dic[@"BANNER_IMG"]];
                 [self.bannerTitleArray addObject:dic[@"BT"]];  //标题
                 [self.bannerDetailArray addObject:dic[@"BZ"]]; // detailStr
                 [self.FXJBArray addObject:[NSString stringWithFormat:@"%@",dic[@"FXJB"]]];

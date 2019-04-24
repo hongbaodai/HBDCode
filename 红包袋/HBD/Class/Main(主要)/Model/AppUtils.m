@@ -54,7 +54,6 @@
     [defaults setObject:nil forKey:@"lxid"];
     [defaults setObject:nil forKey:@"isTadayDate"];
     
-    
     if (isClear == YES) {
         [AppUtils clearWebAndCookieAndIamgeCaches];
     }

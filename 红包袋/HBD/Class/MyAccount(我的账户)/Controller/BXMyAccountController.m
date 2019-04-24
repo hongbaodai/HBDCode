@@ -81,14 +81,12 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
     [self loadNewStatus];
     [self postUserBankCardInfo];
     [self setUserNameLabelText];
-//
     [self setUpState];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self setupRefresh];
     [self loadData];
 }
@@ -369,6 +367,7 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
     info.serviceString = BXRequestAccountInfo;
     info.dataParam = @{@"vobankIdTemp":@""};
     
+    
     [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
         NSDictionary * dict = [NSDictionary dictionaryWithDictionary:responseObject];
         [self.tableView.mj_header endRefreshing];
@@ -408,6 +407,7 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
         }
         
         [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
     } faild:^(NSError *error) {
             [self.tableView.mj_header endRefreshing];
     }];

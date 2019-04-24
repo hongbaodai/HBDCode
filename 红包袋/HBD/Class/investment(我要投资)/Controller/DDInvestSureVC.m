@@ -1090,7 +1090,6 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
             [self.navigationController pushViewController:JumpThirdParty animated:YES];
             
         } else {
-            
             [MBProgressHUD showError:dict[@"body"][@"resultinfo"]];
         }
         

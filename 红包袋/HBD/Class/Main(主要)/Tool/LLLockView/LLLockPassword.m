@@ -13,15 +13,9 @@
 #pragma mark - 锁屏密码读写
 + (NSString*)loadLockPassword
 {
-    //    BXAccount *account = [BXAccountTool account];
-    //    NSString* pswd = account.lock;
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     NSString* pswd = [ud  objectForKey:@"lock"];
-    //    LLLog(@"pswd = %@", pswd);
-    if (pswd != nil &&
-        ![pswd isEqualToString:@""] &&
-        ![pswd isEqualToString:@"(null)"]) {
-        
+    if (pswd != nil && ![pswd isEqualToString:@""] && ![pswd isEqualToString:@"(null)"]) {
         return pswd;
     }
     
@@ -30,10 +24,6 @@
 
 + (void)saveLockPassword:(NSString*)pswd
 {
-    //    NSDictionary *PasswordDict = @{@"lock" : pswd};
-    //    BXAccount *account = [BXAccount accountWithDicht:PasswordDict];
-    //    // 3.2保存模型对象
-    //    [BXAccountTool saveAccount:account];
     
     [[NSUserDefaults standardUserDefaults] setObject:pswd forKey:@"lock"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -58,11 +48,6 @@
 // 需要提示过输入密码了
 + (void)setAlreadyAskedCreateLockPassword
 {
-    //    NSDictionary *PasswordDict = @{@"AlreadyAsk" : @"YES"};
-    //    BXAccount *account = [BXAccount accountWithDicht:PasswordDict];
-    //    // 3.2保存模型对象
-    //    [BXAccountTool saveAccount:account];
-    
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"AlreadyAsk"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

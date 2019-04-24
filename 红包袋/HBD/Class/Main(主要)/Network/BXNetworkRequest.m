@@ -85,10 +85,9 @@
     dispatch_once(&onceToken, ^{
         nanager = [AFHTTPRequestOperationManager manager];
         nanager.requestSerializer.timeoutInterval = 7;
-        [nanager.securityPolicy setAllowInvalidCertificates:YES];
         nanager.responseSerializer = [AFJSONResponseSerializer serializer];
 //        nanager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-        nanager.responseSerializer.acceptableContentTypes= [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",@"application/atom+xml",@"application/xml",@"text/xml",nil];
+        nanager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html",@"text/plain",@"application/atom+xml",@"application/xml",@"text/xml",nil];
 
         ((AFJSONResponseSerializer*)nanager.responseSerializer).removesKeysWithNullValues=YES;
         [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];// 上面这两句是打印出json数据需要添加的代码
@@ -137,12 +136,11 @@
     NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"hongbaodai" ofType:@"cer"];
     NSData * certData =[NSData dataWithContentsOfFile:cerPath];
     NSArray *cerSet = [[NSArray alloc] initWithObjects:certData, nil];
-    
     NSString *urlString = [NSString stringWithFormat:@"%@/p2p/soa", BXNETURL];
-
+   
     AFHTTPRequestOperationManager *manager = [BXNetworkRequest postOperationManager];
     [manager.securityPolicy setPinnedCertificates:cerSet];
-
+    
     NSDictionary *body = [[NSDictionary alloc] initWithDictionary:info.dataParam];
     NSMutableDictionary *sendMessage = [BXSendMessage initWithService:info.serviceString Body:body];
     //    [self setSessionIDCookie];

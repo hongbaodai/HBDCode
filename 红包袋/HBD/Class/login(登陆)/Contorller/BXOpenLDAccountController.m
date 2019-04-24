@@ -93,7 +93,7 @@
 {
     /*  此方法让多级跳转直接回到首页  */
     if (self.navigationController.viewControllers.count > 3) {
-        
+
         AppDelegate* dele = (AppDelegate*)[UIApplication sharedApplication].delegate;
         HXTabBarViewController *tabBarVC = [[HXTabBarViewController alloc]init];
         dele.window.rootViewController = tabBarVC;
@@ -140,7 +140,6 @@
             JumpThirdParty.info.requestNo = dict[@"body"][@"requestNo"];
 //            JumpThirdParty.payType = MPPayTypeOpenAccount;
             [self.navigationController pushViewController:JumpThirdParty animated:YES];
-            
 
         } else {
             [MBProgressHUD showError:dict[@"body"][@"resultinfo"]];

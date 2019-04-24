@@ -36,16 +36,13 @@
     // 网络访问结束设置空页面数据源和代理方法
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
-    
     self.tableView.backgroundColor = COLOUR_Gray_Bg;
-    
     
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [self addHeaderRefresh];
 }
 

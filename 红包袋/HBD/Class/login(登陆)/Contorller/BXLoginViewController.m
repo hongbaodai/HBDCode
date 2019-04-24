@@ -16,6 +16,9 @@
 #import "HXTabBarViewController.h"
 #import "HXAlertAccount.h"
 
+#import "DDRegisterSuccessVC.h"
+#import "MyRedPacketSwitchVC.h"
+
 @interface BXLoginViewController ()<UITextFieldDelegate, DDCoverViewDelegate, PayThirdPartyProtocol>
 //登陆容器
 @property (weak, nonatomic) IBOutlet UIView *loginView;
@@ -34,6 +37,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    NSLog(@"========%@", self.navigationController.viewControllers);
+    
     self.pwdTextfield.delegate = self;
     [self initViewUI];
 }
@@ -72,7 +77,6 @@
     NSString *lockStr = [defaults objectForKey:@"ISLOCKVC"];
     
     if ([bizStr isEqualToString:@"1"]) {
-        
         self.ddcoverView = [[DDCoverView alloc]initWithFrame:[UIScreen mainScreen].bounds];
         self.ddcoverView.viewStyle = DDViewStyleUpgradeStopView;
         self.ddcoverView.delegate = self;
@@ -80,7 +84,6 @@
         // 登录状态 且 老账户
         HXTabBarViewController *tabbar = (HXTabBarViewController *)self.tabBarController;
         if (tabbar.bussinessKind && [actStr isEqualToString:@"0"] && [lockStr isEqualToString:@"NO"]) {
-            
             self.ddcoverView = [[DDCoverView alloc]initWithFrame:[UIScreen mainScreen].bounds];
             self.ddcoverView.viewStyle = DDViewStyleUpgradeView;
             self.ddcoverView.delegate = self;
@@ -116,6 +119,7 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDRegisterVC" bundle:nil];
     DDRegisterVC *vc = [sb instantiateInitialViewController];
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (void)forgetPwdBtnClick
@@ -205,13 +209,11 @@
         if ([dict[@"body"][@"resultcode"] integerValue] == 0) {
             
             BXWebRequesetInfo *info = [BXWebRequesetInfo mj_objectWithKeyValues:dict[@"body"][@"payReqToThird"]];
-            //
             BXJumpThirdPartyController *JumpThirdParty = [[BXJumpThirdPartyController alloc] init];
             JumpThirdParty.title = @"账户升级";
             JumpThirdParty.payDelegate = self;
             JumpThirdParty.info = info;
             JumpThirdParty.info.requestNo = dict[@"body"][@"requestNo"];
-            
             [self.navigationController pushViewController:JumpThirdParty animated:YES];
         } else {
             [MBProgressHUD showError:dict[@"body"][@"resultinfo"]];
@@ -227,11 +229,10 @@
 /* post登录 */
 - (void)postLoginWithUserName:(NSString *)userName password:(NSString *)password
 {
-    
+    NSLog(@"========%@", self.navigationController.viewControllers);
     BXHTTPParamInfo *info = [[BXHTTPParamInfo alloc]init];
     info.dataParam = @{@"userName":userName,@"password":password};
     info.serviceString = BXRequestLogin;
-     
     
     [[BXNetworkRequest defaultManager] postWithHTTParamInfo:info succeccResultWithDictionaty:
      ^(id responseObject) {
@@ -241,9 +242,7 @@
          
          if ([dict[@"body"][@"resultcode"] integerValue] == 0) {
              [DDAccount mj_objectWithKeyValues:dict[@"body"]];
-             //                 self.haveBackBar = 0;
              NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-             //                 if (![userName isEqualToString:[defaults objectForKey:@"username"]] ) {
              [defaults setObject:@(1) forKey:DDKeyLoginState];
              if (dict[@"body"][@"vipFlag"] == nil) {    //是不是vip
                  [defaults setObject:@"0" forKey:DDUserVipState];
@@ -272,6 +271,7 @@
              
              // 换账号了,清空之前的所有存储信息////进入时重新设置密码
              [self dismissViewControllerAnimated:NO completion:nil];
+             
              AppDelegate* deleget = (AppDelegate*)[UIApplication sharedApplication].delegate;
              HXTabBarViewController *tabbar = (HXTabBarViewController *)self.tabBarController;
              tabbar.bussinessKind = 1;
@@ -285,21 +285,20 @@
                  if ([self.LoginDelegate respondsToSelector:@selector(refreshVCType:)]) {
                      [self.LoginDelegate refreshVCType:NO];
                  }
+                 
                  NSString* pswd = [LLLockPassword loadLockPassword];
                  if (pswd) {
+                     //248已经置空了，此方法肯定不走,为啥加这个判断咱也不敢动啊
                      [deleget showLLLockViewController:LLLockViewTypeCheck isPresentedWithMyAccount:self.isPresentedWithMyAccount];
                  } else {
                      [deleget showLLLockViewController:LLLockViewTypeCreate isPresentedWithMyAccount:self.isPresentedWithMyAccount];
                  }
              }
-             
-             
          } else {
              [MBProgressHUD hideHUD];
              [MBProgressHUD showError:dict[@"body"][@"resultinfo"]];
              
              self.pwdTextfield.text = nil;
-             
              NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
              [defaults setObject:@(0) forKey:DDKeyLoginState];
              [defaults synchronize];

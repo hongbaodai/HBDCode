@@ -154,10 +154,11 @@
     //设置tabbarTitle
     nvc.tabBarItem.title = itemTitle;
 
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:10.0F], NSForegroundColorAttributeName:[UIColor colorWithHex:@"#F5CB23"]} forState:UIControlStateSelected];
+    //E7383d
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:10.0F], NSForegroundColorAttributeName:[UIColor colorWithHex:@"#E7383d"]} forState:UIControlStateSelected];
 
     // 字体颜色 未选中
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:10.0F],  NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:10.0F],  NSForegroundColorAttributeName:[UIColor colorWithHex:@"#888889"]} forState:UIControlStateNormal];
 
     //设置tabar图片
     nvc.tabBarItem.image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -173,21 +174,16 @@
 - (void)loginStatusWithNumber:(int)Number
 {
     if (Number == 0) {
-        
         self.bussinessKind = 0;
     }else if(Number == 1){
-        
         self.bussinessKind = 1;
     }else if(Number == 2) {
-        
         self.bussinessKind = 0;
         self.selectedIndex = 0;
     }else if(Number == 3) {
-        
         self.bussinessKind = 1;
         self.selectedIndex = 0;
     } else if(Number == 4) {
-        
         self.bussinessKind = 1;
         self.selectedIndex = 2;
     }
@@ -203,7 +199,6 @@
             BXLoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
             loginVC.isPresentedWithMyAccount = 1;
             BXNavigationController *Nav = [[BXNavigationController alloc] initWithRootViewController:loginVC];
-            
             [self presentViewController:Nav animated:YES completion:nil];
             return NO;
         }

@@ -48,7 +48,6 @@
     
     _calendarView = [[RDVCalendarView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 400)];
     _calendarView.dayCellHeight = 26.4;
-//    _calendarView.dayCellHeight = 36.4;
 
     [_calendarView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [_calendarView setSeparatorStyle:RDVCalendarViewDayCellSeparatorTypeHorizontal];
@@ -100,10 +99,6 @@
 //    [self.navigationItem setRightBarButtonItem:allButton];
 }
 
-//- (void)showAllRecords
-//{
-//
-//}
 
 - (void)calendarView:(RDVCalendarView *)calendarView didChangeHeaderViewHeight:(CGFloat)tablHeight
 {
@@ -168,7 +163,6 @@
             if ([model.HKRQ isEqual:time] && ![exampleCell.textLabel.text isEqualToString:@"今天"]) {
                 //            [self some];
                 [self setSomeShow:model cell:exampleCell];
-                
                 break;
             }
         }
@@ -184,9 +178,6 @@
                 [self postReturnMoneyCalendarDayWithDate:time];
             }
         }
-//        else {
-//            exampleCell.textLabel.textColor = [UIColor colorWithHex:@"#666666"];
-//        }
 
     } else {
         if ([exampleCell.textLabel.text isEqualToString:@"今天"]) {
@@ -195,15 +186,11 @@
                 [self postReturnMoneyCalendarDayWithDate:time];
             }
         }
-//        else {
-//            exampleCell.textLabel.textColor = [UIColor colorWithHex:@"#222222"];
-//        }
     }
 }
 
 - (void)setSomeShow:(BXPaymentCalendarModel *)model cell:(BXPaymentCalendarCell *)exampleCell
 {
-
 
     if ([model.YQSM integerValue] > 0) {  // 逾期数目
         [self seimgStr:@"greenS" cell:exampleCell];
@@ -331,20 +318,16 @@
 {
     if (self.paymentArray.count == 0) {
         return 170;
-    }  else {
-//        if (indexPath.row == 0) {
-//            return 109;
-//        } else {
-            if (indexPath.row == _selectedIndex) {
-                if (isOpen == YES) {
-                    return 151;
-                } else {
-                    return 44;
-                }
+    } else {
+        if (indexPath.row == _selectedIndex) {
+            if (isOpen == YES) {
+                return 176;
             } else {
                 return 44;
             }
-//        }
+        } else {
+            return 44;
+        }
     }
 }
 
@@ -355,7 +338,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.paymentArray.count + 1;
     if (self.paymentArray.count <= 0) {
         return 1;
     }
@@ -370,19 +352,11 @@
         [cell fillWithType:@"回款"];
         return cell;
     } else {
-//        if (indexPath.row == 0) {
-//            BXPaymentOneCell *cell = [BXPaymentOneCell bxPaymentOneCellWithTableView:tableView];
-//            [cell makeUIWithReturnMoney:self.dict];
-//                       return cell;
-//        } else {
-            BXPaymentTwoCell *cell = [BXPaymentTwoCell bxPaymentTwoCellWithTableView:tableView];
-//            BXPaymentModel *model = [BXPaymentModel mj_objectWithKeyValues:self.paymentArray[indexPath.row - 1]];
+        BXPaymentTwoCell *cell = [BXPaymentTwoCell bxPaymentTwoCellWithTableView:tableView];
         BXPaymentModel *model = [BXPaymentModel mj_objectWithKeyValues:self.paymentArray[indexPath.row]];
-
-            [cell fillInWithPaymentModel:model];
-            [cell makeUIWithSelecIndex:_selectedIndex index:indexPath open:isOpen];
-            return cell;
-//        }
+        [cell fillInWithPaymentModel:model];
+        [cell makeUIWithSelecIndex:_selectedIndex index:indexPath open:isOpen];
+        return cell;
     }
 }
 
@@ -431,7 +405,6 @@
 // 判断选中为哪天
 - (void)judgeSelectedDateWithDict:(NSArray *)array
 {
-
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     formatter.dateFormat = @"yyyy年MM月";
     NSDate *calendarMonth = [formatter dateFromString:self.calendarView.monthLabel.text];
@@ -474,7 +447,6 @@
     
     [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
         NSDictionary *dict = [NSDictionary dictionaryWithDictionary:responseObject];
-
         self.dict = dict;
         self.paymentArray= dict[@"body"][@"plantList"];
         _selectedIndex = 0;
@@ -490,13 +462,11 @@
 {
     if (self.dict[@"body"][@"amountMonth"]) {
         self.calendarView.topView.mouthMoneyLab.text = [NSString stringWithFormat:@"￥%@",[self roundWithInput:self.dict[@"body"][@"amountMonth"]]];
-
     } else {
         self.calendarView.topView.mouthMoneyLab.text = @"￥0.00";
     }
     if (self.dict[@"body"][@"amountDay"]) {
         self.calendarView.topView.dayMoneyLab.text = [NSString stringWithFormat:@"￥%@",[self roundWithInput:self.dict[@"body"][@"amountDay"]]];
-
     } else {
         self.calendarView.topView.dayMoneyLab.text = @"￥0.00";
     }

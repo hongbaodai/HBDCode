@@ -35,7 +35,7 @@
 }
 // 手机号
 - (BOOL)n6_isMobile {
-    NSString *mobileRegex = @"^[1][34578][0-9]{9}$";
+    NSString *mobileRegex = @"^[1][3456789][0-9]{9}$";
 //    @"1[0-9]{10}";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", mobileRegex];
     return [predicate evaluateWithObject:self];

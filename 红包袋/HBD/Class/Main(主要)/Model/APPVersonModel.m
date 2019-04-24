@@ -59,7 +59,6 @@
         NSDictionary *dict = [array lastObject];
         NSString *verStr = [NSString stringWithFormat:@"%@",dict[@"version"]];
         versonStr = verStr;
-        
         dispatch_group_leave(group);
     } faild:^(NSError *error) {
     }];
@@ -142,10 +141,10 @@
 {
     NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
     NSString *currentVerson = infoDict[kShortVersion];
-
-    if ([currentVerson compare:version] == NSOrderedAscending) {
+    if ([version compare:currentVerson options:NSNumericSearch] == NSOrderedDescending) {
         [self upgradeAPPWithisImport:isImprot];
     }
+
 }
 
 // 判断是否是重大版本更新
@@ -256,7 +255,6 @@
 //登录状态下拼接参数
 + (NSString *)urlWithPersonalInfo:(NSString *)url WithState:(NSString *)state
 {
-    
     NSString *finalUrl = nil;
     if ([state isEqualToString:@"1"]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

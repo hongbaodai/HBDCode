@@ -125,20 +125,23 @@
 
 - (IBAction)projcectGradeAction:(UIButton *)sender {
     HWAlertViewController *hw = [[HWAlertViewController alloc] init];
+    hw.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.navController presentViewController:hw animated:NO completion:nil];
     hw.clickBtnBlock = ^{
-        [self dismissViewControllerAnimated:NO completion:nil];
+        [self.navController dismissViewControllerAnimated:NO completion:nil];
     };
-    [self presentViewController:hw animated:NO completion:nil];
-    
 }
 
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [self postLoanDetailWithLoanId:self.loanId];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 //显示星星等级
