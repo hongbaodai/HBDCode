@@ -50,7 +50,7 @@
     [self.window makeKeyAndVisible];
     
     [self addNewFeature];
-    [self setAppVersion];
+    //[self setAppVersion];
 
     return YES;
 }
@@ -308,7 +308,6 @@
     
     HXTabBarViewController *tabbarVC = (HXTabBarViewController *)self.window.rootViewController;
     UINavigationController *na = tabbarVC.viewControllers[0];
-    NSLog(@"-----------%@", na.viewControllers);
     
     if(self.window.rootViewController.presentingViewController == nil){
         self.lockVc = [[LLLockViewController alloc] init];

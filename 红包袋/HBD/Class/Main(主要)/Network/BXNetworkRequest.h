@@ -23,9 +23,9 @@
 //#define BXNETURL          @"https://graysrv.hongbaodai.com"  // 灰度环境
 //#define DDWEBURL          @"https://gray.hongbaodai.com"     //
 
-#define BXNETURL          @"http://test.hongbaodai.com:39083"  //130
-#define DDWEBURL          @"http://test.hongbaodai.com:23081"
-#define DDNEWWEBURL       @"http://test.hongbaodai.com:23081/#"  //新web页数据要www
+//#define BXNETURL          @"http://test.hongbaodai.com:39083"  //130
+//#define DDWEBURL          @"http://test.hongbaodai.com:23081"
+//#define DDNEWWEBURL       @"http://test.hongbaodai.com:23081/#"  //新web页数据要www
 
 //#define BXNETURL          @"http://v2.hongbaodai.com:29080"  // 143
 //#define DDWEBURL          @"http://v2.hongbaodai.com:13080"
@@ -41,9 +41,9 @@
 //#define DDNEWWEBURL       @"http://192.168.1.125:29083/#"
 
 //===============生产环境===================
-//#define BXNETURL               @"https://service.hongbaodai.com"
-//#define DDWEBURL               @"https://www.hongbaodai.com"   //web页数据要www
-//#define DDNEWWEBURL            @"https://m.hongbaodai.com/#"   //新web页数据要www
+#define BXNETURL               @"https://service.hongbaodai.com"
+#define DDWEBURL               @"https://www.hongbaodai.com"   //web页数据要www
+#define DDNEWWEBURL            @"https://m.hongbaodai.com/#"   //新web页数据要www
 
 //=========================================
 

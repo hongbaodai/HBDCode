@@ -318,7 +318,7 @@
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
     //创建网页内容对象
-    NSString* thumbURL = WXSHAREIMG;
+    NSString *thumbURL = WXSHAREIMG;
     NSString *title = @"邀好友一起赚~注册奖券免费送！";
     UIImage *img = [UIImage imageNamed:thumbURL];
     

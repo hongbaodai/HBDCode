@@ -14,8 +14,6 @@
 //@property (weak, nonatomic) IBOutlet UILabel *totallabel;
 //@property (nonatomic, weak) IBOutlet UIButton *inviteButton;
 
-
-
 + (instancetype)creatVCFromStroyboard;
 
 @end

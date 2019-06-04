@@ -32,7 +32,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    NSLog(@"imgUrlStr----%@======webDetailStr=======%@", self.imgUrlStr, self.webUrlStr);
     if (self.webTitleStr != nil && ![self.webTitleStr isEqualToString:@""]) {
         self.title = self.webTitleStr;
     } else {
