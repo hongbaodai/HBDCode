@@ -130,6 +130,13 @@
         self.tableview.tableHeaderView.height_ = 200;
 
     }
+
+    self.noticebgView.backgroundColor = [UIColor greenColor];
+    self.getbgView.backgroundColor = [UIColor orangeColor];
+    self.newbgView.backgroundColor = [UIColor redColor];
+    self.titleLab.backgroundColor = [UIColor purpleColor];
+    self.cycleView.backgroundColor = [UIColor cyanColor];
+    self.tableView.tableFooterView.backgroundColor = [UIColor brownColor];
 }
 
 - (void)hascloselock{
@@ -147,7 +154,6 @@
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:self.title];
 
-    //    [self showAlert];  // 🚫🚫🚫如果平台合规和风险评估合并一起，则这个需要打开
     [self postUserBankCardInfo]; //用户信息
     [self addRefreshStep];
     //为了定时器刷新，各种bug
@@ -557,8 +563,6 @@
         [self.LJDZArray removeAllObjects];
 
         if ([dict[@"body"][@"resultcode"] integerValue] == 0){
-            NSURL *url = nil;
-
             NSMutableArray *bannerArr = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in dict[@"body"][@"banners"]) {
                 if ([dic[@"ZDLX"] isEqualToString:@"1"]) {
@@ -567,9 +571,7 @@
 
             }
             for (NSDictionary *dic in bannerArr) {
-                [self.LJDZArray addObject:[NSString stringWithFormat:@"%@",dic[@"LJDZ"]]]; //url
-//                url = [self getImageUrlWithFilePath:dict[@"body"][@"filePath"] PictureStr:dic[@"SYTP"]];//图片
-//                [self.imageArray addObject:url];
+                [self.LJDZArray addObject:[NSString stringWithFormat:@"%@",dic[@"LJDZ"]]];
                 [self.imageArray addObject:dic[@"BANNER_IMG"]];
                 [self.bannerTitleArray addObject:dic[@"BT"]];  //标题
                 [self.bannerDetailArray addObject:dic[@"BZ"]]; // detailStr
