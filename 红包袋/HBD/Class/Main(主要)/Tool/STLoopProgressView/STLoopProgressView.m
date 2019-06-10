@@ -23,7 +23,6 @@
 @implementation STLoopProgressView
 
 - (void)awakeFromNib {
-    
     [super awakeFromNib];
     
     self.backgroundColor = [STLoopProgressView backgroundColor];

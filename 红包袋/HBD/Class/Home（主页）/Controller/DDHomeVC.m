@@ -31,6 +31,12 @@
 #import "NSString+Other.h"
 #import "STLoopProgressView.h"
 #import "OYCountDownManager.h"
+#import "ExperienceProjectView.h"
+#import "HBDImgTitleView.h"
+
+// MARK：宏定义模块高度
+#define AD_PICTURES_HEIGHT CALCULATE_FIT_HEIGHT(200)//广告图高度
+#define CENTER_EXPLAIN_HEIGHT CALCULATE_FIT_HEIGHT(120)//央企背景、新手体验高度
 
 @interface DDHomeVC () <PayThirdPartyProtocol, SDCycleScrollViewDelegate, DDCoverViewDelegate, UINavigationControllerDelegate, DDRiskPopViewDelegate>{
     NSString *secondNum;
@@ -41,24 +47,56 @@
     NSInteger countDown;
 }
 
+@property (nonatomic, strong) UIView *headBackGroundView;
+@property (nonatomic, strong) UIView *footBackGroundView;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
+
+// MARK:公告
+@property (nonatomic, strong) UIView *noticeBackGroundView;
+@property (nonatomic, strong) UIImageView *noticeImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *noticeImageView;
+
+// MARK:央企、供应链金融、安全保障
+@property (nonatomic, strong) UIView *centerBackGroundView;
+
+@property (weak, nonatomic) IBOutlet UIView *noticebgView;
+
+@property (nonatomic, strong) NSMutableArray *noticeArray;
+@property (nonatomic, strong) NSArray *noticeModelArr;
+// 新手专享
+@property (weak, nonatomic) IBOutlet UIView *newbgView;
+// 央企背景
+@property (weak, nonatomic) IBOutlet UIView *getbgView;
+
+@property (weak, nonatomic) IBOutlet UIView *msView;
+
+// MARK:体验标
+//@property (nonatomic, strong) <#class#> *<#name#>;
+
 // MARK:** 项目进度展示区域 **
-// 首页圆形进度条
-@property (weak, nonatomic) IBOutlet STLoopProgressView *cycleView;
+@property (weak, nonatomic) IBOutlet UIView *titleView;
+// 精品推荐图片
+@property (weak, nonatomic) IBOutlet UIImageView *ProductsRecommended;
 // 首页标的 title
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
+// 新手标图片
+@property (weak, nonatomic) IBOutlet UIImageView *NewStandard;
+//@property (weak, nonatomic) IBOutlet UIView *View;
+
+@property (weak, nonatomic) IBOutlet STLoopProgressView *CycleView;
+// 首页圆形进度条
+@property (weak, nonatomic) IBOutlet STLoopProgressView *cycleView;
 // 进度
 @property (weak, nonatomic) IBOutlet UILabel *percentLab;
+@property (weak, nonatomic) IBOutlet UILabel *appointmentLab;
+
 // 项目期限
 @property (weak, nonatomic) IBOutlet UILabel *limitDayLab;
 // 项目金额
 @property (weak, nonatomic) IBOutlet UILabel *amountLab;
 // 立即出借按钮
 @property (weak, nonatomic) IBOutlet HXButton *InvestBtn;
-// 新手标图片
-@property (weak, nonatomic) IBOutlet UIImageView *NewStandard;
-// 精品推荐图片
-@property (weak, nonatomic) IBOutlet UIImageView *ProductsRecommended;
 // 加息图片
 @property (weak, nonatomic) IBOutlet UIImageView *IncreasesInInterestRates;
 
@@ -66,13 +104,8 @@
 @property (nonatomic, strong) UIView *coverView;
 @property (nonatomic, strong) DDUpgradeView *upgradeView;
 @property (nonatomic, strong) DDUpgradeStopView *upgradeStopView;
-// 公告
-@property (weak, nonatomic) IBOutlet UIView *noticebgView;
 // 首页圆形区域点击区域
 @property (weak, nonatomic) IBOutlet UIButton *detailBtn;
-// 新手专享
-@property (weak, nonatomic) IBOutlet UIView *newbgView;
-@property (weak, nonatomic) IBOutlet UIView *getbgView;
 
 @property (weak, nonatomic) IBOutlet UIButton *newerZyBtn;
 @property (weak, nonatomic) IBOutlet UIButton *safeBzBtn;
@@ -90,8 +123,6 @@
 @property (nonatomic, strong) NSArray  *eloanArray;
 @property (nonatomic, strong) BXInvestmentModel *model;
 
-@property (nonatomic, strong) NSMutableArray *noticeArray;
-@property (nonatomic, strong) NSArray *noticeModelArr;
 
 @end
 
@@ -110,33 +141,62 @@
     [super viewDidLoad];
     self.navigationController.delegate = self;
     self.tableview.backgroundColor = [UIColor whiteColor];
+    self.tableView.tableHeaderView = nil;
+    self.tableView.tableFooterView = nil;
     
-    [self initBannarView];
-    [self initNoticeLabView];
-    [self initViewUIs];
-    [self addHeaderRefresh];
-
-    [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CountDownNotification) name:kCountDownNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hascloselock) name:@"hascloselock" object:nil];
- 
-    [kCountDownManager start];
-
-    if (IS_iPhoneX) {
-        self.tableview.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
-        self.tableview.tableHeaderView.height_ = 220;
-    } else {
-        self.tableview.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
-        self.tableview.tableHeaderView.height_ = 200;
-
-    }
-
-    self.noticebgView.backgroundColor = [UIColor greenColor];
-    self.getbgView.backgroundColor = [UIColor orangeColor];
-    self.newbgView.backgroundColor = [UIColor redColor];
-    self.titleLab.backgroundColor = [UIColor purpleColor];
-    self.cycleView.backgroundColor = [UIColor cyanColor];
-    self.tableView.tableFooterView.backgroundColor = [UIColor brownColor];
+    [self setUpViews];
+    
+    
+//    [self initBannarView];
+//    [self initNoticeLabView];
+//    [self initViewUIs];
+//    [self addHeaderRefresh];
+//
+//    [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CountDownNotification) name:kCountDownNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hascloselock) name:@"hascloselock" object:nil];
+//
+//    [kCountDownManager start];
+//
+//    if (IS_iPhoneX) {
+//        self.tableview.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
+//        self.tableview.tableHeaderView.height_ = 220;
+//    } else {
+//        self.tableview.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+//        self.tableview.tableHeaderView.height_ = 200;
+//    }
+//    self.noticebgView.backgroundColor = [UIColor greenColor];
+//    self.getbgView.backgroundColor = [UIColor orangeColor];
+//    self.newbgView.backgroundColor = [UIColor redColor];
+//    self.titleView.backgroundColor = [UIColor cyanColor];
+//    self.titleView.hidden = YES;
+//    self.titleLab.backgroundColor = [UIColor purpleColor];
+//    self.titleLab.hidden = YES;
+//    self.percentLab.hidden = YES;
+//    self.limitDayLab.hidden = YES;
+//    self.amountLab.hidden = YES;
+//    self.msView.backgroundColor = [UIColor redColor];
+//    //self.View.backgroundColor = [UIColor greenColor];
+//    self.cycleView.backgroundColor = [UIColor cyanColor];
+//    self.cycleView.hidden = YES;
+//    self.detailBtn.backgroundColor = [UIColor greenColor];
+//    self.detailBtn.hidden = YES;
+//    self.InvestBtn.hidden = YES;
+//    self.CycleView.backgroundColor = [UIColor orangeColor];
+//    self.CycleView.hidden = YES;
+//    self.NewStandard.hidden = YES;
+//    self.ProductsRecommended.hidden = YES;
+//    self.appointmentLab.hidden = YES;
+//    self.tableView.tableFooterView.backgroundColor = [UIColor brownColor];
+    
+//    ExperienceProjectView *experience = [[ExperienceProjectView alloc] initWithFrame:CGRectMake(10, 20, self.view.width - 20, 200)];
+//    experience.backgroundColor = [UIColor whiteColor];
+//    [self.tableView addSubview:experience];
+//    experience.experienceTapAction = ^{
+//        NSLog(@"-------");
+//    };
+    //self.tableView.tableFooterView = experience;
+    
 }
 
 - (void)hascloselock{
@@ -150,41 +210,94 @@
     [UMessage addCustomCardMessageWithPortraitSize:CGSizeMake(SCREEN_WIDTH - 100, (SCREEN_WIDTH - 100)  / 4 * 5) LandscapeSize:CGSizeZero CloseBtn:close Label:@"插屏消息" umCustomCloseButtonDisplayMode:NO];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [MobClick beginLogPageView:self.title];
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    [MobClick beginLogPageView:self.title];
+//
+//    [self postUserBankCardInfo]; //用户信息
+//    [self addRefreshStep];
+//    //为了定时器刷新，各种bug
+//    [self postLoanNewList];
+//
+//}
 
-    [self postUserBankCardInfo]; //用户信息
-    [self addRefreshStep];
-    //为了定时器刷新，各种bug
-    [self postLoanNewList];
-
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self setNavgationColorNormalr];
-}
-
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [MobClick endLogPageView:self.title];
-}
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    [self setNavgationColorNormalr];
+//}
+//
+//
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    [MobClick endLogPageView:self.title];
+//}
 
 #pragma mark -  init =================================================
+
+- (void)setUpViews {
+    //轮播图、公告、央企放在headBackGroundView上
+    CGFloat ad_height = AD_PICTURES_HEIGHT;
+    CGFloat notice_height = 40;//公告高度
+    CGFloat center_height = CENTER_EXPLAIN_HEIGHT;
+    
+    self.headBackGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ad_height + notice_height + center_height)];
+    [self.view addSubview:self.headBackGroundView];
+    
+    if (IS_iPhoneX) {
+        self.tableview.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
+        self.tableview.tableHeaderView.height = self.headBackGroundView.height + 20;
+    } else {
+        self.tableview.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+        self.tableview.tableHeaderView.height = self.headBackGroundView.height;
+    }
+    self.tableView.tableHeaderView = self.headBackGroundView;
+    //轮播图，适配原则图片等比缩放
+    [self initBannarView];
+    [self initNoticeLabView];
+    
+    self.centerBackGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.noticeBackGroundView.bottom, SCREEN_WIDTH, 120)];
+    self.centerBackGroundView.backgroundColor = [UIColor purpleColor];
+    //[self.centerBackGroundView addSubview:self.newbgView];
+    
+    CGFloat imgTitle_height = SCREEN_WIDTH / 375 * 64 + 14 + 10 + 20 + 12;
+    NSLog(@"------%f", SCREEN_WIDTH / 375 * 64);
+    HBDImgTitleView *imgTitle = [[HBDImgTitleView alloc] initWithFrame:CGRectMake(0, self.noticeBackGroundView.bottom, SCREEN_WIDTH, imgTitle_height)];
+    [self.headBackGroundView addSubview:imgTitle];
+    
+    
+    self.footBackGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.headBackGroundView.height, SCREEN_WIDTH, SCREEN_HEIGHT - self.headBackGroundView.height)];
+    self.footBackGroundView.backgroundColor = [UIColor cyanColor];
+    self.tableView.tableFooterView = self.footBackGroundView;
+    
+    [self addHeaderRefresh];
+    
+}
+
+
 // MARK: 图片轮播器
 - (void)initBannarView {
     NSArray *imagesURLs = _imageArray;
-    bannarView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.tableView.tableHeaderView.height_) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    //轮播图适配设计200
+    CGFloat ad_height = AD_PICTURES_HEIGHT;
+    bannarView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, ad_height) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
     bannarView.autoScrollTimeInterval = 3.0;
     bannarView.imageURLStringsGroup = imagesURLs;
-    [self.tableView.tableHeaderView addSubview:bannarView];
+    [self.headBackGroundView addSubview:bannarView];
 }
 
 // MARK: 上下滚动展示文字的轮播器
 - (void)initNoticeLabView {
     NSArray *titles = _noticeArray;
+    CGFloat ad_height = AD_PICTURES_HEIGHT;
+    
+    self.noticeBackGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, ad_height, SCREEN_WIDTH, 40)];
+    self.noticeBackGroundView.backgroundColor = [UIColor greenColor];
+    [self.headBackGroundView addSubview:self.noticeBackGroundView];
+    
+    self.noticeImgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 14, 12, 12)];
+    self.noticeImgView.image = [UIImage imageNamed:@"h_laba"];
+    [self.noticeBackGroundView addSubview:self.noticeImgView];
+    
     // 由于模拟器的渲染问题，如果发现轮播时有一条线不必处理，模拟器放大到100%或者真机调试是不会出现那条线的
     noticeView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(30, 0, SCREEN_WIDTH - 30, 40) delegate:self placeholderImage:nil];
     noticeView.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -196,7 +309,8 @@
     [titlesArray addObjectsFromArray:titles];
     noticeView.titlesGroup = [titlesArray copy];
     [noticeView disableScrollGesture];
-    [self.noticebgView addSubview:noticeView];
+    [self.noticeBackGroundView addSubview:noticeView];
+    [self.headBackGroundView addSubview:self.noticeBackGroundView];
 }
 
 //MARK: 点击方法添加
@@ -217,15 +331,12 @@
     [self.tableView.mj_header beginRefreshing];
 }
 
-- (void)loadHeaderRefresh
-{
+- (void)loadHeaderRefresh{
     [bannarView removeFromSuperview];
     [noticeView removeFromSuperview];
-
     [self postLoanNewList];//获取新手标
     [self postBannerImage];//获取bannar
     [self postNoticeList];//获取公告
-
 }
 
 - (void)viewSafeAreaInsetsDidChange {  //iOS 11安全区适配新生命周期方法
@@ -386,12 +497,6 @@
 #pragma mark - target action =================================================
 /** 央企背景 */
 - (void)newerZyBtnClick{
-//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDActivityWebController" bundle:nil];
-//    DDActivityWebController *weVc = [sb instantiateInitialViewController];
-////    weVc.webJSType = DDWebJSTypeXSZY;
-//    weVc.webUrlStr = [NSString stringWithFormat:@"%@/#/newSafety?hidden=1#anchor2", DDWEBURL];
-//    weVc.webTitleStr = @"新";
-//    [self.navigationController pushViewController:weVc animated:YES];
     DDWebViewVC *vc = [[DDWebViewVC alloc] init];
     vc.webType = DDWebTypeYangQi;
     vc.navTitle = @"央企背景";
@@ -498,11 +603,11 @@
 /**
  点击升级资金账户
  */
-- (void)didClickZhsjBtn {
-    
-    [self.ddcoverView removeUpgradeView];
-    [self postUserActivatedUpgrade];
-}
+//- (void)didClickZhsjBtn {
+//
+//    [self.ddcoverView removeUpgradeView];
+//    //[self postUserActivatedUpgrade];
+//}
 
 /**
  点击停服公告确定按钮
@@ -568,7 +673,6 @@
                 if ([dic[@"ZDLX"] isEqualToString:@"1"]) {
                     [bannerArr addObject:dic];
                 }
-
             }
             for (NSDictionary *dic in bannerArr) {
                 [self.LJDZArray addObject:[NSString stringWithFormat:@"%@",dic[@"LJDZ"]]];
@@ -577,7 +681,6 @@
                 [self.bannerDetailArray addObject:dic[@"BZ"]]; // detailStr
                 [self.FXJBArray addObject:[NSString stringWithFormat:@"%@",dic[@"FXJB"]]];
             }
-
             [self initBannarView];
         }
 
@@ -770,7 +873,6 @@
 
     }
 
-
     if (_model.HKZQSL) { //项目期限
         if (_model.HKZQDW) { //项目期限单位
             if([_model.HKZQDW isEqualToString:@"1"]){ //天
@@ -791,8 +893,6 @@
     } else {
         self.limitDayLab.text = @"项目期限：--";
     }
-
-
     if (_model.ZE) { //项目规模
         //        if ([_model.ZE doubleValue] >= 10000) {
         //            NSString *amount = [NSString stringWithFormat:@"项目规模：%g万元",([_model.ZE doubleValue] / 10000)];
@@ -807,39 +907,39 @@
 
 }
 
-// MARK: 升级银行存管
-- (void)postUserActivatedUpgrade
-{
-    BXHTTPParamInfo *info = [[BXHTTPParamInfo alloc]init];
-    //    info.serviceString = BXRequestBankcard;
-    info.serviceString = DDRequestlmUserActivated;
-    info.dataParam = @{@"vobankIdTemp":@""};
-
-    [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
-
-        NSDictionary * dict = [NSDictionary dictionaryWithDictionary:responseObject];
-
-        // 加载指定的页面去
-        if ([dict[@"body"][@"resultcode"] integerValue] == 0) {
-
-            BXWebRequesetInfo *info = [BXWebRequesetInfo mj_objectWithKeyValues:dict[@"body"][@"payReqToThird"]];
-            //
-            BXJumpThirdPartyController *JumpThirdParty = [[BXJumpThirdPartyController alloc] init];
-            JumpThirdParty.title = @"账户升级";
-            JumpThirdParty.payDelegate = self;
-            JumpThirdParty.info = info;
-            JumpThirdParty.info.requestNo = dict[@"body"][@"requestNo"];
-            //            JumpThirdParty.payType = MPPayTypeOpenAccount;
-            [self.navigationController pushViewController:JumpThirdParty animated:YES];
-        } else {
-            [MBProgressHUD showError:dict[@"body"][@"resultinfo"]];
-        }
-
-    } faild:^(NSError *error) {
-        [MBProgressHUD hideHUD];
-
-    }];
-}
+//// MARK: 升级银行存管
+//- (void)postUserActivatedUpgrade
+//{
+//    BXHTTPParamInfo *info = [[BXHTTPParamInfo alloc]init];
+//    //    info.serviceString = BXRequestBankcard;
+//    info.serviceString = DDRequestlmUserActivated;
+//    info.dataParam = @{@"vobankIdTemp":@""};
+//
+//    [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
+//
+//        NSDictionary * dict = [NSDictionary dictionaryWithDictionary:responseObject];
+//
+//        // 加载指定的页面去
+//        if ([dict[@"body"][@"resultcode"] integerValue] == 0) {
+//
+//            BXWebRequesetInfo *info = [BXWebRequesetInfo mj_objectWithKeyValues:dict[@"body"][@"payReqToThird"]];
+//            //
+//            BXJumpThirdPartyController *JumpThirdParty = [[BXJumpThirdPartyController alloc] init];
+//            JumpThirdParty.title = @"账户升级";
+//            JumpThirdParty.payDelegate = self;
+//            JumpThirdParty.info = info;
+//            JumpThirdParty.info.requestNo = dict[@"body"][@"requestNo"];
+//            //            JumpThirdParty.payType = MPPayTypeOpenAccount;
+//            [self.navigationController pushViewController:JumpThirdParty animated:YES];
+//        } else {
+//            [MBProgressHUD showError:dict[@"body"][@"resultinfo"]];
+//        }
+//
+//    } faild:^(NSError *error) {
+//        [MBProgressHUD hideHUD];
+//
+//    }];
+//}
 
 - (void)CountDownNotification{
 
@@ -870,54 +970,47 @@
 }
 
 #pragma mark - getter =================================================
-- (NSMutableArray *)imageArray
-{
+- (NSMutableArray *)imageArray{
     if (_imageArray == nil) {
         _imageArray = [NSMutableArray array];
     }
     return _imageArray;
 }
 
-- (NSMutableArray *)bannerTitleArray
-{
+- (NSMutableArray *)bannerTitleArray{
     if (_bannerTitleArray == nil) {
         _bannerTitleArray = [NSMutableArray array];
     }
     return _bannerTitleArray;
 }
 
-- (NSMutableArray *)bannerDetailArray
-{
+- (NSMutableArray *)bannerDetailArray{
     if (_bannerDetailArray == nil) {
         _bannerDetailArray = [NSMutableArray array];
     }
     return _bannerDetailArray;
 }
 
--(NSMutableArray *)LJDZArray
-{
+-(NSMutableArray *)LJDZArray{
     if (_LJDZArray == nil) {
         _LJDZArray = [NSMutableArray array];
     }
     return _LJDZArray;
 }
 
-- (NSMutableArray *)FXJBArray
-{
+- (NSMutableArray *)FXJBArray{
     if (_FXJBArray == nil) {
         _FXJBArray = [NSMutableArray array];
     }
     return _FXJBArray;
 }
 
-- (NSMutableArray *)noticeArray
-{
+- (NSMutableArray *)noticeArray{
     if (_noticeArray == nil) {
         _noticeArray = [NSMutableArray array];
     }
     return _noticeArray;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

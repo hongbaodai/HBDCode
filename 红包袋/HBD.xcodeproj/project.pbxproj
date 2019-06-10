@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041EE21D22A765890080F070 /* ExperienceProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EE21C22A765890080F070 /* ExperienceProjectView.m */; };
+		041EE22022A76E7D0080F070 /* HBDGradientTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041EE21F22A76E7D0080F070 /* HBDGradientTapView.m */; };
 		04621D4D2238D3DF005021C9 /* CDInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D4C2238D3DF005021C9 /* CDInfo.m */; };
 		04621D502238D7AD005021C9 /* CHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D4F2238D7AD005021C9 /* CHUtil.m */; };
 		04621D53223A35FD005021C9 /* HWAlertViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D52223A35FD005021C9 /* HWAlertViewFactory.m */; };
 		04621D56223A36A2005021C9 /* HWAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D55223A36A2005021C9 /* HWAlertViewController.m */; };
 		04621D5A223A4424005021C9 /* UIView+Dimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D59223A4424005021C9 /* UIView+Dimension.m */; };
 		04621D5D223B8803005021C9 /* HWStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D5C223B8803005021C9 /* HWStyle.m */; };
+		047428D122A90B0F00079114 /* HBDImgTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047428D022A90B0F00079114 /* HBDImgTitleView.m */; };
 		047F7772222F6366005D2B92 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC26267221F988500BC27CE /* UserNotifications.framework */; };
 		18C374691D4A2DC9000CE076 /* BXPaymentCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C374621D4A2DC9000CE076 /* BXPaymentCalendarModel.m */; };
 		18C3746A1D4A2DC9000CE076 /* BXPaymentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C374641D4A2DC9000CE076 /* BXPaymentModel.m */; };
@@ -482,6 +485,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041EE21B22A765890080F070 /* ExperienceProjectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExperienceProjectView.h; sourceTree = "<group>"; };
+		041EE21C22A765890080F070 /* ExperienceProjectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExperienceProjectView.m; sourceTree = "<group>"; };
+		041EE21E22A76E7D0080F070 /* HBDGradientTapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBDGradientTapView.h; sourceTree = "<group>"; };
+		041EE21F22A76E7D0080F070 /* HBDGradientTapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDGradientTapView.m; sourceTree = "<group>"; };
 		04621D4B2238D3DF005021C9 /* CDInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDInfo.h; sourceTree = "<group>"; };
 		04621D4C2238D3DF005021C9 /* CDInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDInfo.m; sourceTree = "<group>"; };
 		04621D4E2238D7AD005021C9 /* CHUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHUtil.h; sourceTree = "<group>"; };
@@ -494,6 +501,8 @@
 		04621D59223A4424005021C9 /* UIView+Dimension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Dimension.m"; sourceTree = "<group>"; };
 		04621D5B223B8803005021C9 /* HWStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWStyle.h; sourceTree = "<group>"; };
 		04621D5C223B8803005021C9 /* HWStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWStyle.m; sourceTree = "<group>"; };
+		047428CF22A90B0F00079114 /* HBDImgTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBDImgTitleView.h; sourceTree = "<group>"; };
+		047428D022A90B0F00079114 /* HBDImgTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDImgTitleView.m; sourceTree = "<group>"; };
 		18C374611D4A2DC9000CE076 /* BXPaymentCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BXPaymentCalendarModel.h; sourceTree = "<group>"; };
 		18C374621D4A2DC9000CE076 /* BXPaymentCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BXPaymentCalendarModel.m; sourceTree = "<group>"; };
 		18C374631D4A2DC9000CE076 /* BXPaymentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BXPaymentModel.h; sourceTree = "<group>"; };
@@ -3237,6 +3246,12 @@
 		CAA455A71DDF08BE00C9D7BA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				041EE21B22A765890080F070 /* ExperienceProjectView.h */,
+				041EE21C22A765890080F070 /* ExperienceProjectView.m */,
+				041EE21E22A76E7D0080F070 /* HBDGradientTapView.h */,
+				041EE21F22A76E7D0080F070 /* HBDGradientTapView.m */,
+				047428CF22A90B0F00079114 /* HBDImgTitleView.h */,
+				047428D022A90B0F00079114 /* HBDImgTitleView.m */,
 				CAB182691F6B7FC700E0A518 /* BXDefaultCell.h */,
 				CAB1826A1F6B7FC700E0A518 /* BXDefaultCell.m */,
 				CAB1826B1F6B7FC700E0A518 /* BXDefaultCell.xib */,
@@ -3746,6 +3761,7 @@
 				CA538B861D65A38200B4D986 /* NSObject+CHAddition.m in Sources */,
 				7BAB8EEB1FBD97B400023015 /* UdeskVoiceRecordHelper.m in Sources */,
 				7B8742501F5698900048AC39 /* VTMagicController.m in Sources */,
+				047428D122A90B0F00079114 /* HBDImgTitleView.m in Sources */,
 				7B69F6211FE3A4C80086DF52 /* HXTextAndButStyle.m in Sources */,
 				7BDBC2801F7E1A9B00BBF494 /* HXInvestmentRecordListVC.m in Sources */,
 				5F847ED91BC796AA00EB8063 /* BXRechargeSuccessController.m in Sources */,
@@ -3923,6 +3939,7 @@
 				7BAB8EE61FBD97B400023015 /* UdeskAlertController.m in Sources */,
 				CABF0F891ECA97C300A2EA68 /* SZQuestionCheckBox.m in Sources */,
 				497ED24C1AD8C89900294834 /* LLLockIndicator.m in Sources */,
+				041EE21D22A765890080F070 /* ExperienceProjectView.m in Sources */,
 				5F61DFA21AD3B1ED00A0CA1A /* BXAccountAssetsController.m in Sources */,
 				5F5643341CF68A6A00B975FF /* HTMLAttributedString.m in Sources */,
 				7BAB8F081FBD97B400023015 /* UdeskCustomNavigation.m in Sources */,
@@ -3941,6 +3958,7 @@
 				7B335E991FEBDF81003BF68E /* HXRiskAssessModel.m in Sources */,
 				7BAB8F291FBD97B400023015 /* MKAnnotationView+Udesk_YYWebImage.m in Sources */,
 				CA0E467F1FA9B84A005FCF48 /* DDChooseHbCell.m in Sources */,
+				041EE22022A76E7D0080F070 /* HBDGradientTapView.m in Sources */,
 				7B8762431F906980009101A2 /* HXRechargeBankCardVC.m in Sources */,
 				7BAB8F211FBD97B400023015 /* UdeskPhotoManeger.m in Sources */,
 				5FF3517B1BB1292D00137B07 /* MYAlertView.m in Sources */,
