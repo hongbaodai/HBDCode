@@ -23,16 +23,12 @@
 
 @end
 
-@implementation DDRegisterSuccessVC
-{
+@implementation DDRegisterSuccessVC{
     NSDictionary  *userCardInfo;     // 用户绑卡信息
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //
     self.navigationController.delegate = self;
-    
-//    [HXTextAndButModel hxTextAndButModelWith:@"坚决拥护国家政策，用户资金银行存管，平台不碰触用户资金！" backView:self.textAndButView];
     CGRect fra = self.textAndButView.bounds;
     fra.size.width = (SCREEN_WIDTH) - 2 * 24;
     [HXTextAndButModel hxProjectItem:self.textAndButView strImgViewFrame:fra status:TextAndImgStatusRegister];
@@ -40,14 +36,7 @@
     self.nowSeeBtn.layer.cornerRadius = _nowSeeBtn.height_/2;
     self.nowSeeBtn.layer.masksToBounds = YES;
     [self.nowSeeBtn addTarget:self action:@selector(nowSeeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-
     [self.openAccountBtn addTarget:self action:@selector(openAccountBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
-//    self.freeSeeBtn.layer.borderWidth = 0.5;
-//    self.freeSeeBtn.layer.borderColor = COLOUR_BTN_BLUE.CGColor;
-//    self.freeSeeBtn.layer.cornerRadius = 22;
-//    self.freeSeeBtn.layer.masksToBounds = YES;
-//    [self.freeSeeBtn addTarget:self action:@selector(freeSeeBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)nowSeeBtnClick {

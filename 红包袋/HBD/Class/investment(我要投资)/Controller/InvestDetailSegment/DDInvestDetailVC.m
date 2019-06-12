@@ -645,7 +645,6 @@
     loginVC.isPresentedWithMyAccount = 0;
     BXNavigationController *Nav = [[BXNavigationController alloc] initWithRootViewController:loginVC];
     [self.navigationController presentViewController:Nav animated:YES completion:nil];
-    
 }
 
 

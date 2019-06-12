@@ -15,9 +15,9 @@
 #import "DDRegisterVC.h"
 #import "HXTabBarViewController.h"
 #import "HXAlertAccount.h"
-
 #import "DDRegisterSuccessVC.h"
 #import "MyRedPacketSwitchVC.h"
+#import "DDRegisterTwoVC.h"
 
 @interface BXLoginViewController ()<UITextFieldDelegate, DDCoverViewDelegate, PayThirdPartyProtocol>
 //登陆容器
@@ -37,7 +37,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    NSLog(@"========%@", self.navigationController.viewControllers);
     
     self.pwdTextfield.delegate = self;
     [self initViewUI];
@@ -116,14 +115,17 @@
 {
     [self.accountTextfield endEditing:YES];
     [self.pwdTextfield endEditing:YES];
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDRegisterVC" bundle:nil];
-    DDRegisterVC *vc = [sb instantiateInitialViewController];
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDRegisterVC" bundle:nil];
+//    DDRegisterVC *vc = [sb instantiateInitialViewController];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDRegisterTwoVC" bundle:nil];
+    DDRegisterTwoVC *vc = [sb instantiateInitialViewController];
     [self.navigationController pushViewController:vc animated:YES];
     
 }
 
-- (void)forgetPwdBtnClick
-{
+- (void)forgetPwdBtnClick{
     [self.accountTextfield endEditing:YES];
     [self.pwdTextfield endEditing:YES];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDForgotPwdVC" bundle:nil];
@@ -229,7 +231,6 @@
 /* post登录 */
 - (void)postLoginWithUserName:(NSString *)userName password:(NSString *)password
 {
-    NSLog(@"========%@", self.navigationController.viewControllers);
     BXHTTPParamInfo *info = [[BXHTTPParamInfo alloc]init];
     info.dataParam = @{@"userName":userName,@"password":password};
     info.serviceString = BXRequestLogin;

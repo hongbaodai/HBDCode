@@ -23,16 +23,13 @@
     if (self) {
         self.dataParam = [[NSDictionary alloc]init];
         self.serviceString = [[NSString alloc]init];
-        //        self.appendParam = [[NSArray alloc]init];
-        
     }
     return self;
 }
 
 @end
 
-@implementation BXNetworkRequest
-{
+@implementation BXNetworkRequest{
     CGFloat _oldTime; // 防止多次模拟登陆发送多次登录统计标识
 }
 
@@ -49,8 +46,7 @@
     return self;
 }
 
-+ (instancetype)defaultManager
-{
++ (instancetype)defaultManager{
     
     static BXNetworkRequest *s_BXNetworkRequest;
     
@@ -78,8 +74,7 @@
     return NO;
 }
 
-+ (AFHTTPRequestOperationManager *)postOperationManager
-{
++ (AFHTTPRequestOperationManager *)postOperationManager{
     static AFHTTPRequestOperationManager * nanager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -143,18 +138,12 @@
     
     NSDictionary *body = [[NSDictionary alloc] initWithDictionary:info.dataParam];
     NSMutableDictionary *sendMessage = [BXSendMessage initWithService:info.serviceString Body:body];
-    //    [self setSessionIDCookie];
-    
+  
     [manager POST:urlString parameters:sendMessage  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
         if ([self isExpired:responseObject]) {
-            
             [self reLoginForHeadInfomationWithHTTParamInfo:info SucceccResultWithDictionaty:^(id responseObject) {
-                
                 success(responseObject);
-                
             } faild:^(NSError *error) {
-                //                [self.alert show];
             }];
             
         }else{
@@ -186,12 +175,9 @@
     [manager POST:urlString parameters:sendMessage  success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if ([self isExpired:responseObject]) {
-            
             [self reLoginForHeadInfomationWithHTTParamInfo:info SucceccResultWithDictionaty:^(id responseObject) {
                 success(responseObject);
             } faild:^(NSError *error) {
-                
-                //                [self.alert show];
             }];
         }else{
             success(responseObject);

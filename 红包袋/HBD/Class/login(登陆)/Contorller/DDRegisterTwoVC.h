@@ -11,6 +11,4 @@
 
 @interface DDRegisterTwoVC : DDLoginSuperVC
 
-@property (nonatomic, copy) NSString *phoneNum;
-
 @end

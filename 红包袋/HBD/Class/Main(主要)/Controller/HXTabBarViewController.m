@@ -56,7 +56,6 @@
     NSArray *arrEnd = [NSArray arrayWithArray:arr];
     self.viewControllers = arrEnd;
     
-    
 }
 
 /** 修改登录密码回来重新修改ui */
@@ -75,9 +74,8 @@
 }
 
 /** 修改登录密码回来重新修改ui还有出借详情页纯文字弹框 */
-- (void)reloadSelecAndAlert
-{
-   
+- (void)reloadSelecAndAlert{
+    
     NSInteger num = 2;
     NSMutableArray *arr = [NSMutableArray arrayWithArray:[self childViewControllers]];
     [arr removeObjectAtIndex:num];
@@ -99,18 +97,15 @@
     NSArray *arrEnd1 = [NSArray arrayWithArray:arr1];
     self.viewControllers = arrEnd1;
     
-     [self dismissVC];
-    
+    [self dismissVC];
 }
 
-- (void)dismissVC
-{
+- (void)dismissVC{
     if ([self.presentedViewController isKindOfClass:[HXPopUpViewController class]] ||[self.presentedViewController isKindOfClass:[AlertImgViewController class]]) {
         UIViewController *vc = self.presentedViewController;
         vc.view.alpha = 0;
         [vc dismissViewControllerAnimated:YES completion:nil];
         [vc dismissViewControllerAnimated:YES completion:nil];
-
     }
 }
 
@@ -143,8 +138,8 @@
 }
 
 ///设置每个子控制器Ô
-- (BXNavigationController *)setChildControllerWithSBName:(NSString *)SBName title:(NSString *)title itemTitle:(NSString *)itemTitle imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName add:(BOOL)isAdd
-{
+- (BXNavigationController *)setChildControllerWithSBName:(NSString *)SBName title:(NSString *)title itemTitle:(NSString *)itemTitle imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName add:(BOOL)isAdd{
+    
     [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
 
     //创建子控制器

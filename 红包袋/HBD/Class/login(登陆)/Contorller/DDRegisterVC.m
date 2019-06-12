@@ -72,7 +72,6 @@
     if ([self canSubmitGo]) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDRegisterTwoVC" bundle:nil];
         DDRegisterTwoVC *vc = [sb instantiateInitialViewController];
-        vc.phoneNum = self.phoneTxf.text;
         [self.navigationController pushViewController:vc animated:YES];
     }
 

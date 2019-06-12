@@ -99,15 +99,6 @@
     return @{@"system": system, @"m_type": mType, @"app": appName, @"app_v": appVersion};
 }
 
-//+ (NSString *)deviceUDID
-//{
-//    NSString *udid = [[AppCache sharedInstance] objectForKey:EC_USER_DEFAULT_KEY_DEVICE_UDID];
-//    if ([ECUtil isBlankString:udid]) {
-//        udid = [[UIDevice currentDevice].identifierForVendor UUIDString];
-//        [[AppCache sharedInstance] setObject:udid forKey:EC_USER_DEFAULT_KEY_DEVICE_UDID];
-//    }
-//    return udid;
-//}
 
 + (CDeviceType)getDeviceType
 {

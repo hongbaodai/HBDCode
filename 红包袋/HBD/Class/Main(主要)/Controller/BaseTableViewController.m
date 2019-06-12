@@ -24,9 +24,7 @@
     
 }
 
-- (void)viewDidLayoutSubviews
-{
-//    self.tableView.contentSize = CGSizeMake(SCREEN_WIDTH, CGFLOAT_MAX);
+- (void)viewDidLayoutSubviews{
 }
 
 - (void)didReceiveMemoryWarning

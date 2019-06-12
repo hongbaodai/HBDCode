@@ -329,7 +329,6 @@
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BXLoginView" bundle:nil];
             BXLoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
             loginVC.loginStyle = DDLoginStyleDec;
-            NSLog(@"qqqqqqqq========%@", tabbar.viewControllers);
             BXNavigationController *Nav = [[BXNavigationController alloc] initWithRootViewController:loginVC];
             [self presentViewController:Nav animated:YES completion:nil];
             

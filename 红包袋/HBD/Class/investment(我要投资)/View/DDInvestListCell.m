@@ -422,7 +422,6 @@
 //出借中不设titile
 - (void)setInvestBtnSyleProgressNoTitle {
     
-//    [_investBtn setBackgroundColor:[UIColor colorWithHexString:COLOUR_BTN_Gray]];
     [_investBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
     [_investBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
 

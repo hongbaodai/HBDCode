@@ -13,6 +13,8 @@
 		04621D56223A36A2005021C9 /* HWAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D55223A36A2005021C9 /* HWAlertViewController.m */; };
 		04621D5A223A4424005021C9 /* UIView+Dimension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D59223A4424005021C9 /* UIView+Dimension.m */; };
 		04621D5D223B8803005021C9 /* HWStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04621D5C223B8803005021C9 /* HWStyle.m */; };
+		047428D422AF937100079114 /* HBDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047428D322AF937100079114 /* HBDRootViewController.m */; };
+		047428D722AF944D00079114 /* HBRegisterRetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047428D622AF944D00079114 /* HBRegisterRetPwdViewController.m */; };
 		047F7772222F6366005D2B92 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC26267221F988500BC27CE /* UserNotifications.framework */; };
 		18C374691D4A2DC9000CE076 /* BXPaymentCalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C374621D4A2DC9000CE076 /* BXPaymentCalendarModel.m */; };
 		18C3746A1D4A2DC9000CE076 /* BXPaymentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C374641D4A2DC9000CE076 /* BXPaymentModel.m */; };
@@ -494,6 +496,10 @@
 		04621D59223A4424005021C9 /* UIView+Dimension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Dimension.m"; sourceTree = "<group>"; };
 		04621D5B223B8803005021C9 /* HWStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWStyle.h; sourceTree = "<group>"; };
 		04621D5C223B8803005021C9 /* HWStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWStyle.m; sourceTree = "<group>"; };
+		047428D222AF937100079114 /* HBDRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBDRootViewController.h; sourceTree = "<group>"; };
+		047428D322AF937100079114 /* HBDRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDRootViewController.m; sourceTree = "<group>"; };
+		047428D522AF944D00079114 /* HBRegisterRetPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBRegisterRetPwdViewController.h; sourceTree = "<group>"; };
+		047428D622AF944D00079114 /* HBRegisterRetPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBRegisterRetPwdViewController.m; sourceTree = "<group>"; };
 		18C374611D4A2DC9000CE076 /* BXPaymentCalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BXPaymentCalendarModel.h; sourceTree = "<group>"; };
 		18C374621D4A2DC9000CE076 /* BXPaymentCalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BXPaymentCalendarModel.m; sourceTree = "<group>"; };
 		18C374631D4A2DC9000CE076 /* BXPaymentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BXPaymentModel.h; sourceTree = "<group>"; };
@@ -1521,6 +1527,8 @@
 			children = (
 				7B1507821FC7CEFE0089CC7D /* BXNavigationController.h */,
 				7B1507831FC7CEFE0089CC7D /* BXNavigationController.m */,
+				047428D222AF937100079114 /* HBDRootViewController.h */,
+				047428D322AF937100079114 /* HBDRootViewController.m */,
 				7B9E4B711FA6D57300CB7AB5 /* HXTabBarViewController.h */,
 				7B9E4B721FA6D57300CB7AB5 /* HXTabBarViewController.m */,
 				7BF4A4EF1F8B6EDC0065B7C2 /* BaseNormolViewController.h */,
@@ -1704,6 +1712,8 @@
 				CAFDE0BC1F945BEC00AD78E7 /* DDResetPwdVC.h */,
 				CAFDE0BD1F945BEC00AD78E7 /* DDResetPwdVC.m */,
 				CAFDE0BF1F945C3E00AD78E7 /* DDResetPwdVC.storyboard */,
+				047428D522AF944D00079114 /* HBRegisterRetPwdViewController.h */,
+				047428D622AF944D00079114 /* HBRegisterRetPwdViewController.m */,
 				CAFDE0C11F947D7F00AD78E7 /* DDRegisterSuccessVC.h */,
 				CAFDE0C21F947D7F00AD78E7 /* DDRegisterSuccessVC.m */,
 				CAFDE0C41F947F9B00AD78E7 /* DDRegisterSuccessVC.storyboard */,
@@ -3729,6 +3739,7 @@
 				7B8AA13520E0CCC500DB4875 /* BXUIWebRequsetManager.m in Sources */,
 				04621D56223A36A2005021C9 /* HWAlertViewController.m in Sources */,
 				CABF0F8F1ECA99A500A2EA68 /* DDRiskAssessHeadView.m in Sources */,
+				047428D722AF944D00079114 /* HBRegisterRetPwdViewController.m in Sources */,
 				7B1507871FC7CF2A0089CC7D /* AppUtils.m in Sources */,
 				7B74C1611FC3FF28000AD942 /* DDInvestSafeVC.m in Sources */,
 				49BD94611AE7C09B004CF473 /* BXInvestFinishModel.m in Sources */,
@@ -3955,6 +3966,7 @@
 				49F87A1E1AE78E98007AAAF0 /* BXMyaccountInvestThreeModel.m in Sources */,
 				7B47348D201EEA64003CC6F8 /* SettingBottomView.m in Sources */,
 				CAF2692E1E1508730009425C /* DDUserModel.m in Sources */,
+				047428D422AF937100079114 /* HBDRootViewController.m in Sources */,
 				18C374921D4A2E9D000CE076 /* BXRepaymentTwoCell.m in Sources */,
 				7B785B271F33112500BF4A26 /* HXRefresh.m in Sources */,
 				5F0933CC1BD77BF20066E39E /* UIColor+HexColor.m in Sources */,

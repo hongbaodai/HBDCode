@@ -19,9 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //
-    self.title = @"";
-
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.resetBtn addTarget:self action:@selector(resetBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -30,7 +28,6 @@
     if ([self canSubmitGo]) {
         [self postChangePasswordWithMobile:_phone Password:self.newpwdTxf.text PicCode:_imgCode VerifyCode:_code];
     }
-    
 }
 
 - (BOOL)canSubmitGo {
@@ -73,15 +70,18 @@
 {
     BXHTTPParamInfo *info = [[BXHTTPParamInfo alloc]init];
     info.serviceString = BXRequestChangePassword;
-    info.dataParam = @{@"mobile":mobile,@"password":password,@"picCode":picCode,@"verifycode":verifyCode,@"BASE_DEAL":@"1",@"vobankIdTemp":@""};
+    info.dataParam = @{@"mobile":mobile,
+                       @"password":password,
+                       @"picCode":picCode,
+                       @"verifycode":verifyCode,
+                       @"BASE_DEAL":@"1",
+                       @"vobankIdTemp":@""};
     
     WS(weakSelf);
     [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
         NSDictionary *dict = [NSDictionary  dictionaryWithDictionary:responseObject];
-        
         NSString *result = dict[@"body"][@"resultcode"];
         NSString *errorInfo = dict[@"body"][@"resultinfo"];
-        
         if ([result integerValue] == 0) {
             // 成功
             [MBProgressHUD showSuccess:@"密码修改成功"];
