@@ -75,7 +75,7 @@
     HXPieChartModel *model;
     // 没有数据的显示
     if (_items.count == 0) {
-        CAShapeLayer *circle = [self drawPieWithRadius:83 startPage:0 endPage:1 color:DDColor(239, 239, 239) width:10];
+        CAShapeLayer *circle = [self drawPieWithRadius:83 startPage:0 endPage:1 color:kColor_sRGB(239, 239, 239) width:10];
         [self.layer addSublayer:circle];
         return;
     }

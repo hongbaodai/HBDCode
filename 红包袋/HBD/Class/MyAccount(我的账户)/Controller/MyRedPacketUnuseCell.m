@@ -186,18 +186,13 @@
 }
 
 #pragma mark - UI更新
-- (void)makeUIWithTop
-{
+- (void)makeUIWithTop{
     self.layoutLabel1LeadingConstraint.constant = kLabel1Layout;
     self.layoutLabel1TopConstaint.constant = 19.0f;
     self.layoutLabel1HeightConstraint.constant = 16.0f;
-    
-//    self.layoutLable2TopConstraint.constant = 6.0f;
-//    self.layoutLabel2HeightConstraint.constant = 12.0f;
-    
+
     self.desTop1Label.font = [UIFont systemFontOfSize:13.0f];
     self.desTop2Label.font = [UIFont systemFontOfSize:10.0f];
-    
     self.rightDesLabel.hidden = NO;
     self.desTop3Label.hidden = NO;
 }
@@ -208,33 +203,25 @@
     switch (type) {
         case RedTypeUnuse:
             [self makeUIWithTop];
-            
-            [self.ImmediateUseBut setTitleColor:COLOUR_BTN_BLUE_NEW forState:UIControlStateNormal];
-       
+            [self.ImmediateUseBut setTitleColor:kColor_Red_Main forState:UIControlStateNormal];
             [self.ImmediateUseBut setTitle:@"立即使用" forState:UIControlStateNormal];
             self.ImmediateUseBut.enabled = YES;
             self.backImageView.image = [UIImage imageNamed:@"RedPacketUnuse"];
-            
             [self bottomUnuseLabel];
             break;
         case RedTypeUsed:
             self.layoutLabel1TopConstaint.constant = 12.0f;
             self.layoutLabel1LeadingConstraint.constant = kLabel1Layout;
             self.layoutLabel1HeightConstraint.constant = 13.0f;
-           
             self.layoutLable2TopConstraint.constant = 18.0f;
             self.layoutLabel2HeightConstraint.constant = 13.0f;
             
             self.desTop1Label.font = [UIFont systemFontOfSize:11.0f];
             self.desTop2Label.font = [UIFont systemFontOfSize:10.0f];
-            
             self.rightDesLabel.hidden = YES;
             self.desTop3Label.hidden = YES;
-            
             [self.ImmediateUseBut setTitle:@"已使用" forState:UIControlStateNormal];
             self.backImageView.image = [UIImage imageNamed:@"RedPacketUsed"];
-
-
             [self makeUIWithRightBottom];
             break;
         case RedTypeOutOfDate:
@@ -251,32 +238,26 @@
     }
 }
 
-- (void)makeUIWithRightBottom
-{
-    self.ImmediateUseBut.backgroundColor = DDColor(170, 189, 196);
-    [self.ImmediateUseBut setTitleColor:DDColor(204, 216, 220) forState:UIControlStateNormal];
+- (void)makeUIWithRightBottom{
+    self.ImmediateUseBut.backgroundColor = kColor_sRGB(170, 189, 196);
+    [self.ImmediateUseBut setTitleColor:kColor_sRGB(204, 216, 220) forState:UIControlStateNormal];
     self.ImmediateUseBut.enabled = NO;
-    
     [self bottomUsedLabel];
 }
 
-- (void)bottomUnuseLabel
-{
+- (void)bottomUnuseLabel{
     self.ImmediateUseBut.backgroundColor = [UIColor whiteColor];
-    
-    self.bottomLeftLabel.textColor = COLOUR_BTN_BLUE_TITELCOLOR;
-    self.bottomDateLabel.textColor = COLOUR_BTN_BLUE_TITELCOLOR;
+    self.bottomLeftLabel.textColor = kColor_Title_Blue;
+    self.bottomDateLabel.textColor = kColor_Title_Blue;
 }
 
-- (void)bottomUsedLabel
-{
-    self.bottomLeftLabel.textColor = DDColor(203, 216, 220);
-    self.bottomDateLabel.textColor = DDColor(203, 216, 220);
+- (void)bottomUsedLabel{
+    self.bottomLeftLabel.textColor = kColor_sRGB(203, 216, 220);
+    self.bottomDateLabel.textColor = kColor_sRGB(203, 216, 220);
 }
 
 /** 现金红包 */
-- (void)makeCashRedType:(RedType)redType
-{
+- (void)makeCashRedType:(RedType)redType{
     self.layoutLabel1TopConstaint.constant = 12.0f;
     self.layoutLabel1LeadingConstraint.constant = kLabel1Layout;
     self.layoutLabel1HeightConstraint.constant = 13.0f;
@@ -295,7 +276,7 @@
         case RedTypeUnuse:
             [self bottomUnuseLabel];
             
-            [self.ImmediateUseBut setTitleColor:[UIColor colorWithHexString:COLOUR_YELLOW] forState:UIControlStateNormal];
+            [self.ImmediateUseBut setTitleColor:kColor_Orange_Dark forState:UIControlStateNormal];
             [self.ImmediateUseBut setTitle:@"转为现金" forState:UIControlStateNormal];
             self.ImmediateUseBut.enabled = YES;
             self.backImageView.image = [UIImage imageNamed:@"RedCashUnuse"];
@@ -322,8 +303,8 @@
 
 - (void)makeUIImmediateBut
 {
-    [self.ImmediateUseBut setTitleColor:DDColor(204, 216, 220) forState:UIControlStateNormal];
-    self.ImmediateUseBut.backgroundColor = DDColor(170, 189, 196);
+    [self.ImmediateUseBut setTitleColor:kColor_sRGB(204, 216, 220) forState:UIControlStateNormal];
+    self.ImmediateUseBut.backgroundColor = kColor_sRGB(170, 189, 196);
     [self bottomUsedLabel];
 }
 /** 按钮处理：立即使用和提现 */

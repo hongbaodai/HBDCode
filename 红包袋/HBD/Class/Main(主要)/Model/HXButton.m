@@ -32,7 +32,6 @@
 {
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = 22;
-//    self.backgroundColor = COLOUR_BTN_BLUE_NEW;
     [self setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
     //[self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 

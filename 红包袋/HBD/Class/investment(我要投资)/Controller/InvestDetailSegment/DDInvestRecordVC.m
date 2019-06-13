@@ -36,7 +36,7 @@
     // 网络访问结束设置空页面数据源和代理方法
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
-    self.tableView.backgroundColor = COLOUR_Gray_Bg;
+    self.tableView.backgroundColor = kColor_BackGround_Gray;
     
 }
 
@@ -55,7 +55,7 @@
         _islogin = NO;
     }
     _stateView = [[DDInvestRcdView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT / 2 - 200, SCREEN_WIDTH, 250) isLogin:_islogin];
-    _stateView.backgroundColor = COLOUR_Gray_Bg;
+    _stateView.backgroundColor = kColor_BackGround_Gray;
     WS(weakSelf);
     _stateView.investRcdBlock = ^{
     
@@ -125,21 +125,21 @@
     [headerview addSubview:lab1];
     lab1.text = @"出借用户";
     lab1.font = FONT_14;
-    lab1.textColor = DDColor(45, 65, 94);
+    lab1.textColor = kColor_sRGB(45, 65, 94);
     lab1.textAlignment = NSTextAlignmentCenter;
     
     UILabel *lab2 = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/3, 6, SCREEN_WIDTH/3, 30)];
     [headerview addSubview:lab2];
     lab2.text = @"出借金额（元）";
     lab2.font = FONT_14;
-    lab2.textColor = DDColor(45, 65, 94);
+    lab2.textColor = kColor_sRGB(45, 65, 94);
     lab2.textAlignment = NSTextAlignmentCenter;
     
     UILabel *lab3 = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/3*2, 6, SCREEN_WIDTH/3, 30)];
     [headerview addSubview:lab3];
     lab3.text = @"出借时间";
     lab3.font = FONT_14;
-    lab3.textColor = DDColor(45, 65, 94);
+    lab3.textColor = kColor_sRGB(45, 65, 94);
     lab3.textAlignment = NSTextAlignmentCenter;
     
     return headerview;
@@ -162,7 +162,7 @@
     NSString *title = @"暂无出借记录！";
     NSDictionary *attributes = @{
                                  NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
-                                 NSForegroundColorAttributeName:DDRGB(45, 65, 94)
+                                 NSForegroundColorAttributeName:kColor_sRGB(45, 65, 94)
                                  };
     return [[NSAttributedString alloc] initWithString:title attributes:attributes];
 }
@@ -279,7 +279,7 @@
         tablew.delegate = self;
         tablew.dataSource = self;
         tablew.separatorStyle = UITableViewCellSeparatorStyleNone;
-        tablew.backgroundColor = COLOUR_Gray_Bg;
+        tablew.backgroundColor = kColor_BackGround_Gray;
         tablew.rowHeight = 63;
         _tableView = tablew;
         [self.view addSubview:_tableView];

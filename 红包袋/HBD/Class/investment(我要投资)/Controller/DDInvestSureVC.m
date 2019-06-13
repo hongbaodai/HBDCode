@@ -1268,7 +1268,7 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
             [self.sureInvestBtn setTitle:investStr forState:UIControlStateNormal];
             self.sureInvestBtn.enabled = NO;
             [self.sureInvestBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-            [self.sureInvestBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+            [self.sureInvestBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
             
         }else if (day==0  && house >= 2) {
             //大于2小时
@@ -1279,7 +1279,7 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
                 [self.sureInvestBtn setTitle:investStr forState:UIControlStateNormal];
                 self.sureInvestBtn.enabled = NO;
                 [self.sureInvestBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-                [self.sureInvestBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+                [self.sureInvestBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
                 
             } else {
                 //不是一天显示1天后
@@ -1287,7 +1287,7 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
                 [self.sureInvestBtn setTitle:investStr forState:UIControlStateNormal];
                 self.sureInvestBtn.enabled = NO;
                 [self.sureInvestBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-                [self.sureInvestBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+                [self.sureInvestBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
 
             }
             
@@ -1332,7 +1332,7 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
                 countDownBtn.userInteractionEnabled = NO;
                 countDownBtn.enabled = NO;
                 [countDownBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-                [countDownBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+                [countDownBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
 
                 timeout--;
             });

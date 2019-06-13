@@ -553,7 +553,7 @@
             
             [[dayCell textLabel] setText:@"今天"];
             [[dayCell textLabel] setFont:[UIFont boldSystemFontOfSize:11]];
-            [dayCell textLabel].textColor = COLOUR_BTN_BLUE_NEW;
+            [dayCell textLabel].textColor = kColor_Red_Main;
             [[dayCell backgroundView] setBackgroundColor:[self normalDayColor]];
         } else {
             [[dayCell backgroundView] setBackgroundColor:[self normalDayColor]];

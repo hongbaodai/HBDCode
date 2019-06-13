@@ -82,7 +82,7 @@
         self.voiceBtnHasSelected = YES;
         self.voiceBtn.userInteractionEnabled = NO;
         [self.voiceBtn setTitle:@"请注意接听电话播报6位验证码" forState:UIControlStateNormal];
-        [self.voiceBtn setTitleColor:DDRGB(74, 74, 74) forState:UIControlStateNormal];
+        [self.voiceBtn setTitleColor:kColor_sRGB(74, 74, 74) forState:UIControlStateNormal];
         
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -140,7 +140,7 @@
 
 - (void)setNavgationColorNormalr {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:COLOUR_BTN_BLUE] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:kColor_Red_Main] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
 
@@ -239,7 +239,7 @@
             [MBProgressHUD showSuccess:@"获取成功"];
             self.voiceBtn.userInteractionEnabled = YES;
             [self.voiceBtn setTitle:@"短信收不到？点此获取语音验证码" forState:UIControlStateNormal];
-            [self.voiceBtn setTitleColor:DDRGB(231, 56, 61) forState:UIControlStateNormal];
+            [self.voiceBtn setTitleColor:kColor_sRGB(231, 56, 61) forState:UIControlStateNormal];
         } else {
             [MBProgressHUD showError:errorInfo];
         }

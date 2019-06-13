@@ -72,7 +72,7 @@
 - (UILabel *)titleLab {
     if (_titleLab == nil) {
         _titleLab = [[UILabel alloc] init];
-        _titleLab.textColor = COLOUR_BTN_BLUE;
+        _titleLab.textColor = kColor_Red_Main;
         _titleLab.font = [UIFont systemFontOfSize:16];
         _titleLab.text = @"升级停服公告";
     }
@@ -103,7 +103,7 @@
     if (_upgradeBtn == nil) {
         _upgradeBtn = [[UIButton alloc] init];
         [_upgradeBtn setTitle:@"确定" forState:UIControlStateNormal];
-        _upgradeBtn.backgroundColor = COLOUR_BTN_BLUE;
+        _upgradeBtn.backgroundColor = kColor_Red_Main;
         _upgradeBtn.layer.cornerRadius = 3;
         _upgradeBtn.layer.masksToBounds = YES;
         [_upgradeBtn addTarget:self action:@selector(upgradeBtnClick) forControlEvents:UIControlEventTouchUpInside];

@@ -68,7 +68,7 @@
 - (void)setNavgationColorNormalr {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     // 导航栏变蓝
-    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:COLOUR_BTN_BLUE] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:kColor_Red_Main] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
 

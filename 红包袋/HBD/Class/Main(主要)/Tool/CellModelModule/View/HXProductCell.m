@@ -50,10 +50,10 @@
         
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-        cell.textLabel.textColor = DDRGB(46, 65, 94);
+        cell.textLabel.textColor = kColor_sRGB(46, 65, 94);
         
         UIView *view = [[UIView alloc] init];
-        view.backgroundColor = DDRGB(245, 245, 245);
+        view.backgroundColor = kColor_sRGB(245, 245, 245);
         [cell addSubview:view];
         cell.bottomView = view;
     }
@@ -92,7 +92,7 @@
         self.accessoryView = self.switchBtn;
         NSUserDefaults *defults = [NSUserDefaults standardUserDefaults];
         self.switchBtn.on = [defults boolForKey:self.item.title];
-        self.switchBtn.onTintColor = COLOUR_BTN_BLUE_NEW;
+        self.switchBtn.onTintColor = kColor_Red_Main;
     } else if ([item isKindOfClass:[HXLabelItem class]]) {
         // 纯文字
         HXLabelItem *labelItem = (HXLabelItem *)item;

@@ -69,7 +69,7 @@
     self.footBtn.center = footview.center;
     [self.footBtn setTitle:@"提交问卷" forState:UIControlStateNormal];
     [self.footBtn addTarget:self action:@selector(footBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    self.footBtn.backgroundColor = COLOUR_BTN_BLUE_NEW;
+    self.footBtn.backgroundColor = kColor_Red_Main;
     [footview addSubview:self.footBtn];
     self.tableView.tableFooterView = footview;
 }

@@ -22,7 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.nextBtn setBackgroundColor:[UIColor colorWithHex:COLOUR_YELLOW]];
+    [self.nextBtn setBackgroundColor:kColor_Orange_Dark];
 }
 
 //下一步 设置手势密码

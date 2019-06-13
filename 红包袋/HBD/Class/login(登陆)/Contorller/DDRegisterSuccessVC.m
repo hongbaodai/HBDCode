@@ -42,7 +42,7 @@
 - (void)nowSeeBtnClick {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     // 导航栏变红
-    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:COLOUR_BTN_BLUE_NEW] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:kColor_Red_Main] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     
     MyRedPacketSwitchVC *redpacketVC = [[MyRedPacketSwitchVC alloc] init];
@@ -54,7 +54,7 @@
 - (void)openAccountBtnClick {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     // 导航栏变红
-    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:COLOUR_BTN_BLUE_NEW] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:kColor_Red_Main] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 
     BXOpenLDAccountEqianBaoController *openLDAccountVC = [[BXOpenLDAccountEqianBaoController alloc]init];

@@ -48,7 +48,7 @@
             
         case AssetTypeDone:
             self.investmentTimeDesLabel.text = @"净收益（元）";
-            self.investmentTimeLabel.textColor = DDRGB(236, 116, 96);
+            self.investmentTimeLabel.textColor = kColor_sRGB(236, 116, 96);
             
             break;
         default:

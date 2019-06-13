@@ -279,7 +279,7 @@
     NSString *title = @"暂时没有符合要求的项目哦！";
     NSDictionary *attributes = @{
                                  NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
-                                 NSForegroundColorAttributeName:DDRGB(45, 65, 94)
+                                 NSForegroundColorAttributeName:kColor_sRGB(45, 65, 94)
                                  };
     return [[NSAttributedString alloc] initWithString:title attributes:attributes];
 }

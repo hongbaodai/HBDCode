@@ -56,7 +56,7 @@
     path.lineWidth = 3.0;
     path.lineCapStyle = kCGLineCapRound;
     // 颜色
-    [COLOUR_BTN_BLUE set];
+    [kColor_Red_Main set];
     
     [path stroke];
 }

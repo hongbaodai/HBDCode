@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
 
-    UIImage *backgroundImage = [AppUtils imageWithColor:COLOUR_BTN_BLUE_NEW];
+    UIImage *backgroundImage = [AppUtils imageWithColor:kColor_Red_Main];
     [self.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
     // 去黑线
     [self.navigationBar setShadowImage:[[UIImage alloc] init]];

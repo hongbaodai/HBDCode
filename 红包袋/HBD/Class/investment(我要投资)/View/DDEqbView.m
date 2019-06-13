@@ -68,7 +68,7 @@
     [self.coverview addSubview:self.popview];
     
     UIView *upview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.popview.width_, 162)];
-    upview.backgroundColor = DDRGB(229, 246, 253);
+    upview.backgroundColor = kColor_sRGB(229, 246, 253);
     [self.popview addSubview:upview];
     
 }
@@ -133,7 +133,7 @@
         _label1 = [[UILabel alloc] init];
         _label1.text = @"积极响应国家政策，保障电子合同的合法性。";
         _label1.font = FONT_14;
-        _label1.textColor = COLOUR_BTN_BLUE_TITELCOLOR;
+        _label1.textColor = kColor_Title_Blue;
     }
     return _label1;
 }
@@ -144,7 +144,7 @@
         _label2.text = @"请开通电子签章账户，开通后您的实名认证信息将作为电子合同签署人。";
         _label2.font = FONT_14;
         _label2.numberOfLines = 2;
-        _label2.textColor = COLOUR_BTN_BLUE_TITELCOLOR;
+        _label2.textColor = kColor_Title_Blue;
     }
     return _label2;
 }
@@ -153,7 +153,7 @@
     if (_openBtn == nil) {
         _openBtn = [[UIButton alloc] init];
         [_openBtn setTitle:@"立即开通" forState:UIControlStateNormal];
-        [_openBtn setBackgroundColor:COLOUR_BTN_BLUE_NEW];
+        [_openBtn setBackgroundColor:kColor_Red_Main];
         [_openBtn addTarget:self action:@selector(nowOpenBtnClick) forControlEvents:UIControlEventTouchUpInside];
         _openBtn.layer.cornerRadius = 4;
         _openBtn.layer.masksToBounds = YES;

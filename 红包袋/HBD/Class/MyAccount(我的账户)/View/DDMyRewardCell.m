@@ -59,13 +59,13 @@
         
         NSString *titlestr = [NSString stringWithFormat:@"%@ %@", model.SP_NAME, model.DESCRIBE];
         self.titleLab.text = titlestr;
-        self.titleLab.textColor = COLOUR_BTN_BLUE_NEW;
+        self.titleLab.textColor = kColor_Red_Main;
 
         //设置标题文字不同字号
         NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:titlestr];
         NSRange rangel = [[attString string] rangeOfString:[titlestr substringFromIndex:model.SP_NAME.length]];
         [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:11] range:rangel];
-        [attString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:COLOUR_YELLOW] range:rangel];
+        [attString addAttribute:NSForegroundColorAttributeName value:kColor_Orange_Dark range:rangel];
         
         [self.titleLab setAttributedText:attString];
         
@@ -97,7 +97,7 @@
     DDMyRewardCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"DDMyRewardCell" owner:nil options:nil] lastObject];
-        cell.titleLab.textColor = COLOUR_BTN_BLUE_TITELCOLOR;
+        cell.titleLab.textColor = kColor_Title_Blue;
         cell.fromDesLab.text = @"时间／日期";
         cell.timeDesLab.text = @"存入/支出(元)";
         cell.stateDesLab.text = @"交易类型";

@@ -13,7 +13,7 @@
 #import "DDActivityWebController.h"
 
 #define kTipColorNormal [UIColor whiteColor]
-#define kTipColorError [UIColor colorWithHexString:COLOUR_YELLOW]
+#define kTipColorError kColor_Orange_Dark
 
 @interface LLLockViewController ()<LoginVCDelegate,UIAlertViewDelegate,CAAnimationDelegate>
 {

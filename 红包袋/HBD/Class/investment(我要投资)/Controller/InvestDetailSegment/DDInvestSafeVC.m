@@ -175,15 +175,14 @@
     } else {
         self.paymentLab.text = @"--";
     }
-    self.paymentLab.backgroundColor = COLOUR_Gray_Bg;
-
-    self.riskResults.backgroundColor = COLOUR_Gray_Bg;
-    self.postLoanOne.backgroundColor = COLOUR_Gray_Bg;
-    self.postLoanTwo.backgroundColor = COLOUR_Gray_Bg;
-    self.postLoanThree.backgroundColor = COLOUR_Gray_Bg;
-    self.postLoanFour.backgroundColor = COLOUR_Gray_Bg;
-    self.postLoanFive.backgroundColor = COLOUR_Gray_Bg;
-    self.postLoanSix.backgroundColor = COLOUR_Gray_Bg;
+    self.paymentLab.backgroundColor = kColor_BackGround_Gray;
+    self.riskResults.backgroundColor = kColor_BackGround_Gray;
+    self.postLoanOne.backgroundColor = kColor_BackGround_Gray;
+    self.postLoanTwo.backgroundColor = kColor_BackGround_Gray;
+    self.postLoanThree.backgroundColor = kColor_BackGround_Gray;
+    self.postLoanFour.backgroundColor = kColor_BackGround_Gray;
+    self.postLoanFive.backgroundColor = kColor_BackGround_Gray;
+    self.postLoanSix.backgroundColor = kColor_BackGround_Gray;
 
     [self.paymentLab sizeToFit];
     self.tableView.tableHeaderView.height_ = self.paymentLab.height_ +65;
@@ -228,7 +227,7 @@
     } else {
         self.riskControlLab.text = @"--";
     }
-    self.riskControlLab.backgroundColor = COLOUR_Gray_Bg;
+    self.riskControlLab.backgroundColor = kColor_BackGround_Gray;
     [self.riskControlLab sizeToFit];
 }
 

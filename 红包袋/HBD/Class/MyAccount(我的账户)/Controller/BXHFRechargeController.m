@@ -48,7 +48,7 @@
 /** 添加描述视图 */
 - (void)makeDescripLabelUI
 {
-    self.topBackView.backgroundColor = COLOUR_BTN_BLUE_NEW;
+    self.topBackView.backgroundColor = kColor_Red_Main;
     
     CGRect frame = self.labelBackView.frame;
     CGFloat width = [UIScreen mainScreen].bounds.size.width - 2 * 23;
@@ -76,7 +76,7 @@
     // 1. 创建一个属性文本
     NSRange rage = [str rangeOfString:@"限额说明"];
     [attributedString yy_setTextHighlightRange:NSMakeRange(rage.location, rage.length)
-                             color:[UIColor colorWithHexString:COLOUR_YELLOW]
+                             color:kColor_Orange_Dark
                    backgroundColor:[UIColor colorWithWhite:0.000 alpha:0.220]
                          tapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
                              [weakSelf ebankBtnClick];

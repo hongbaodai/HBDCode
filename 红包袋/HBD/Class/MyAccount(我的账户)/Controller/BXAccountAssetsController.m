@@ -107,11 +107,11 @@
     }
 
     if ([model.YDJTBZXJ doubleValue]) { // 已冻结投标金额
-        [muArr addObject:[HXPieChartModel dataItemWithValue:[model.YDJTBZXJ doubleValue] color:DDColor(236, 116, 96)]];
+        [muArr addObject:[HXPieChartModel dataItemWithValue:[model.YDJTBZXJ doubleValue] color:kColor_sRGB(236, 116, 96)]];
     }
 
     if ([model.YDJTXZXJ doubleValue]) { // 已冻结提现金额
-        [muArr addObject:[HXPieChartModel dataItemWithValue:[model.YDJTXZXJ doubleValue] color:DDColor(135, 150, 169)]];
+        [muArr addObject:[HXPieChartModel dataItemWithValue:[model.YDJTXZXJ doubleValue] color:kColor_sRGB(135, 150, 169)]];
     }
 
     return [NSArray arrayWithArray:muArr];

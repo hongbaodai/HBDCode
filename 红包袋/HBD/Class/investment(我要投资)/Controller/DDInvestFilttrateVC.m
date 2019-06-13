@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"筛选";
-    self.view.backgroundColor = COLOUR_GroupTbColor;
+    self.view.backgroundColor = kColor_BackGround_Gray;
 
     [self addRightBarButtonItem];
     [self addFiltrateBtn];

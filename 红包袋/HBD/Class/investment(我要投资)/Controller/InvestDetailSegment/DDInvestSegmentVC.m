@@ -99,7 +99,7 @@
     self.investBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.investBtn.frame = CGRectMake(0, 0, SCREEN_WIDTH, 46);
     [self.investBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-    [self.investBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+    [self.investBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
     [self.investBtn addTarget:self action:@selector(investBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.investView addSubview:self.investBtn];
 

@@ -59,7 +59,7 @@
 
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:str];
 
-    NSDictionary *dic = @{NSForegroundColorAttributeName : COLOUR_BTN_BLUE_NEW, NSFontAttributeName:[UIFont systemFontOfSize:27.0f]};
+    NSDictionary *dic = @{NSForegroundColorAttributeName : kColor_Red_Main, NSFontAttributeName:[UIFont systemFontOfSize:27.0f]};
 
     NSRange rage = [str rangeOfString:title_];
     [attri setAttributes:dic range:NSMakeRange(rage.location, title_.length)];
@@ -160,7 +160,7 @@
     if (_openBtn == nil) {
         _openBtn = [[HXButton alloc] init];
 //        [_openBtn setTitle:@"立即评估" forState:UIControlStateNormal];
-//        [_openBtn setBackgroundColor:COLOUR_BTN_BLUE_NEW];
+//        [_openBtn setBackgroundColor:kColor_Red_Main];
 //        risk_bt-pg  risk_bt-sy
 //        [_openBtn setBackgroundImage:IMG(@"risk_bt-pg") forState:UIControlStateNormal];
         [_openBtn setBackgroundImage:IMG(btnImg_) forState:UIControlStateNormal];

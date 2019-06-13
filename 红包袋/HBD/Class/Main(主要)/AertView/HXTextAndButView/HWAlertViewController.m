@@ -55,7 +55,7 @@
     self.remindLab = [[UILabel alloc] initWithFrame:CGRectMake(self.topImgV.left, self.topImgV.bottom + 10, width, 14)];
     self.remindLab.text = @"注：内部评级，仅供参考";
     self.remindLab.font = [UIFont systemFontOfSize:14];
-    self.remindLab.textColor = [CHUtil colorWithHexString:COLOUR_GRAY];
+    self.remindLab.textColor = kColor_Title_Gray;
     self.remindLab.textAlignment = NSTextAlignmentLeft;
     [self.backGroundV addSubview:self.remindLab];
 
@@ -67,7 +67,7 @@
     self.clickBtn.layer.borderWidth = 1;
     [self.backGroundV addSubview:self.clickBtn];
     [self.clickBtn setTitle:@"我知道了" forState:UIControlStateNormal];
-    [self.clickBtn setTitleColor:[CHUtil colorWithHexString:COLOUR_GRAY] forState:UIControlStateNormal];
+    [self.clickBtn setTitleColor:kColor_Title_Gray forState:UIControlStateNormal];
     self.clickBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.clickBtn addTarget:self action:@selector(clickBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     

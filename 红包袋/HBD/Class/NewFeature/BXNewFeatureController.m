@@ -146,7 +146,7 @@
     UIButton *startButton = [[UIButton alloc] init];
     [imageview addSubview:startButton];
 
-    startButton.backgroundColor = COLOUR_BTN_BLUE_NEW;
+    startButton.backgroundColor = kColor_Red_Main;
     // 3.设置文字
     [startButton setTitle:@"立即进入" forState:UIControlStateNormal];
     

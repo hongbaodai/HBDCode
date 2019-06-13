@@ -60,15 +60,15 @@
     if (model.selectState){
         _selectState = YES;
         [self.useBtn setTitle:@"已选择" forState:UIControlStateNormal];
-        [self.useBtn setTitleColor:COLOUR_BTN_BLUE_NEW forState:UIControlStateNormal];
-        [self.useBtn setBackgroundColor:COLOUR_White];
+        [self.useBtn setTitleColor:kColor_Red_Main forState:UIControlStateNormal];
+        [self.useBtn setBackgroundColor:kColor_White];
         self.hbBackImg.image = IMG(@"RedPacketUnuse");
         
     }else{
         _selectState = NO;
         [self.useBtn setTitle:@"立即选择" forState:UIControlStateNormal];
-        [self.useBtn setTitleColor:COLOUR_BTN_BLUE_NEW forState:UIControlStateNormal];
-        [self.useBtn setBackgroundColor:COLOUR_White];
+        [self.useBtn setTitleColor:kColor_Red_Main forState:UIControlStateNormal];
+        [self.useBtn setBackgroundColor:kColor_White];
         self.hbBackImg.image = IMG(@"RedPacketUnuse");
     }
     

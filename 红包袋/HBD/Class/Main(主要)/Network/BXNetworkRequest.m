@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 caomaoxiaozi All rights reserved.
 //
 
-#define APPID   @"1090834403"
-#define kCookieUserDefaultKey @"cookies"
-
 #import "BXNetworkRequest.h"
 #import "BXSendMessage.h"
 #import "DDAccount.h"
@@ -17,8 +14,7 @@
 
 @implementation BXHTTPParamInfo
 
-- (instancetype)init
-{
+- (instancetype)init{
     self = [super init];
     if (self) {
         self.dataParam = [[NSDictionary alloc]init];
@@ -40,7 +36,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.alert = [[UIAlertView alloc] initWithTitle:@"用户信息已失效" message:@"请重新登录" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         });
-        
         _oldTime = 0.0;
     }
     return self;

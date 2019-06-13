@@ -115,7 +115,7 @@
     [self initNoticeLabView];
     [self initViewUIs];
     [self addHeaderRefresh];
-
+    
     [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CountDownNotification) name:kCountDownNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hascloselock) name:@"hascloselock" object:nil];
@@ -128,8 +128,11 @@
     } else {
         self.tableview.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
         self.tableview.tableHeaderView.height_ = 200;
-
     }
+    
+    UIView *ba = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    ba.backgroundColor = [UIColor colorWithRed:45/255.0 green:65/255.0 blue:94/255.0 alpha:1];
+    [self.view addSubview:ba];
 }
 
 - (void)hascloselock{
@@ -183,7 +186,7 @@
     noticeView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(30, 0, SCREEN_WIDTH - 30, 40) delegate:self placeholderImage:nil];
     noticeView.scrollDirection = UICollectionViewScrollDirectionVertical;
     noticeView.onlyDisplayText = YES;
-    noticeView.titleLabelTextColor = [UIColor colorWithHexString:COLOUR_GRAY];
+    noticeView.titleLabelTextColor = [UIColor colorWithHexString:kColor_Gray];
     noticeView.titleLabelTextFont = [UIFont systemFontOfSize:13.f];
     noticeView.titleLabelBackgroundColor = [UIColor clearColor];
     NSMutableArray *titlesArray = [NSMutableArray array];
@@ -252,7 +255,7 @@
 - (void)setNavgationColorNormalr {
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     // 导航栏变红
-    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:COLOUR_BTN_BLUE_NEW] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[AppUtils imageWithColor:kColor_Red_Main] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
 
@@ -433,7 +436,6 @@
 - (void)InvestBtnBtnClick {
     HXTabBarViewController * tabBarVC = (HXTabBarViewController *)self.tabBarController;
     if (tabBarVC.bussinessKind) { //登录
-
         if ([self isCanSubmit]) {
             UIStoryboard *segsb = [UIStoryboard storyboardWithName:@"DDInvestSureVC" bundle:nil];
             DDInvestSureVC *segVc=  [segsb instantiateInitialViewController];
@@ -445,10 +447,8 @@
         [self presentLoginVC];
     }
 }
-
 // 弹出登录页面
-- (void)presentLoginVC
-{
+- (void)presentLoginVC{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BXLoginView" bundle:nil];
     BXLoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
     BXNavigationController *Nav = [[BXNavigationController alloc] initWithRootViewController:loginVC];
@@ -458,7 +458,6 @@
 #pragma mark - delegate =================================================
 // MARK: 点击轮播回调
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
-
     if ([cycleScrollView isEqual:noticeView]) { //公告回调
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"BXMessagedetailController" bundle:nil];
         BXMessagedetailController *VC = [sb instantiateInitialViewController];
@@ -484,7 +483,6 @@
                 weVc.webDetailStr = self.bannerDetailArray[index];
             }
             [self.navigationController pushViewController:weVc animated:YES];
-
         }
     }
 }
@@ -518,15 +516,12 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"BXLoginView" bundle:nil];
     BXReminderPageController *remindPageVC = [storyBoard instantiateViewControllerWithIdentifier:@"BXReminderPageVC"];
     if (isSuccess) {
-        
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"ACTIVATED"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        
         remindPageVC.remindeType = BXRemindeTypeOpenSuccess;
         [remindPageVC settingFrameWithBXRemindeType:remindPageVC.remindeType];
         [self.navigationController pushViewController:remindPageVC animated:YES];
     } else {
-        
         remindPageVC.remindeType = BXRemindeTypeOpenFailure;
         [remindPageVC settingFrameWithBXRemindeType:remindPageVC.remindeType];
         [self.navigationController pushViewController:remindPageVC animated:YES];
@@ -557,25 +552,19 @@
         [self.LJDZArray removeAllObjects];
 
         if ([dict[@"body"][@"resultcode"] integerValue] == 0){
-            NSURL *url = nil;
-
             NSMutableArray *bannerArr = [[NSMutableArray alloc]init];
             for (NSDictionary *dic in dict[@"body"][@"banners"]) {
                 if ([dic[@"ZDLX"] isEqualToString:@"1"]) {
                     [bannerArr addObject:dic];
                 }
-
             }
             for (NSDictionary *dic in bannerArr) {
-                [self.LJDZArray addObject:[NSString stringWithFormat:@"%@",dic[@"LJDZ"]]]; //url
-//                url = [self getImageUrlWithFilePath:dict[@"body"][@"filePath"] PictureStr:dic[@"SYTP"]];//图片
-//                [self.imageArray addObject:url];
+                [self.LJDZArray addObject:[NSString stringWithFormat:@"%@",dic[@"LJDZ"]]];
                 [self.imageArray addObject:dic[@"BANNER_IMG"]];
                 [self.bannerTitleArray addObject:dic[@"BT"]];  //标题
                 [self.bannerDetailArray addObject:dic[@"BZ"]]; // detailStr
                 [self.FXJBArray addObject:[NSString stringWithFormat:@"%@",dic[@"FXJB"]]];
             }
-
             [self initBannarView];
         }
 
@@ -705,16 +694,12 @@
     }
 
     if ([_model.schedule isEqualToString:@"1"] || ([_model.schedule integerValue] == 1)) {
-
         _InvestBtn.userInteractionEnabled = NO;
-        //        [_InvestBtn  setBackgroundColor:[UIColor colorWithHexString:COLOUR_YELLOW]];
         [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"yellowBack"] forState:UIControlStateNormal];
-        //        [_InvestBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_InvestBtn setTitle:@"已经满标" forState:UIControlStateNormal];
-
     } else {
         _InvestBtn.userInteractionEnabled = YES;
-        [_InvestBtn setBackgroundColor:COLOUR_BTN_BLUE_NEW];
+        [_InvestBtn setBackgroundColor:kColor_Red_Main];
         [_InvestBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
         [_InvestBtn setTitle:@"立即出借" forState:UIControlStateNormal];//转成年月日，截止到日
@@ -739,7 +724,7 @@
                 NSString *investStr = [NSString stringWithFormat:@"%d天后 %@开标",kday,[NSDate ConvertStrToTime:_model.DJSKBSJ]];
                 [_InvestBtn setTitle:investStr forState:UIControlStateNormal];
                 [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-                [_InvestBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+                [_InvestBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
             } else if (kday==0  && khouse >= 2) {  //大于2小时
 
                 //比较日期是不是一天
@@ -753,7 +738,7 @@
                 }
 
                 [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-                [_InvestBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+                [_InvestBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
             } else if (kday== 0 && khouse < 2) {   //小于2小时 开始执行倒计时
                 //获取倒计时秒数
                 long int tempS = khouse *60 *60 + kminute * 60 + ksecond;
@@ -854,7 +839,7 @@
 
     if (countDown <= 0) {
         [_InvestBtn setTitle:@"立即出借" forState:UIControlStateNormal];
-        [_InvestBtn setTitleColor:COLOUR_White forState:UIControlStateNormal];
+        [_InvestBtn setTitleColor:kColor_White forState:UIControlStateNormal];
         [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"yellowBack"] forState:UIControlStateNormal];
         return;
     }
@@ -863,7 +848,7 @@
     NSString *investStr = [NSString stringWithFormat:@"%01zd小时%02zd分%02zd秒", countDown/3600, (countDown/60)%60, countDown%60];
     [_InvestBtn setTitle:investStr forState:UIControlStateNormal];
     [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-    [_InvestBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+    [_InvestBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
     
 }
 

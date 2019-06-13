@@ -53,7 +53,7 @@
 
 - (void)makeUI
 {
-    self.topBackView.backgroundColor = COLOUR_BTN_BLUE_NEW;
+    self.topBackView.backgroundColor = kColor_Red_Main;
     _backView.layer.masksToBounds = YES;
     _backView.layer.borderWidth = 1;
     _backView.layer.borderColor = [UIColor colorWithRed:197.0/255.0f green:184.0/255.0f blue:163.0/255.0f alpha:1].CGColor;

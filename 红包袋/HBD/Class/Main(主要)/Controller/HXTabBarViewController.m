@@ -116,10 +116,10 @@
     self.tabBarItem.title = @"更多发现";
     // 图片颜色
 //    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-//    attributes[NSForegroundColorAttributeName] = DDRGB(136, 136, 137);//颜色属性
+//    attributes[NSForegroundColorAttributeName] = kColor_sGRB(136, 136, 137);//颜色属性
 //
 //    NSMutableDictionary *selectAttri = [NSMutableDictionary dictionary];
-//    selectAttri[NSForegroundColorAttributeName] = DDRGB(231, 56, 61);
+//    selectAttri[NSForegroundColorAttributeName] = kColor_sRGB(231, 56, 61);
 //
 //    [self.tabBarItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
 //    self.tabBarItem.image = [IMG(@"tabbar_dai_nor") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

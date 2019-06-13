@@ -58,7 +58,7 @@
             self.voiceBtnHasSelected = YES;
             self.voiceBtn.userInteractionEnabled = NO;
             [self.voiceBtn setTitle:@"请注意接听电话播报6位验证码" forState:UIControlStateSelected];
-            [self.voiceBtn setTitleColor:DDRGB(74, 74, 74) forState:UIControlStateSelected];
+            [self.voiceBtn setTitleColor:kColor_sRGB(74, 74, 74) forState:UIControlStateSelected];
             if ([self canSubmitGo]) {
                 [self postSendFindVerifyCodeWithMobile:self.phoneTxf.text PicCode:self.imgCodeTxf.text];
             }
@@ -230,7 +230,7 @@
             [self startCodeTimeGetcodeBtn:self.codeBtn];
             self.voiceBtn.userInteractionEnabled = YES;
             [self.voiceBtn setTitle:@"短信收不到？点此获取语音验证码" forState:UIControlStateNormal];
-            [self.voiceBtn setTitleColor:DDRGB(231, 56, 61) forState:UIControlStateNormal];
+            [self.voiceBtn setTitleColor:kColor_sRGB(231, 56, 61) forState:UIControlStateNormal];
             
             self.result = result;
         } else {

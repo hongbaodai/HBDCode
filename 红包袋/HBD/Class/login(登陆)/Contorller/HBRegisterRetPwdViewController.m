@@ -47,7 +47,7 @@
     [back addSubview:self.passwordTextF];
     
     UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(0, 49, back.width, 1)];
-    line1.backgroundColor = COLOR_LINE_GRAY;
+    line1.backgroundColor = kColor_Line_Gray;
     [back addSubview:line1];
     
     self.investTextF = [[UITextField alloc] initWithFrame:CGRectMake(0, line1.bottom + 10, back.width, 29)];
@@ -59,7 +59,7 @@
     [back addSubview:self.investTextF];
     
     UIView *line2 = [[UIView alloc] initWithFrame:CGRectMake(0, 97, back.width, 1)];
-    line2.backgroundColor = COLOR_LINE_GRAY;
+    line2.backgroundColor = kColor_Line_Gray;
     [back addSubview:line2];
     
     self.nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -72,7 +72,7 @@
     
     CAGradientLayer *layer = [CAGradientLayer layer];
     layer.frame = self.nextBtn.bounds;
-    layer.colors = GRADIENTCOLOR_RED;
+    layer.colors = @[(__bridge id)kColor_Red_Main.CGColor, (__bridge id)kColor_Red_Light.CGColor];
     layer.startPoint = CGPointMake(0, 0.5);
     layer.endPoint = CGPointMake(1, 0.5);
     [self.nextBtn.layer addSublayer:layer];

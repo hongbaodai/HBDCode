@@ -96,7 +96,7 @@
     if (_button == nil) {
         _button = [[UIButton alloc] init];
         [_button setTitle:@"登录" forState:UIControlStateNormal];
-        [_button setTitleColor:COLOUR_BTN_BLUE_NEW forState:UIControlStateNormal];
+        [_button setTitleColor:kColor_Red_Main forState:UIControlStateNormal];
         [_button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _button;
@@ -105,7 +105,7 @@
 - (UILabel *)label {
     if (_label == nil) {
         _label = [[UILabel alloc] init];
-        _label.textColor = COLOUR_BTN_BLUE_TITELCOLOR;
+        _label.textColor = kColor_Title_Blue;
         _label.font = FONT_16;
         if (ISLOGIN) {
             _label.text = @"出借此项目用户可查看出借记录";
@@ -116,13 +116,5 @@
     }
     return _label;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

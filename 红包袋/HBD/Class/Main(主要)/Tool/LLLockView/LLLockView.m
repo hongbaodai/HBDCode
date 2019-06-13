@@ -15,7 +15,7 @@
 #define kLLCircleAlpha 1.0              // 圆点透明度
 #define kLLLineWidth 2.0               // 线条宽
 #define kLLLineColor [UIColor whiteColor] // 线条色蓝
-#define kLLLineColorWrong [UIColor colorWithHexString:COLOUR_YELLOW] // 线条色红
+#define kLLLineColorWrong kColor_Orange_Dark // 线条色红
 #define  BXSize   [UIScreen mainScreen].bounds.size
 
 @interface LLLockView ()

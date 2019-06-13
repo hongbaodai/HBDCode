@@ -127,7 +127,7 @@
     [self.sureBtnView addSubview:hbCanLab];
     
     UIButton *sureBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 20, self.sureBtnView.width_, 44)];
-    sureBtn.backgroundColor = COLOUR_BTN_BLUE;
+    sureBtn.backgroundColor = kColor_Red_Main;
     [sureBtn setTitle:@"确定" forState:UIControlStateNormal];
     [sureBtn addTarget:self action:@selector(sureBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.sureBtnView addSubview:sureBtn];
@@ -193,8 +193,8 @@
                 cell.hbBackImg.image = IMG(@"RedPacketUnuse"); //蓝色
             } else {
                 [cell.useBtn setTitle:@"立即选择" forState:UIControlStateNormal];
-                [cell.useBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
-                [cell.useBtn setBackgroundColor:DDRGB(170, 189, 196)];
+                [cell.useBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
+                [cell.useBtn setBackgroundColor:kColor_sRGB(170, 189, 196)];
                 cell.hbBackImg.image = IMG(@"RedPacketUsed"); //灰色
             }
             
@@ -202,12 +202,12 @@
             if (indexPath.row==_signleHbSelIndex) {
                 
                 [cell.useBtn setTitle:@"已选择" forState:UIControlStateNormal];
-                [cell.useBtn setTitleColor:COLOUR_BTN_BLUE_NEW forState:UIControlStateNormal];
-                [cell.useBtn setBackgroundColor:COLOUR_White];
+                [cell.useBtn setTitleColor:kColor_Red_Main forState:UIControlStateNormal];
+                [cell.useBtn setBackgroundColor:kColor_White];
                 
             } else {
                 [cell.useBtn setTitle:@"立即选择" forState:UIControlStateNormal];
-                cell.useBtn.backgroundColor = COLOUR_White;
+                cell.useBtn.backgroundColor = kColor_White;
             }
         }
         return cell;

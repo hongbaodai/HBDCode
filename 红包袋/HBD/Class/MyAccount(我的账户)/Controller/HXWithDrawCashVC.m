@@ -67,7 +67,7 @@
     self.backView.layer.borderWidth = 1;
     self.backView.layer.borderColor = [UIColor colorWithRed:255.0/255.0f green:161.0/255.0f blue:0/255.0f alpha:1].CGColor;
     self.withDrawTotalAmountLabel.text = self.drawlCanshStr;
-    self.topBackview.backgroundColor = COLOUR_BTN_BLUE_NEW;
+    self.topBackview.backgroundColor = kColor_Red_Main;
 
     //银行名称
     NSString *banknameshort= self.bankCardDict[@"body"][@"bankcardBind"][@"YHBM"];

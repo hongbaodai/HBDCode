@@ -173,7 +173,7 @@
     
     if (([self weekdayByDate:date] == 1) || ([self weekdayByDate:date] == 7 )) {
         if ([exampleCell.textLabel.text isEqualToString:@"今天"]) {
-            exampleCell.textLabel.textColor = COLOUR_BTN_BLUE_NEW; // colorWithHex:@"#038cff"
+            exampleCell.textLabel.textColor = kColor_Red_Main; // colorWithHex:@"#038cff"
             if (self.dict == nil) {
                 [self postReturnMoneyCalendarDayWithDate:time];
             }
@@ -181,7 +181,7 @@
 
     } else {
         if ([exampleCell.textLabel.text isEqualToString:@"今天"]) {
-            exampleCell.textLabel.textColor = COLOUR_BTN_BLUE_NEW; //
+            exampleCell.textLabel.textColor = kColor_Red_Main; //
             if (self.dict == nil) {
                 [self postReturnMoneyCalendarDayWithDate:time];
             }

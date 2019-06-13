@@ -77,7 +77,7 @@
     
     // 左边的顺序
     UILabel *numStr = [[UILabel alloc] initWithFrame:CGRectMake(self.configure.titleSideMargin, self.configure.topDistance + 5, 20, 20)];
-    numStr.backgroundColor = [UIColor colorWithHexString:COLOUR_YELLOW];
+    numStr.backgroundColor = kColor_Orange_Dark;
     numStr.layer.masksToBounds = YES;
     numStr.layer.cornerRadius = 10;
     numStr.font = [UIFont systemFontOfSize:self.configure.titleFont];

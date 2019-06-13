@@ -317,9 +317,8 @@
     [_investBtn addTarget:self action:@selector(investBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [_investBtn setTitle:@"立即出借" forState:UIControlStateNormal];
     _investBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter ;//设置文字位置
-//    [_investBtn setBackgroundColor:COLOUR_Clear];  // 这里是立即出借后面的颜色
     [_investBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
-    [_investBtn setTitleColor:COLOUR_White forState:UIControlStateNormal];
+    [_investBtn setTitleColor:kColor_White forState:UIControlStateNormal];
     
 }
 
@@ -411,10 +410,8 @@
 - (void)setInvestBtnSyleProgress {
     
     [_investBtn setTitle:@"立即出借" forState:UIControlStateNormal];
-//    [_investBtn setBackgroundColor:COLOUR_White];
-    [_investBtn setTitleColor:COLOUR_White forState:UIControlStateNormal];
+    [_investBtn setTitleColor:kColor_White forState:UIControlStateNormal];
     [_investBtn setBackgroundImage:[UIImage imageNamed:@"yellowBack"] forState:UIControlStateNormal];
-
 
     [proLab removeFromSuperview];
     [proView removeFromSuperview];
@@ -423,7 +420,7 @@
 - (void)setInvestBtnSyleProgressNoTitle {
     
     [_investBtn setBackgroundImage:[UIImage imageNamed:@"garyBack"] forState:UIControlStateNormal];
-    [_investBtn setTitleColor:COLOUR_Gray forState:UIControlStateNormal];
+    [_investBtn setTitleColor:kColor_Gray forState:UIControlStateNormal];
 
     [proLab removeFromSuperview];
     [proView removeFromSuperview];
@@ -432,20 +429,18 @@
 - (void)setInvestBtnSyleZero {
     
     [_investBtn setTitle:@"立即出借" forState:UIControlStateNormal];
-//    [_investBtn setBackgroundColor:COLOUR_BTN_BLUE_NEW];
+//    [_investBtn setBackgroundColor:kColor_Red_Main];
     [_investBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
 
-    [_investBtn setTitleColor:COLOUR_White forState:UIControlStateNormal];
+    [_investBtn setTitleColor:kColor_White forState:UIControlStateNormal];
     [proLab removeFromSuperview];
     [proView removeFromSuperview];
 }
 //满标
 - (void)setInvestBtnSyleComplete {
-    
     [_investBtn setTitle:@"已经满标" forState:UIControlStateNormal];
-//    [_investBtn setBackgroundColor:[UIColor colorWithHexString:COLOUR_YELLOW]];
     [_investBtn setBackgroundImage:[UIImage imageNamed:@"yellowBack"] forState:UIControlStateNormal];
-    [_investBtn setTitleColor:COLOUR_White forState:UIControlStateNormal];
+    [_investBtn setTitleColor:kColor_White forState:UIControlStateNormal];
     [proLab removeFromSuperview];
     [proView removeFromSuperview];
 }

@@ -315,7 +315,7 @@
     view.layer.cornerRadius = 5;
     view.layer.masksToBounds = YES;
     view.layer.borderWidth = 1;
-    view.layer.borderColor = BXCustomColor(217, 217, 217, 255);
+    view.layer.borderColor = kColor_sRGB(217, 217, 217).CGColor;
 }
 
 

@@ -72,7 +72,7 @@
         cell = [[NSBundle mainBundle]loadNibNamed:@"BXMessageCell" owner:nil options:nil][0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (statusType == StatusTypeRead) {
-            cell.titleLab.textColor = DDRGB(156, 168, 186);
+            cell.titleLab.textColor = kColor_sRGB(156, 168, 186);
         }
     }
     return cell;

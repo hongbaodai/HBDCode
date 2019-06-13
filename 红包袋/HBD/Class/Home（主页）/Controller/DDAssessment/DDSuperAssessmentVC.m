@@ -124,7 +124,7 @@
     configure.unCheckedImage = @"ass_nor";
     configure.buttonSize = 30;
     configure.oneLineHeight = 35;
-    configure.titleTextColor = COLOUR_BTN_BLUE_TITELCOLOR;
+    configure.titleTextColor = kColor_Title_Blue;
     configure.optionTextColor = [UIColor darkGrayColor];
     configure.backColor = [UIColor clearColor];
     

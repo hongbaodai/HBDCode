@@ -97,9 +97,6 @@
     [gradientLayer2 setStartPoint:CGPointMake(0.5, 0)];
     [gradientLayer2 setEndPoint:CGPointMake(0.5, 1)];
     [gradientLayer addSublayer:gradientLayer2];
-
-
-
     [gradientLayer setMask:_progressLayer]; //用progressLayer来截取渐变层
     [self.layer addSublayer:gradientLayer];
 }
@@ -138,7 +135,7 @@
     _progressLayer = [CAShapeLayer layer];
     _progressLayer.frame = self.bounds;
     _progressLayer.fillColor = [[UIColor clearColor] CGColor];  //填充色为无色
-    _progressLayer.strokeColor = [COLOUR_BTN_BLUE_NEW CGColor];//指定path的渲染颜色    _progressLayer.opacity = 1; //背景颜色的透明度
+    _progressLayer.strokeColor = [kColor_Red_Main CGColor];//指定path的渲染颜色    _progressLayer.opacity = 1; //背景颜色的透明度
     _progressLayer.lineCap = kCALineCapRound;//指定线的边缘是圆的
     _progressLayer.lineWidth = pCycleW;//线的宽度
     UIBezierPath *pathpro = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:startA endAngle:nowA clockwise:YES];//上面说明过了用来构建圆形

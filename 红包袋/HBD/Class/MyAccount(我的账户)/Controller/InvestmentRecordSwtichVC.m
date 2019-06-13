@@ -38,11 +38,11 @@
 
 - (void)setUI
 {
-    self.view.backgroundColor = COLOUR_Gray_Bg;
+    self.view.backgroundColor = kColor_BackGround_Gray;
     
     self.magicView.itemScale = 1.0;
     self.magicView.navigationColor = [UIColor whiteColor];
-    self.magicView.sliderColor = COLOUR_BTN_BLUE_NEW;
+    self.magicView.sliderColor = kColor_Red_Main;
     self.magicView.sliderHeight = 2.0;
     self.magicView.sliderExtension = 0;
     self.magicView.layoutStyle = VTLayoutStyleDivide;
@@ -68,8 +68,8 @@
     UIButton *menuItem = [magicView dequeueReusableItemWithIdentifier:itemIdentifier];
     if (!menuItem) {
         menuItem = [UIButton buttonWithType:UIButtonTypeCustom];
-        [menuItem setTitleColor:COLOUR_BTN_BLUE_TITELCOLOR forState:UIControlStateNormal];
-        [menuItem setTitleColor:COLOUR_BTN_BLUE_NEW forState:UIControlStateSelected];
+        [menuItem setTitleColor:kColor_Title_Blue forState:UIControlStateNormal];
+        [menuItem setTitleColor:kColor_Red_Main forState:UIControlStateSelected];
         menuItem.titleLabel.font = [UIFont systemFontOfSize:14];
     }
     return menuItem;

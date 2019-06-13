@@ -34,11 +34,8 @@
 
 
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles items:(NSArray<NSArray *> *)items {
-    
     self = [super initWithFrame:frame];
-    
     if (self) {
-        
         _titleArr = [NSArray arrayWithArray:titles];
         _itemArr = [NSArray arrayWithArray:items];
         [self loadData];
@@ -57,7 +54,7 @@
         _itemArr = [NSArray arrayWithArray:items];
         [self loadData];
         [self addSubviews];
-        self.backgroundColor = COLOUR_Gray_Bg;
+        self.backgroundColor = kColor_BackGround_Gray;
     }
     return self;
 }
@@ -206,11 +203,7 @@
     }
 }
 
-//定义每个UICollectionViewCell 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    float width = [RHHelper getWidthByText:_itemArr[indexPath.section][indexPath.row] font:FONT_15] + ItemWidth; // --自适应--
-    
     return CGSizeMake((SCREEN_WIDTH-22*4)/3, 26);
 }
 
@@ -229,23 +222,12 @@
 - (UICollectionView *)collectionView {
     
     if (!_collectionView) {
-       /* --自适应-- 此注释部分为宽度自动适配文字和屏幕，如需要根据文字长度适配大小用此部分替换
-        RHCollectionViewFlowLayout * flowLayout = [[RHCollectionViewFlowLayout alloc] init];
-        flowLayout.minimumLineSpacing = MarginY;
-        flowLayout.minimumInteritemSpacing = MarginX;
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 22, 15, 22); //上左下右
-
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-    */
-        
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.sectionInset = UIEdgeInsetsMake(11, 22, 14, 22); //上左下右
 //        flowLayout.minimumInteritemSpacing = 22; //水平方空隙
         flowLayout.minimumLineSpacing = 22;//设置垂直方向的空隙
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-        
-        
+    
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;

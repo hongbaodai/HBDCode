@@ -107,7 +107,7 @@
     [super viewDidLoad];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 //   self.tableView.separatorStyle = UITableViewCellEditingStyleNone;
-    [self.tableView setSeparatorColor:DDRGB(237, 237, 237)];
+    [self.tableView setSeparatorColor:kColor_sRGB(237, 237, 237)];
     if (IS_iPhoneX) {
         self.tableView.estimatedRowHeight = 0;
         self.tableView.estimatedSectionHeaderHeight = 0;
@@ -155,7 +155,7 @@
 - (void)ininUIViews {
 
     self.indInfoView = [DDInvestdInfoView investmentDetailInfoView];
-    self.indInfoView.backgroundColor = COLOUR_BTN_BLUE_NEW;
+    self.indInfoView.backgroundColor = kColor_Red_Main;
     self.indInfoView.limitLab.layer.masksToBounds = YES;
     self.indInfoView.limitLab.layer.cornerRadius = 9;
     self.indInfoView.qtamountLab.layer.masksToBounds = YES;

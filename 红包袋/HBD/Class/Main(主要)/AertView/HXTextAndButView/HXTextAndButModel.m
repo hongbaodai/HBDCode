@@ -144,10 +144,10 @@
 
 + (NSArray *)alertAttri
 {
-    AlertTextStyle *style = [AlertTextStyle AlertStyleTextStr:@"等额本息" textColor:DDColor(239, 185, 72)];
+    AlertTextStyle *style = [AlertTextStyle AlertStyleTextStr:@"等额本息" textColor:kColor_sRGB(239, 185, 72)];
 
-    AlertTextStyle *style2 = [AlertTextStyle AlertStyleTextStr:@"：指的是将借款本金和利息总额相加，然后平均分摊到还款期限的每个月中。作为还款人，每个月还给出借人固定金额，但每月还款额中的本金比重逐月递增、利息比重逐月递减。相应出借人每月回款额中本金的比重逐月递增，利息比重是逐月递减。" textColor:DDColor(67, 157, 182)];
-    AlertTextStyle *style3 = [AlertTextStyle AlertStyleTextStr:@"注：实际收益以系统计算为准" textColor:DDColor(67, 157, 182)];
+    AlertTextStyle *style2 = [AlertTextStyle AlertStyleTextStr:@"：指的是将借款本金和利息总额相加，然后平均分摊到还款期限的每个月中。作为还款人，每个月还给出借人固定金额，但每月还款额中的本金比重逐月递增、利息比重逐月递减。相应出借人每月回款额中本金的比重逐月递增，利息比重是逐月递减。" textColor:kColor_sRGB(67, 157, 182)];
+    AlertTextStyle *style3 = [AlertTextStyle AlertStyleTextStr:@"注：实际收益以系统计算为准" textColor:kColor_sRGB(67, 157, 182)];
     NSArray *arr = [NSArray arrayWithObjects:style, style2,style3, nil];
     return arr;
 }
@@ -198,15 +198,7 @@
     style.viewFrame = showFrame;
     style.textStr = showStr;
     style.butImgStr = alertImg;
-    style.textColor = DDColor(45, 65, 94);
-//    HXTextAndButView *view = [HXTextAndButView hxTextAndButViewWithStyle:style];
-//    view.clickBlock = ^{
-//        NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:alertStr];
-//        //[AletStrViewController creatAlertVCTopImageNamed:alertImg attributedString:attStr sureBlock:nil];
-//    };
-//    
-//    [showView addSubview:view];
-    
+    style.textColor = kColor_sRGB(45, 65, 94);
 }
 
 
@@ -218,7 +210,7 @@
     style.textStr = str;
     style.butImgStr = imgStr; //🚫🚫🚫如果平台合规和风险评估合并一起，则这个需要打开
     style.textFont = fontNum;
-    style.textColor = DDColor(45, 65, 94);
+    style.textColor = kColor_sRGB(45, 65, 94);
 
     NSString *alertstr = alertStr;
 
@@ -261,7 +253,7 @@
 /** 普通文字创建UI */
 + (void)makeUIWith:(NSString *)str backView:(UIView *)backView strImgViewFrame:(CGRect)viewFrame alertStr:(NSString *)alertStr butImgStr:(NSString *)imgStr fontNum:(CGFloat)fontNum
 {
-    [self makeUIWith:str backView:backView strImgViewFrame:viewFrame alertStr:alertStr butImgStr:imgStr fontNum:fontNum textColor:DDColor(45, 65, 94)];
+    [self makeUIWith:str backView:backView strImgViewFrame:viewFrame alertStr:alertStr butImgStr:imgStr fontNum:fontNum textColor:kColor_sRGB(45, 65, 94)];
 }
 // 这个以后都改成下面的方法 :弹框里面富文本的颜色
 + (NSMutableAttributedString *)makeAttributWithStr:(NSString *)str
@@ -269,10 +261,10 @@
     NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:str];
     NSRange range = [str rangeOfString:@"出自"];
     if (range.length != 0) {
-        [attStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:COLOUR_GRAY] range:NSMakeRange(0, str.length)];
-        [attStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:COLOUR_YELLOW] range:NSMakeRange(0, range.location)];
+        [attStr addAttribute:NSForegroundColorAttributeName value:kColor_Title_Gray range:NSMakeRange(0, str.length)];
+        [attStr addAttribute:NSForegroundColorAttributeName value:kColor_Orange_Dark range:NSMakeRange(0, range.location)];
     } else {
-        [attStr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:COLOUR_YELLOW] range:NSMakeRange(0, str.length)];
+        [attStr addAttribute:NSForegroundColorAttributeName value:kColor_Orange_Dark range:NSMakeRange(0, str.length)];
     }
     return attStr;
 }
@@ -329,7 +321,7 @@
     style.textStr = alertStr;  // 在这个富文本状态点击下，这个属性就没有作用
     style.butImgStr = imgStr; //🚫🚫🚫如果平台合规和风险评估合并一起，则这个需要打开
     style.textFont = fontNum;
-    style.textColor = [UIColor colorWithHexString:COLOUR_YELLOW];
+    style.textColor = kColor_Orange_Dark;
     
     NSString *alertstr = alertStr;
     

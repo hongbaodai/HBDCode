@@ -40,7 +40,7 @@
     if (!_lab_line) {
         
         _lab_line = [[UILabel alloc] init];
-        _lab_line.backgroundColor = COLOUR_Gray_Bg;
+        _lab_line.backgroundColor = kColor_BackGround_Gray;
     }
     return _lab_line;
 }

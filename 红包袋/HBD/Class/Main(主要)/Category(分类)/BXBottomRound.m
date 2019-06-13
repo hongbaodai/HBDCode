@@ -32,7 +32,7 @@
     path.lineWidth = 3.0;
     path.lineCapStyle = kCGLineCapRound;
     // 颜色
-    [DDRGB(206, 206, 206) set];
+    [kColor_sRGB(206, 206, 206) set];
     
     [path stroke];
 }

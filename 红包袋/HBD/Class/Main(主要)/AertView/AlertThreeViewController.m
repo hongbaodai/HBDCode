@@ -50,11 +50,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.leftBtn.layer.borderWidth = 1;
-    self.leftBtn.layer.borderColor = [UIColor colorWithHexString:COLOUR_YELLOW].CGColor;
-    //self.rightBtn.layer.cornerRadius = self.rightBtn.height_ / 2;
-    //self.rightBtn.layer.masksToBounds = YES;
+    self.leftBtn.layer.borderColor = kColor_Orange_Dark.CGColor;
 }
 
 - (void)show

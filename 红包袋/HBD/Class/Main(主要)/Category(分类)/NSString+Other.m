@@ -184,12 +184,12 @@ static NSString *const salt = @"HXWcjvQWVG1wI4FQBLZpQ3pWj48AV63d";
     if (arr.count > 0) {
         NSInteger cou = [arr[0] integerValue] + 1;
         if (self.length >= cou) {
-            [attr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:COLOUR_YELLOW] range:NSMakeRange(0, self.length)];
-            [attr addAttribute:NSForegroundColorAttributeName value:COLOUR_BTN_BLUE_NEW range:NSMakeRange(0, cou)];
+            [attr addAttribute:NSForegroundColorAttributeName value:kColor_Orange_Dark range:NSMakeRange(0, self.length)];
+            [attr addAttribute:NSForegroundColorAttributeName value:kColor_Red_Main range:NSMakeRange(0, cou)];
             return attr;
         };
     }
-    [attr addAttribute:NSForegroundColorAttributeName value:COLOUR_BTN_BLUE_NEW range:NSMakeRange(0, self.length)];
+    [attr addAttribute:NSForegroundColorAttributeName value:kColor_Red_Main range:NSMakeRange(0, self.length)];
     return attr;
 }
 

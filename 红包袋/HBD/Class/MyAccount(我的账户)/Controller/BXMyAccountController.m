@@ -123,8 +123,8 @@ typedef NS_ENUM(NSUInteger, DDSetStyle) {
     self.navigationItem.leftBarButtonItem = leftBarButton;
     
     [self setUserNameLabelText];
-    self.tableView.backgroundColor = DDRGB(240.0f, 240.0f, 240.0f);
-    self.topBackview.backgroundColor = COLOUR_BTN_BLUE_NEW;
+    self.tableView.backgroundColor = kColor_sRGB(240.0f, 240.0f, 240.0f);
+    self.topBackview.backgroundColor = kColor_Red_Main;
 }
 
 #pragma mark - 点击设置

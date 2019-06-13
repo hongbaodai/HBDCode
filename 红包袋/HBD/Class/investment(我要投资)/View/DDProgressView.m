@@ -18,7 +18,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = COLOUR_BTN_BLUE_NEW;
+        self.backgroundColor = kColor_Red_Main;
 //        [self setNeedsDisplay];
     }
     return self;
@@ -50,8 +50,8 @@
 //    //    path.lineCapStyle = kCGLineCapSquare;//线头样式
 //    //    path.lineJoinStyle = kCGLineJoinRound; //线头相交的部分样式
 //
-//    [[UIColor colorWithHexString:COLOUR_YELLOW] setStroke]; //边颜色
-//    [[UIColor colorWithHexString:COLOUR_YELLOW] setFill]; //填充颜色
+//    [[UIColor colorWithHexString:kColor_Orange_Dark] setStroke]; //边颜色
+//    [[UIColor colorWithHexString:kColor_Orange_Dark] setFill]; //填充颜色
 //
 //
 //    [path stroke];
