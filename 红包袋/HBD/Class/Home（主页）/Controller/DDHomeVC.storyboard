@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ulc-en-9xo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ulc-en-9xo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +29,7 @@
         <scene sceneID="5pK-WV-dhi">
             <objects>
                 <tableViewController id="Pf6-he-HSa" customClass="DDHomeVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WMF-F6-fmm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WMF-F6-fmm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -38,12 +38,12 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="pN1-c5-Hpr" userLabel="footView">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="pN1-c5-Hpr" userLabel="footView">
                             <rect key="frame" x="0.0" y="198" width="375" height="450"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec6-ga-1f1" userLabel="noticeView">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="h_laba" translatesAutoresizingMaskIntoConstraints="NO" id="Y8X-pR-ath">
                                             <rect key="frame" x="15" y="14" width="12" height="12"/>
@@ -61,39 +61,39 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S69-UK-h42" userLabel="newView">
-                                    <rect key="frame" x="0.0" y="41" width="375" height="120"/>
+                                    <rect key="frame" x="0.0" y="41" width="600" height="120"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E9w-mD-9V9">
-                                            <rect key="frame" x="125" y="0.0" width="124" height="120"/>
+                                            <rect key="frame" x="200" y="0.0" width="199" height="120"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="27"/>
                                             <state key="normal" image="home-two"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="供应链金融" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg6-md-PPp">
-                                            <rect key="frame" x="149" y="92" width="76.5" height="18"/>
+                                            <rect key="frame" x="261.5" y="92" width="76.5" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fz-wa-Wsy">
-                                            <rect key="frame" x="0.0" y="0.0" width="124" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="199" height="120"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="27"/>
                                             <state key="normal" image="home-one">
                                                 <color key="titleColor" red="0.3921568627" green="0.75686274509999996" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="央企背景" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EF-mV-fgC">
-                                            <rect key="frame" x="31.5" y="92" width="61.5" height="18"/>
+                                            <rect key="frame" x="69" y="92" width="61.5" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7b-fI-8uX">
-                                            <rect key="frame" x="250" y="0.0" width="124" height="120"/>
+                                            <rect key="frame" x="400" y="0.0" width="199" height="120"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="27"/>
                                             <state key="normal" image="home-three"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安全保障" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMe-7K-60Y">
-                                            <rect key="frame" x="281.5" y="92" width="61.5" height="18"/>
+                                            <rect key="frame" x="469" y="92" width="61.5" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -123,10 +123,10 @@
                                     </constraints>
                                 </view>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqV-D8-BRb" userLabel="getView">
-                                    <rect key="frame" x="0.0" y="41" width="375" height="120"/>
+                                    <rect key="frame" x="0.0" y="41" width="600" height="120"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55J-Qm-RTl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                             <state key="normal" image="h_newer"/>
                                         </button>
                                     </subviews>
@@ -140,7 +140,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8Z-xe-dda" customClass="STLoopProgressView">
-                                    <rect key="frame" x="97.5" y="199" width="180" height="180"/>
+                                    <rect key="frame" x="210" y="199" width="180" height="180"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="180" id="2ux-6b-eWp"/>
@@ -148,7 +148,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDi-tm-83J" userLabel="titleView">
-                                    <rect key="frame" x="0.0" y="171" width="375" height="35"/>
+                                    <rect key="frame" x="0.0" y="171" width="600" height="35"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="红宝理20170001-91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cC-SK-FS8">
                                             <rect key="frame" x="99.5" y="5.5" width="111" height="24"/>
@@ -160,7 +160,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewStandard" translatesAutoresizingMaskIntoConstraints="NO" id="u1h-yL-8o8">
-                                            <rect key="frame" x="328" y="0.0" width="35" height="18"/>
+                                            <rect key="frame" x="553" y="0.0" width="35" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="35" id="R99-JT-6ZN"/>
                                                 <constraint firstAttribute="height" constant="18" id="Uxq-H1-CG3"/>
@@ -186,7 +186,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuW-Pf-s5B" userLabel="cycleView">
-                                    <rect key="frame" x="112.5" y="214" width="150" height="150"/>
+                                    <rect key="frame" x="225" y="214" width="150" height="150"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7f-6d-Bkv">
                                             <rect key="frame" x="65.5" y="46.5" width="19.5" height="37"/>
@@ -220,7 +220,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="git-Os-v3M" customClass="HXButton">
-                                    <rect key="frame" x="15" y="390" width="345" height="46"/>
+                                    <rect key="frame" x="15" y="390" width="570" height="46"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="46" id="xlM-Ks-MNu"/>
@@ -230,16 +230,16 @@
                                     </state>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFH-4p-bSf" userLabel="msView">
-                                    <rect key="frame" x="0.0" y="344" width="375" height="41"/>
+                                    <rect key="frame" x="0.0" y="344" width="600" height="41"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目期限：--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aY-cQ-3Gc">
-                                            <rect key="frame" x="10" y="13.5" width="172.5" height="14.5"/>
+                                            <rect key="frame" x="10" y="13.5" width="285" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目金额：--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKO-3g-th0">
-                                            <rect key="frame" x="192.5" y="13.5" width="172.5" height="14.5"/>
+                                            <rect key="frame" x="305" y="13.5" width="285" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -257,14 +257,14 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIl-DB-ES7">
-                                    <rect key="frame" x="0.0" y="161" width="375" height="10"/>
+                                    <rect key="frame" x="0.0" y="161" width="600" height="10"/>
                                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="U9N-ot-eMN"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4it-Al-tol">
-                                    <rect key="frame" x="15" y="216" width="345" height="159"/>
+                                    <rect key="frame" x="15" y="216" width="570" height="159"/>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

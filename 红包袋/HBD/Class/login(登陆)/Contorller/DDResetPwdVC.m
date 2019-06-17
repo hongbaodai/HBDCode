@@ -24,7 +24,6 @@
 }
 
 - (void)resetBtnClick {
-    
     if ([self canSubmitGo]) {
         [self postChangePasswordWithMobile:_phone Password:self.newpwdTxf.text PicCode:_imgCode VerifyCode:_code];
     }
@@ -41,8 +40,7 @@
         return NO;
     }
 
-    if ([self isEmpty:self.newpwdTxf.text]
-               &&[self isEmpty:self.newpwdTxf.text]) {
+    if ([self isEmpty:self.newpwdTxf.text] && [self isEmpty:self.newpwdTxf.text]) {
         [MBProgressHUD showError:@"密码不能含有空白字符"];
         return NO;
     }

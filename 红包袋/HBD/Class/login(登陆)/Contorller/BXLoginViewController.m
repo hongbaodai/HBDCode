@@ -61,7 +61,6 @@
 
 }
 
-
 #pragma mark - DDUpgradeDelegate
 - (void)popUpgradeView {
     /*
@@ -332,8 +331,6 @@
     [self resignFirstResponder];
     return YES;
 }
-
-
 
 -(void)dealloc
 {

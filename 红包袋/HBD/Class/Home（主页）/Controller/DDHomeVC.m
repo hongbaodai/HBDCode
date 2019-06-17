@@ -131,7 +131,7 @@
     }
     
     UIView *ba = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-    ba.backgroundColor = [UIColor colorWithRed:45/255.0 green:65/255.0 blue:94/255.0 alpha:1];
+    ba.backgroundColor = kColor_sRGB(74, 74, 74);
     [self.view addSubview:ba];
 }
 
@@ -139,7 +139,6 @@
     //插屏标志
     UIButton *close = [UIButton buttonWithType:UIButtonTypeCustom];
     close.frame = CGRectMake(SCREEN_WIDTH - 50 - 5, ((SCREEN_HEIGHT - (SCREEN_WIDTH - 100)  / 4 * 5)) / 2 - 30, 30, 30);
-    //close.backgroundColor = [UIColor cyanColor];
     close.layer.cornerRadius = 15;
     close.layer.masksToBounds = YES;
     [close setBackgroundImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
@@ -186,7 +185,7 @@
     noticeView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(30, 0, SCREEN_WIDTH - 30, 40) delegate:self placeholderImage:nil];
     noticeView.scrollDirection = UICollectionViewScrollDirectionVertical;
     noticeView.onlyDisplayText = YES;
-    noticeView.titleLabelTextColor = [UIColor colorWithHexString:kColor_Gray];
+    noticeView.titleLabelTextColor = kColor_Gray;
     noticeView.titleLabelTextFont = [UIFont systemFontOfSize:13.f];
     noticeView.titleLabelBackgroundColor = [UIColor clearColor];
     NSMutableArray *titlesArray = [NSMutableArray array];

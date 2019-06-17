@@ -102,7 +102,6 @@ static NSString *const DDRequestlmPhoneNum = @"uc.lmStartService.changeReserveMo
 // 解绑银行卡
 static NSString *const DDRequestlmUbindCark = @"uc.lmStartService.startUnbindCard";
 
-
 #pragma 99Bill
 //快钱快捷绑卡请求短信
 static NSString *const BXRequest99BillIndAuth = @"uc.99BillService.indAuth";
@@ -136,6 +135,8 @@ static NSString *const BXRequestChangePassword = @"uc.user.findLoginPassword_OPE
 static NSString *const BXRequestResetPassword = @"uc.user.resetPassword";
 //找回密码发送手机验证码
 static NSString *const BXRequestSendFindVerifyCode = @"uc.user.sendFindVerifyCode_OPEN";
+//找回密码下一步验证
+static NSString *const HBCheckFindMobileAndCode_OPEN = @"uc.user.checkFindMobileAndCode_OPEN";
 //图片验证码
 static NSString *const BXRequestPictureCheckCode = @"uc.user.getPictureCheckCode_OPEN";
 //平台数据

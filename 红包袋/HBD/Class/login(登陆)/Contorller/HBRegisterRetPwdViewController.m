@@ -185,4 +185,22 @@
      }];
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (self.passwordTextF == textField) {
+        if ([self.passwordTextF.text length] < 6 || [self.passwordTextF.text length] > 8) {
+            [self.passwordTextF.text substringToIndex:8];
+            return NO;
+        }
+    }
+    if (self.investTextF == textField) {
+        if ([toBeString length] > 11) {
+            [self.investTextF.text substringToIndex:11];
+            return NO;
+        }
+    }
+    return YES;
+}
+
 @end

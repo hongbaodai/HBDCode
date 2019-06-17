@@ -15,7 +15,7 @@
 #import "HXAlertAccount.h"
 #import "HBRegisterRetPwdViewController.h"
 
-@interface DDRegisterTwoVC ()
+@interface DDRegisterTwoVC ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneNum;
 @property (weak, nonatomic) IBOutlet UITextField *codeTxf;
@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *imgCodeTxf;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCodeImgView;
 @property (weak, nonatomic) IBOutlet UIButton *voiceBtn;
-@property (nonatomic, assign) BOOL voiceBtnHasSelected;
+@property (nonatomic, assign) BOOL voiceBtnHasSelected;//用来判断是否发送了语音验证
 
 @end
 
@@ -35,6 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.phoneNum.delegate = self;
+    self.codeTxf.delegate = self;
+    self.imgCodeTxf.delegate = self;
+    
     [self initViewUIS];
     
     [self getPictureCheckCode];
@@ -65,11 +70,11 @@
 
 //* 点击领取红包
 - (void)sureBtnClick {
-    HBRegisterSetPwdViewController *set = [[HBRegisterSetPwdViewController alloc] init];
-    set.phoneNumString = self.phoneNum.text;
-    set.imgVerifyCode = self.imgCodeTxf.text;
-    set.verifyCode = self.codeTxf.text;
-    [self.navigationController pushViewController:set animated:YES];
+//    HBRegisterSetPwdViewController *set = [[HBRegisterSetPwdViewController alloc] init];
+//    set.phoneNumString = self.phoneNum.text;
+//    set.imgVerifyCode = self.imgCodeTxf.text;
+//    set.verifyCode = self.codeTxf.text;
+//    [self.navigationController pushViewController:set animated:YES];
     if ([self canSubmitGo]) {
         [self postRegisterWithMobilePhoneNum:self.phoneNum.text imgVerifyCode:self.imgCodeTxf.text verifyCode:self.codeTxf.text];
     }
@@ -83,7 +88,9 @@
         self.voiceBtn.userInteractionEnabled = NO;
         [self.voiceBtn setTitle:@"请注意接听电话播报6位验证码" forState:UIControlStateNormal];
         [self.voiceBtn setTitleColor:kColor_sRGB(74, 74, 74) forState:UIControlStateNormal];
-        
+        if ([self canSubmitGo]) {
+            [self postSendMessageCodeWithMobile:self.phoneNum.text PicCode:self.imgCodeTxf.text];
+        }
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     }];
@@ -157,7 +164,7 @@
         });
     });
 }
-////通过转换获取url
+//通过转换获取url
 - (NSURL *)getImageUrl{
     NSString *key =  @"CFBundleShortVersionString";
     NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
@@ -228,15 +235,14 @@
                            @"vobankIdTemp":@"",
                            @"from":@"M"};
     }
-    
     [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
         NSDictionary *dict = [NSDictionary  dictionaryWithDictionary:responseObject];
         NSString *result = dict[@"body"][@"resultcode"];
         NSString *errorInfo = dict[@"body"][@"resultinfo"];
         if ([result integerValue] == 0) {
+            [MBProgressHUD showSuccess:@"获取成功"];
             // 读秒
             [self startCodeTimeGetcodeBtn:self.codeBtn];
-            [MBProgressHUD showSuccess:@"获取成功"];
             self.voiceBtn.userInteractionEnabled = YES;
             [self.voiceBtn setTitle:@"短信收不到？点此获取语音验证码" forState:UIControlStateNormal];
             [self.voiceBtn setTitleColor:kColor_sRGB(231, 56, 61) forState:UIControlStateNormal];
@@ -248,7 +254,6 @@
 }
 
 /** 注册下一步 **/
-
 - (void)postRegisterWithMobilePhoneNum:(NSString *)num imgVerifyCode:(NSString *)imgCode  verifyCode:(NSString *)verifyCode{
     
     BXHTTPParamInfo *info = [[BXHTTPParamInfo alloc]init];
@@ -262,15 +267,12 @@
         NSDictionary *dict = [NSDictionary  dictionaryWithDictionary:responseObject];
         NSString *result = dict[@"body"][@"resultcode"];
         NSString *errorInfo = dict[@"body"][@"resultinfo"];
-        
-        NSLog(@"----------%@", dict);
         if ([result integerValue] == 0) {
             HBRegisterSetPwdViewController *set = [[HBRegisterSetPwdViewController alloc] init];
             set.phoneNumString = self.phoneNum.text;
             set.imgVerifyCode = self.imgCodeTxf.text;
             set.verifyCode = self.codeTxf.text;
             [self.navigationController pushViewController:set animated:YES];
-           
         } else {
             [MBProgressHUD showError:errorInfo];
         }
@@ -324,8 +326,32 @@
 //     }];
 //}
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (self.phoneNum == textField) {
+        if ([toBeString length] > 11) {
+            self.phoneNum.text = [toBeString substringToIndex:11];
+            return NO;
+        }
+    }
+    if (self.imgCodeTxf == textField) {
+        if ([toBeString length] > 4) {
+            self.imgCodeTxf.text = [toBeString substringToIndex:6];
+            return NO;
+        }
+    }
+    if (self.codeTxf == textField) {
+        if ([toBeString length] > 6) {
+            self.codeTxf.text = [toBeString substringToIndex:4];
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 @end

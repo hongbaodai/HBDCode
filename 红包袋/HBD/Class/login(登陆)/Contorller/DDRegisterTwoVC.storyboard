@@ -64,7 +64,7 @@
                                                             <constraint firstAttribute="height" constant="49" id="gmY-WB-vVG"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入图形验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGe-nX-9y3">
                                                         <rect key="frame" x="10" y="50" width="217" height="48"/>
@@ -95,14 +95,14 @@
                                                             <constraint firstAttribute="height" constant="32" id="fUG-Xn-Cei"/>
                                                         </constraints>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXg-rg-flE">
-                                                        <rect key="frame" x="10" y="0.0" width="180" height="49"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXg-rg-flE">
+                                                        <rect key="frame" x="10" y="0.0" width="225" height="49"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="49" id="Bca-Kj-EIJ"/>
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AIs-RO-hhJ">
                                                         <rect key="frame" x="247" y="58" width="88" height="32"/>
@@ -131,6 +131,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="pOm-QI-eXc" secondAttribute="trailing" id="gZL-zR-RMn"/>
                                                     <constraint firstItem="ubE-hu-lfe" firstAttribute="top" secondItem="Lux-Vh-CQf" secondAttribute="bottom" constant="49" id="hcd-ge-t8N"/>
                                                     <constraint firstItem="Lux-Vh-CQf" firstAttribute="top" secondItem="uzy-dG-HRx" secondAttribute="top" constant="49" id="jlC-Ov-Fl4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="AXg-rg-flE" secondAttribute="trailing" constant="100" id="kef-V4-1it"/>
                                                     <constraint firstItem="AXg-rg-flE" firstAttribute="leading" secondItem="uzy-dG-HRx" secondAttribute="leading" constant="10" id="nKj-m2-IhA"/>
                                                     <constraint firstItem="ubE-hu-lfe" firstAttribute="leading" secondItem="uzy-dG-HRx" secondAttribute="leading" constant="10" id="ns0-aY-J6e"/>
                                                     <constraint firstItem="wBY-Xs-9V2" firstAttribute="leading" secondItem="uzy-dG-HRx" secondAttribute="leading" id="ou2-mY-IAq"/>
