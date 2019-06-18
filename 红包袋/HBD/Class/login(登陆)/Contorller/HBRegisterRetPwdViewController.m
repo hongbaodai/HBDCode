@@ -189,7 +189,7 @@
     NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
     if (self.passwordTextF == textField) {
-        if ([self.passwordTextF.text length] < 6 || [self.passwordTextF.text length] > 8) {
+        if ([self.passwordTextF.text length] > 8) {
             [self.passwordTextF.text substringToIndex:8];
             return NO;
         }

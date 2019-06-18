@@ -129,10 +129,6 @@
         self.tableview.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
         self.tableview.tableHeaderView.height_ = 200;
     }
-    
-    UIView *ba = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-    ba.backgroundColor = kColor_sRGB(74, 74, 74);
-    [self.view addSubview:ba];
 }
 
 - (void)hascloselock{
