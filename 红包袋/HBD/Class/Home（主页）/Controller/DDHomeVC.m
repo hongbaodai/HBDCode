@@ -598,18 +598,18 @@
 /**
  点击升级资金账户
  */
-- (void)didClickZhsjBtn {
-
-    [self.ddcoverView removeUpgradeView];
-    [self postUserActivatedUpgrade];
-}
+//- (void)didClickZhsjBtn {
+//
+//    [self.ddcoverView removeUpgradeView];
+//    [self postUserActivatedUpgrade];
+//}
 
 /**
  点击停服公告确定按钮
  */
--(void)didClickTfsjBtn {
-    [self.ddcoverView removeUpgradeView];
-}
+//-(void)didClickTfsjBtn {
+//    [self.ddcoverView removeUpgradeView];
+//}
 
 // MARK: - DDDelegate
 - (void)didClickNowRiskBtn {
