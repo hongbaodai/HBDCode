@@ -38,7 +38,7 @@
 #define AD_PICTURES_HEIGHT CALCULATE_FIT_HEIGHT(200)//广告图高度
 #define CENTER_EXPLAIN_HEIGHT CALCULATE_FIT_HEIGHT(120)//央企背景、新手体验高度
 
-@interface DDHomeVC () <PayThirdPartyProtocol, SDCycleScrollViewDelegate, DDCoverViewDelegate, UINavigationControllerDelegate, DDRiskPopViewDelegate>{
+@interface DDHomeVC () <HBDImgTitleViewDelegate, PayThirdPartyProtocol, SDCycleScrollViewDelegate, DDCoverViewDelegate, UINavigationControllerDelegate, DDRiskPopViewDelegate>{
     NSString *secondNum;
     int ksecond;  //秒
     int kminute;
@@ -49,7 +49,6 @@
 
 @property (nonatomic, strong) UIView *headBackGroundView;
 @property (nonatomic, strong) UIView *footBackGroundView;
-
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
 // MARK:公告
@@ -106,10 +105,6 @@
 @property (nonatomic, strong) DDUpgradeStopView *upgradeStopView;
 // 首页圆形区域点击区域
 @property (weak, nonatomic) IBOutlet UIButton *detailBtn;
-
-@property (weak, nonatomic) IBOutlet UIButton *newerZyBtn;
-@property (weak, nonatomic) IBOutlet UIButton *safeBzBtn;
-@property (weak, nonatomic) IBOutlet UIButton *inviteHyBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nowGetBtn;
 
 @property (nonatomic, strong) NSMutableArray *imageArray;
@@ -235,7 +230,7 @@
 #pragma mark -  init =================================================
 
 - (void)setUpViews {
-    //轮播图、公告、央企放在headBackGroundView上
+    //MARK: 轮播图、公告、央企放在headBackGroundView上
     CGFloat ad_height = AD_PICTURES_HEIGHT;
     CGFloat notice_height = 40;//公告高度
     CGFloat center_height = CENTER_EXPLAIN_HEIGHT;
@@ -260,11 +255,22 @@
     //[self.centerBackGroundView addSubview:self.newbgView];
     
     CGFloat imgTitle_height = SCREEN_WIDTH / 375 * 64 + 14 + 10 + 20 + 12;
-    NSLog(@"------%f", SCREEN_WIDTH / 375 * 64);
     HBDImgTitleView *imgTitle = [[HBDImgTitleView alloc] initWithFrame:CGRectMake(0, self.noticeBackGroundView.bottom, SCREEN_WIDTH, imgTitle_height)];
+    imgTitle.delegate = self;
     [self.headBackGroundView addSubview:imgTitle];
     
+//    imgTitle.imgTleTapAction = ^(SelectTapActionType selectType) {
+//        if (selectType == SelectTapActionTypeCentral) {
+//
+//        }else if (selectType == SelectTapActionTypeFinance) {
+//
+//        }else if (selectType == SelectTapActionTypeSecurity){
+//
+//        }
+//    };
     
+    
+    //MARK:footBackGroundView
     self.footBackGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.headBackGroundView.height, SCREEN_WIDTH, SCREEN_HEIGHT - self.headBackGroundView.height)];
     self.footBackGroundView.backgroundColor = [UIColor cyanColor];
     self.tableView.tableFooterView = self.footBackGroundView;
@@ -272,7 +278,6 @@
     [self addHeaderRefresh];
     
 }
-
 
 // MARK: 图片轮播器
 - (void)initBannarView {
@@ -291,7 +296,7 @@
     CGFloat ad_height = AD_PICTURES_HEIGHT;
     
     self.noticeBackGroundView = [[UIView alloc] initWithFrame:CGRectMake(0, ad_height, SCREEN_WIDTH, 40)];
-    self.noticeBackGroundView.backgroundColor = [UIColor greenColor];
+    //self.noticeBackGroundView.backgroundColor = [UIColor greenColor];
     [self.headBackGroundView addSubview:self.noticeBackGroundView];
     
     self.noticeImgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 14, 12, 12)];
@@ -315,9 +320,6 @@
 
 //MARK: 点击方法添加
 - (void)initViewUIs {
-    [self.newerZyBtn addTarget:self action:@selector(newerZyBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.safeBzBtn addTarget:self action:@selector(safeBzBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.inviteHyBtn addTarget:self action:@selector(inviteHyBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.nowGetBtn addTarget:self action:@selector(nowGetBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.detailBtn addTarget:self action:@selector(cycleViewClick) forControlEvents:UIControlEventTouchUpInside];
     self.cycleView.persentage = 0.0;
@@ -341,8 +343,6 @@
 
 - (void)viewSafeAreaInsetsDidChange {  //iOS 11安全区适配新生命周期方法
     [super viewSafeAreaInsetsDidChange];
-    
-    if (@available(iOS 11.0, *)) { } else { }
 }
 
 - (void)showAlert {
@@ -495,30 +495,6 @@
 }
 
 #pragma mark - target action =================================================
-/** 央企背景 */
-- (void)newerZyBtnClick{
-    DDWebViewVC *vc = [[DDWebViewVC alloc] init];
-    vc.webType = DDWebTypeYangQi;
-    vc.navTitle = @"央企背景";
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-/** 供应链金融 */
-- (void)safeBzBtnClick{
-    DDWebViewVC *vc = [[DDWebViewVC alloc] init];
-    vc.webType = DDWebTypeGongYingLian;
-    vc.navTitle = @"供应链金融";
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-/** 点击安全保障 */
-- (void)inviteHyBtnClick{
-
-    DDWebViewVC *vc = [[DDWebViewVC alloc] init];
-    vc.webType = DDWebTypeAQBZ;
-    vc.navTitle = @"安全保障";
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 /** 点击新手专享*/
 - (void)nowGetBtnClick{
@@ -600,14 +576,33 @@
     }
 }
 
+- (void)imgTitleTapAction:(SelectTapActionType)selectType {
+    if (selectType == SelectTapActionTypeCentral) {
+        DDWebViewVC *vc = [[DDWebViewVC alloc] init];
+        vc.webType = DDWebTypeYangQi;
+        vc.navTitle = @"央企背景";
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (selectType == SelectTapActionTypeFinance) {
+        DDWebViewVC *vc = [[DDWebViewVC alloc] init];
+        vc.webType = DDWebTypeGongYingLian;
+        vc.navTitle = @"供应链金融";
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (selectType == SelectTapActionTypeSecurity) {
+        DDWebViewVC *vc = [[DDWebViewVC alloc] init];
+        vc.webType = DDWebTypeAQBZ;
+        vc.navTitle = @"安全保障";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 /**
  点击升级资金账户
  */
-//- (void)didClickZhsjBtn {
-//
-//    [self.ddcoverView removeUpgradeView];
-//    //[self postUserActivatedUpgrade];
-//}
+- (void)didClickZhsjBtn {
+
+    [self.ddcoverView removeUpgradeView];
+    [self postUserActivatedUpgrade];
+}
 
 /**
  点击停服公告确定按钮

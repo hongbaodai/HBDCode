@@ -8,6 +8,7 @@
 
 #import "HBDImgTitleView.h"
 
+
 @implementation HBDImgTitleView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -34,6 +35,7 @@
     for (int i = 0; i < 3; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(border + i * (width + center), 14, width, width);
+        btn.tag = 1000 + i;
         [self addSubview:btn];
         [btn setBackgroundImage:[UIImage imageNamed:arr[i]] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(tapAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -48,8 +50,25 @@
 }
 
 - (void)tapAction:(UIButton *)send {
+    if (self.imgTleTapAction){
+        if (send.tag == 1000){
+            self.imgTleTapAction(SelectTapActionTypeCentral);
+        }else if (send.tag == 1001){
+            self.imgTleTapAction(SelectTapActionTypeFinance);
+        }else if (send.tag == 1002){
+            self.imgTleTapAction(SelectTapActionTypeSecurity);
+        }
+    }
     
+    if ([self.delegate respondsToSelector:@selector(imgTitleTapAction:)]) {
+        if (send.tag == 1000) {
+            [self.delegate imgTitleTapAction:SelectTapActionTypeCentral];
+        }else if (send.tag == 1001) {
+            [self.delegate imgTitleTapAction:SelectTapActionTypeFinance];
+        }else if (send.tag == 1002) {
+            [self.delegate imgTitleTapAction:SelectTapActionTypeSecurity];
+        }
+    }
 }
-
 
 @end

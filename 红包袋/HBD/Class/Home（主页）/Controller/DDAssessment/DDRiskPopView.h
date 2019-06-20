@@ -12,6 +12,7 @@
 @protocol DDRiskPopViewDelegate <NSObject>
 
 @optional
+
 - (void)didClickNowRiskBtn;
 
 @end

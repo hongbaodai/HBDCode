@@ -94,7 +94,6 @@
             return;
         }
     } @catch (NSException *exception) {
-        NSLog(@"%@",exception);
     } @finally {
     }
 }

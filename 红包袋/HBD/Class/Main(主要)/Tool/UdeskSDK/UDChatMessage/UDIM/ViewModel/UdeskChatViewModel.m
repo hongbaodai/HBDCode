@@ -761,7 +761,6 @@
             }
         }
     } @catch (NSException *exception) {
-        NSLog(@"%@",exception);
     } @finally {
     }
 }
