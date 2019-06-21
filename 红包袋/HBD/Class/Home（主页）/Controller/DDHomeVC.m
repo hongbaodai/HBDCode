@@ -107,6 +107,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *detailBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nowGetBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton *newerZyBtn;
+@property (weak, nonatomic) IBOutlet UIButton *safeBzBtn;
+@property (weak, nonatomic) IBOutlet UIButton *inviteHyBtn;
+
 @property (nonatomic, strong) NSMutableArray *imageArray;
 @property (nonatomic, strong) NSMutableArray *bannerTitleArray;
 // 微信分享详细描述
@@ -135,31 +139,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.delegate = self;
-    self.tableview.backgroundColor = [UIColor whiteColor];
-    self.tableView.tableHeaderView = nil;
-    self.tableView.tableFooterView = nil;
+//    self.tableview.backgroundColor = [UIColor whiteColor];
+//    self.tableView.tableHeaderView = nil;
+//    self.tableView.tableFooterView = nil;
+//    
+//    [self setUpViews];
     
-    [self setUpViews];
     
-    
-//    [self initBannarView];
-//    [self initNoticeLabView];
-//    [self initViewUIs];
-//    [self addHeaderRefresh];
-//
-//    [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CountDownNotification) name:kCountDownNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hascloselock) name:@"hascloselock" object:nil];
-//
-//    [kCountDownManager start];
-//
-//    if (IS_iPhoneX) {
-//        self.tableview.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
-//        self.tableview.tableHeaderView.height_ = 220;
-//    } else {
-//        self.tableview.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
-//        self.tableview.tableHeaderView.height_ = 200;
-//    }
+    [self initBannarView];
+    [self initNoticeLabView];
+    [self initViewUIs];
+    [self addHeaderRefresh];
+
+    [_InvestBtn setBackgroundImage:[UIImage imageNamed:@"redBack"] forState:UIControlStateNormal];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CountDownNotification) name:kCountDownNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hascloselock) name:@"hascloselock" object:nil];
+
+    [kCountDownManager start];
+
+    if (IS_iPhoneX) {
+        self.tableview.contentInset = UIEdgeInsetsMake(-44, 0, 0, 0);
+        self.tableview.tableHeaderView.height_ = 220;
+    } else {
+        self.tableview.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+        self.tableview.tableHeaderView.height_ = 200;
+    }
 //    self.noticebgView.backgroundColor = [UIColor greenColor];
 //    self.getbgView.backgroundColor = [UIColor orangeColor];
 //    self.newbgView.backgroundColor = [UIColor redColor];
@@ -205,27 +209,27 @@
     [UMessage addCustomCardMessageWithPortraitSize:CGSizeMake(SCREEN_WIDTH - 100, (SCREEN_WIDTH - 100)  / 4 * 5) LandscapeSize:CGSizeZero CloseBtn:close Label:@"插屏消息" umCustomCloseButtonDisplayMode:NO];
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    [MobClick beginLogPageView:self.title];
-//
-//    [self postUserBankCardInfo]; //用户信息
-//    [self addRefreshStep];
-//    //为了定时器刷新，各种bug
-//    [self postLoanNewList];
-//
-//}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:self.title];
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    [self setNavgationColorNormalr];
-//}
-//
-//
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    [MobClick endLogPageView:self.title];
-//}
+    [self postUserBankCardInfo]; //用户信息
+    [self addRefreshStep];
+    //为了定时器刷新，各种bug
+    [self postLoanNewList];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setNavgationColorNormalr];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:self.title];
+}
 
 #pragma mark -  init =================================================
 
@@ -598,18 +602,18 @@
 /**
  点击升级资金账户
  */
-//- (void)didClickZhsjBtn {
-//
-//    [self.ddcoverView removeUpgradeView];
-//    [self postUserActivatedUpgrade];
-//}
+- (void)didClickZhsjBtn {
+
+    [self.ddcoverView removeUpgradeView];
+    [self postUserActivatedUpgrade];
+}
 
 /**
  点击停服公告确定按钮
  */
-//-(void)didClickTfsjBtn {
-//    [self.ddcoverView removeUpgradeView];
-//}
+-(void)didClickTfsjBtn {
+    [self.ddcoverView removeUpgradeView];
+}
 
 // MARK: - DDDelegate
 - (void)didClickNowRiskBtn {
@@ -902,39 +906,39 @@
 
 }
 
-//// MARK: 升级银行存管
-//- (void)postUserActivatedUpgrade
-//{
-//    BXHTTPParamInfo *info = [[BXHTTPParamInfo alloc]init];
-//    //    info.serviceString = BXRequestBankcard;
-//    info.serviceString = DDRequestlmUserActivated;
-//    info.dataParam = @{@"vobankIdTemp":@""};
-//
-//    [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
-//
-//        NSDictionary * dict = [NSDictionary dictionaryWithDictionary:responseObject];
-//
-//        // 加载指定的页面去
-//        if ([dict[@"body"][@"resultcode"] integerValue] == 0) {
-//
-//            BXWebRequesetInfo *info = [BXWebRequesetInfo mj_objectWithKeyValues:dict[@"body"][@"payReqToThird"]];
-//            //
-//            BXJumpThirdPartyController *JumpThirdParty = [[BXJumpThirdPartyController alloc] init];
-//            JumpThirdParty.title = @"账户升级";
-//            JumpThirdParty.payDelegate = self;
-//            JumpThirdParty.info = info;
-//            JumpThirdParty.info.requestNo = dict[@"body"][@"requestNo"];
-//            //            JumpThirdParty.payType = MPPayTypeOpenAccount;
-//            [self.navigationController pushViewController:JumpThirdParty animated:YES];
-//        } else {
-//            [MBProgressHUD showError:dict[@"body"][@"resultinfo"]];
-//        }
-//
-//    } faild:^(NSError *error) {
-//        [MBProgressHUD hideHUD];
-//
-//    }];
-//}
+// MARK: 升级银行存管
+- (void)postUserActivatedUpgrade
+{
+    BXHTTPParamInfo *info = [[BXHTTPParamInfo alloc]init];
+    //    info.serviceString = BXRequestBankcard;
+    info.serviceString = DDRequestlmUserActivated;
+    info.dataParam = @{@"vobankIdTemp":@""};
+
+    [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
+
+        NSDictionary * dict = [NSDictionary dictionaryWithDictionary:responseObject];
+
+        // 加载指定的页面去
+        if ([dict[@"body"][@"resultcode"] integerValue] == 0) {
+
+            BXWebRequesetInfo *info = [BXWebRequesetInfo mj_objectWithKeyValues:dict[@"body"][@"payReqToThird"]];
+            //
+            BXJumpThirdPartyController *JumpThirdParty = [[BXJumpThirdPartyController alloc] init];
+            JumpThirdParty.title = @"账户升级";
+            JumpThirdParty.payDelegate = self;
+            JumpThirdParty.info = info;
+            JumpThirdParty.info.requestNo = dict[@"body"][@"requestNo"];
+            //            JumpThirdParty.payType = MPPayTypeOpenAccount;
+            [self.navigationController pushViewController:JumpThirdParty animated:YES];
+        } else {
+            [MBProgressHUD showError:dict[@"body"][@"resultinfo"]];
+        }
+
+    } faild:^(NSError *error) {
+        [MBProgressHUD hideHUD];
+
+    }];
+}
 
 - (void)CountDownNotification{
 
