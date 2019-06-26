@@ -144,9 +144,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:self.title];
-
-    //    [self showAlert];  // 🚫🚫🚫如果平台合规和风险评估合并一起，则这个需要打开
-    [self postUserBankCardInfo]; //用户信息
+    //[self postUserBankCardInfo]; //用户信息
     [self addRefreshStep];
     //为了定时器刷新，各种bug
     [self postLoanNewList];
@@ -217,13 +215,10 @@
     [self postLoanNewList];//获取新手标
     [self postBannerImage];//获取bannar
     [self postNoticeList];//获取公告
-
 }
 
 - (void)viewSafeAreaInsetsDidChange {  //iOS 11安全区适配新生命周期方法
     [super viewSafeAreaInsetsDidChange];
-    
-    if (@available(iOS 11.0, *)) { } else { }
 }
 
 - (void)showAlert {
@@ -604,7 +599,7 @@
 
     [[BXNetworkRequest defaultManager] postHeadWithHTTParamInfo:info succeccResultWithDictionaty:^(id responseObject) {
         NSDictionary * dict = [NSDictionary dictionaryWithDictionary:responseObject];
-
+        
         if ([dict[@"body"][@"resultcode"] integerValue] == 0){
 
             [DDAccount mj_objectWithKeyValues:dict[@"body"]];

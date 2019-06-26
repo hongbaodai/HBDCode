@@ -120,9 +120,6 @@
     CGRect frea = self.accessoryView.frame;
     frea.origin.x += 12;
     self.accessoryView.frame =frea;
-    
-    
-    
     self.bottomView.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 1, CGRectGetWidth(self.frame), 1);
 
 }

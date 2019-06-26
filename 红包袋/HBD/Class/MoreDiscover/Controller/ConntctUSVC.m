@@ -41,13 +41,12 @@
     HXItem *announcement = [[HXItem alloc] initWithImg:@"emails" title:@"serve@hongbaodai.com"];
     announcement.titleFont = [UIFont systemFontOfSize:12.0f];
 
-    HXItem *connectUS = [[HXItem alloc] initWithImg:@"Wchat" title:@"智袋熊（HBD-DY)"];
+    HXItem *connectUS = [[HXItem alloc] initWithImg:@"Wchat" title:@"红包袋（HBD-DY)"];
     connectUS.titleFont = [UIFont systemFontOfSize:12.0f];
 
     HXItem *aboutRed = [[HXItem alloc] initWithImg:@"location" title:@"北京市朝阳区东三环中路39号建外SOHO23号楼（南办公室）21层B-2504"];
     aboutRed.titleFont = [UIFont systemFontOfSize:12.0f];
 
-    
     group0.items = [NSMutableArray arrayWithObjects:customerService, announcement, connectUS, aboutRed, nil];
     [self.datas addObject:group0];
 }

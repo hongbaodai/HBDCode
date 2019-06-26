@@ -36,7 +36,6 @@
 
 - (void)settingSwith:(UISwitch *)swi
 {
-    NSLog(@"父类调用此方法");
 }
 
 #pragma mark - Table view data source

@@ -79,7 +79,6 @@
 //    vc.urlStr = aboutU1;
 //    [self.navigationController pushViewController:vc animated:YES];
 
-
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DDActivityWebController" bundle:nil];
     DDActivityWebController *weVc = [sb instantiateInitialViewController];
     weVc.webTitleStr = @"信息披露";
